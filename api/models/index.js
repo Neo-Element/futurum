@@ -1,7 +1,8 @@
 const Users= require("./users")
 const Products= require("./products")
 
-Users.hasMany(Products, {as: "wish"}),
-Products.hasMany(Users, {as: "students"})
+Users.belongsToMany(Products, { as: "courses", through: "users_courses" });
+Products.belongsToMany(Users, { as: "courses", through: "users_courses" });
+
 
 module.exports= {Users, Products}
