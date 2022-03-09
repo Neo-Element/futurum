@@ -14,7 +14,7 @@ const SingleCourse = () => {
                 <div className="text">
                     <h1>{products[2].productName}</h1>
                     <p className="sub">{products[2].category}</p>
-                    <p className="price">{`$ ${products[2].price}`}</p>
+                    
                 </div>
                 <div class="image">
                      <img src={products[2].image} alt="logo"/>
@@ -29,6 +29,8 @@ const SingleCourse = () => {
                  <div className="reviews">
                     <CardRange range={products[0].ranking}/>
                     <span>{` ${products[0].students} students`}</span>
+                    <button className="btn bnt-dark lg-dark"><i class="fa-solid fa-cart-arrow-down"></i>Add to Cart</button>
+                    <p className="price">{`Price: $ ${products[2].price}`}</p>
                 </div>
 
             </div>
