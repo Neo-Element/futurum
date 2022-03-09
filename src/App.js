@@ -11,6 +11,9 @@ function App() {
       <Routes>
         {/* LAS RUTAS NO ESTAN DINAMIZADAS POR AHORA */}
         <Route path="/" element={<h1>FUTURUM</h1>} />
+        <Route path="/admin/login" element={<h1>LOGIN DE ADMINISTRADOR</h1>} />
+        <Route path="/users/register" element={<h1>REGISTRO DE USUARIO</h1>} />
+        <Route path="/users/login" element={<h1>LOGUIN DE USUARIO</h1>} />
         <Route path="/admin" element={<h1>VISTAS ADMINISTRADOR</h1>} />
         <Route path="/admin/products/:type" element={<h1>VISTAS DE CURSOS</h1>} />
         <Route path="/admin/products/:type/:id" element={<h1>VISTAS DE UN CURSO PARTICULAR</h1>} />
