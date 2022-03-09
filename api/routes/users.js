@@ -45,6 +45,14 @@ router.get("/me", (req, res) => {
   res.send(req.user);
 });
 
+//OTRA OPCION ES HACER UN MIDDLEWARE
+// const estaLogueado = (req, res, next) => {
+//   if (req.isAuthenticated()) {
+//     return next();
+//   }
+//   res.redirect("/login");
+// };
+
 // MIDDLEWARE PARA CHEQUEAR SI ES ADMIN
 const isAdmin = (req, res, next) => {
   if (req.body.isAdmin) {
