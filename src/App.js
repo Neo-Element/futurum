@@ -1,7 +1,15 @@
+import SingleCourse from "./components/SingleCourse";
+import NavBar from "./components/NavBar";
+
+
+
 
 function App() {
   return (
-    <p> FUTURUM </p>
+    <>
+    <NavBar/>
+    <SingleCourse/>
+    </>
   );
 }
 
