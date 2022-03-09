@@ -1,8 +1,12 @@
-const S = require("sequelize")
-const db = require("../confDb")
+const S = require("sequelize");
+const db = require("../confDb");
+const bcrypt = require("bcrypt");
 
-
-class Users extends S.Model{}
+class Users extends S.Model{
+    hash(password, salt){
+        return bcrypt.hash(password, salt);
+    }
+}
    
 
 Users.init({ 
@@ -61,5 +65,16 @@ Users.init({
     sequelize:db, modelName:"users"
 })
 
+Users.beforeCreate((user) =>{
+    return bcrypt
+    .genSalt(16)
+    .then((salt) =>{
+        user.salt = salt;
+        return user.hash(user.password, salt);
+    })
+    .then((hash) => {
+        user.password = hash;
+    })
+})
 
 module.exports= Users
