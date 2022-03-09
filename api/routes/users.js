@@ -56,6 +56,21 @@ const isAdmin = (req, res, next) => {
 
 //app.use(isAdmin);
 
+//RUTA PARA PROMOVER UN ADMINISTRADOR
+router.put("/admin/:id", isAdmin, (req, res, next) => {
+  Users.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+    returning: true,
+  })
+    .then(([affectedRows, updated]) => {
+      const user = updated[0];
+      res.send(user);
+    })
+    .catch(next);
+});
+
 //RUTA PARA ELIMINAR UN USUARIO
 router.delete("/:id", isAdmin, (req, res, next) => {
   Users.destroy({
