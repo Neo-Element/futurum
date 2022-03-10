@@ -2,6 +2,8 @@ import { Navigate, Route, Routes } from "react-router";
 
 import NotFound from "./commons/NotFound";
 
+import ShoppingCart from "./components/ShoppingCart"
+
 import React from "react"; 
 
 import Grid from "./commons/Grid";
@@ -32,6 +34,7 @@ function App() {
         <Route path="/guest/products/:type/:id" element={<h1>VISTAS DE UN CURSO PARTICULAR</h1>} />
         <Route path="*" element={<Navigate to="404" />} />
         <Route path="/404" element={<NotFound />} />
+        <Route path="/users/:id/cart/" element={<ShoppingCart />}/>
       </Routes>
     </div>
       {/* FOOTER */}
