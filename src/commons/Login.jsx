@@ -12,7 +12,7 @@ const Login = () => {
     const handlerSubmit= (e) =>{
         e.preventDefault();
         dispatch(userLogin({email: email.value, password: password.value}))
-        .then(()=> navigate("/user")) //revisar la ruta
+        .then(()=> navigate("/users/products")) //revisar la ruta
         .cath((err) => console.log(err))
     }
 

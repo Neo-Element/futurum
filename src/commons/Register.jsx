@@ -25,7 +25,11 @@ const Register = () => {
         password: password.value,
       })
     )
-      .then(() => navigate("/users/login"))
+      .then(() => {
+        alert("User created succesfuly!")
+        navigate("/users/login")
+        
+      })
       .cath((err) => console.log(err));
   };
   //Revisar estilos de requiered

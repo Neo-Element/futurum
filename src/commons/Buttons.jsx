@@ -1,17 +1,18 @@
 import { useNavigate } from "react-router";
-//import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
+//import axios from "axios";
+import { useSelector } from "react-redux";
 
 
 const Buttons = () => {
 
-    //NECESITO USER ACA / BAJAR DE REDUX
-    const user = {}; //este user es temporal / borrar
-    /* const navigate = useNavigate();
-    const handleLogout = (e) => {
+    const user = useSelector(state => state.user)
+
+    const navigate = useNavigate();
+    /* const handleLogout = (e) => {
       axios.post("/api/logout").then((res) =>{ //setUser({})); //R setear user aca vacio / funcionalidad logout
       navigate("/home");                            //R
-    }); */
+    });  */
   
 
     //REVISAR RUTAS LOGIN / REGISTER
@@ -30,12 +31,16 @@ const Buttons = () => {
       </div>
     ) : (
       <>
-       {/*agregar LINKS */}
+       <Link to={"/users/login"}>
           <button className="btn btn-lg botonColorNav">Login</button>
+       </Link>
+          
        
-  
-      
+      <Link to={"/users/register"}>
           <button className="btn btn-lg botonColorNav">Register</button>
+      </Link>
+      
+         
       
       </>
     );

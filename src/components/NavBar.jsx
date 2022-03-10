@@ -1,8 +1,11 @@
 import Buttons from "../commons/Buttons";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 
 const NavBar = () => {
+    const user = useSelector((state) => state.user)
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -28,7 +31,10 @@ const NavBar = () => {
                         </li>
                     </ul>
 
-                    <button className="btn  btn-lg botonColorNav"><i class="fa-solid fa-lg fa-cart-arrow-down"></i></button>
+                    <Link to={`/users/${user.id}/cart/`}>
+                         <button className="btn  btn-lg botonColorNav"><i class="fa-solid fa-lg fa-cart-arrow-down"></i></button>
+                    </Link>
+                    
                        <Buttons/>
                 </div>
             </div>
