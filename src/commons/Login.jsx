@@ -1,11 +1,11 @@
-import useImput from "../hooks/useImput";
+import useInput from "../hooks/useInput";
 import { useDispatch } from "react-redux";
 import {userLogin} from "../store/users";
 import { useNavigate } from "react-router";
 
 const Login = () => {
-    const email = useImput();
-    const password = useImput();
+    const email = useInput();
+    const password = useInput();
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

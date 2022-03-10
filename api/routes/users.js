@@ -45,6 +45,14 @@ router.get("/me", (req, res) => {
   res.send(req.user);
 });
 
+//OTRA OPCION ES HACER UN MIDDLEWARE
+// const estaLogueado = (req, res, next) => {
+//   if (req.isAuthenticated()) {
+//     return next();
+//   }
+//   res.redirect("/login");
+// };
+
 // MIDDLEWARE PARA CHEQUEAR SI ES ADMIN
 const isAdmin = (req, res, next) => {
   if (req.body.isAdmin) {
@@ -55,6 +63,21 @@ const isAdmin = (req, res, next) => {
 };
 
 //app.use(isAdmin);
+
+//RUTA PARA PROMOVER UN ADMINISTRADOR
+router.put("/admin/:id", isAdmin, (req, res, next) => {
+  Users.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+    returning: true,
+  })
+    .then(([affectedRows, updated]) => {
+      const user = updated[0];
+      res.send(user);
+    })
+    .catch(next);
+});
 
 //RUTA PARA ELIMINAR UN USUARIO
 router.delete("/:id", isAdmin, (req, res, next) => {
