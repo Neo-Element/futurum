@@ -1,3 +1,6 @@
+import Buttons from "../commons/Buttons";
+
+
 
 const NavBar = () => {
     return (
@@ -24,8 +27,9 @@ const NavBar = () => {
                         </ul>
                         </li>
                     </ul>
-                        <button class="btn btn-outline-success" type="button">Login</button>
-                        <button class="btn btn-outline-success" type="button">Register</button>
+
+                    <button className="btn  btn-lg botonColorNav"><i class="fa-solid fa-lg fa-cart-arrow-down"></i></button>
+                       <Buttons/>
                 </div>
             </div>
         </nav>

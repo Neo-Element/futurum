@@ -1,6 +1,7 @@
 import CardRange from "../commons/CardRange";
 import Reviews from "../commons/Reviews";
 
+//RECIBE UN CURSO EN PARTICULAR
 const SingleCourse = ({ sinlgeCourse }) => {
   return (
     <div className="containerSingle">

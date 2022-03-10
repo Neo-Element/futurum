@@ -1,4 +1,5 @@
 
+//VA A RECIBIR DIRECTAMENTE REVIEW DESDE SINGLECARD
 const Reviews = ({review}) => {
     //lo use despues
     const activesitems = review.slice(0,2)
