@@ -12,6 +12,7 @@ const User = require("./models/Users");
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(cookieParser());
+
 app.use("/api", routes);
 
 app.use(
@@ -61,6 +62,7 @@ passport.deserializeUser(function(id, done) {
     })
     .catch(done);
 });
+
 
 db.sync({ force: false }).then(() => {
   console.log("La base se sincronizó correctamente");

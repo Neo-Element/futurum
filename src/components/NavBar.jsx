@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 const NavBar = () => {
     const user = useSelector((state) => state.user)
+    
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">

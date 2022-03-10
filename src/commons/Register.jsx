@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 
 const Register = () => {
   const userName = useInput();
-  const fullName = useInput();
+  const nameAndLastname = useInput();
   const email = useInput();
   const city = useInput();
   const country = useInput();
@@ -18,19 +18,19 @@ const Register = () => {
     dispatch(
       userRegister({
         userName: userName.value,
-        nameAndLastname: fullName.value,
+        nameAndLastname: nameAndLastname.value,
         email: email.value,
         city: city.value,
         country: country.value,
         password: password.value,
       })
     )
-      .then(() => {
+      .then((data) => {
         alert("User created succesfuly!")
         navigate("/users/login")
         
       })
-      .cath((err) => console.log(err));
+      .catch((err) => console.log(err));
   };
   //Revisar estilos de requiered
   return (
@@ -42,12 +42,12 @@ const Register = () => {
           type="text"
           placeholder="User Name"
           required
-          minlength="3"
-          maxlength="20"
+          /* minlength="3"
+          maxlength="20" */
         />
         <label>Name and lastname</label>
         <input
-          {...fullName}
+          {...nameAndLastname}
           type="text"
           placeholder="Name and lastname"
           required
@@ -69,10 +69,10 @@ const Register = () => {
           type="password"
           placeholder=">Password"
           required
-          minlength="6"
-          maxlength="8"
+          /* minlength="6"
+          maxlength="8" */
         />
-        <button>Submit</button>
+        <button type="submit" >Submit</button>
       </form>
     </div>
   );

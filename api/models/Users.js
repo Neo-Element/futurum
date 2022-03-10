@@ -14,7 +14,7 @@ Users.init(
       type: S.STRING,
       allowNull: false,
     },
-    nameAndLastName: {
+    nameAndLastname: {
       type: S.STRING,
       allowNull: false,
     },
@@ -39,7 +39,6 @@ Users.init(
     },
     salt: {
       type: S.STRING,
-      allowNull: false,
     },
     icon: {
       type: S.VIRTUAL,

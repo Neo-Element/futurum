@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { useSelector, useDipatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getAllCart } from "../store/users";
 
 const ShoppingCart = () => {
    const user= useSelector(state=> state.user) 
-  const dispatch= useDipatch();
+  const dispatch= useDispatch();
   const { id } = useParams();
  
   useEffect(() => {
