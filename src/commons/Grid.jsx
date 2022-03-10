@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Grid = () => {
   const navigate = useNavigate();
   const courses = useSelector((state) => state.products);
-  const handleClick = (e) => {
-    navigate("/course");
+  const handleClick = (e, course) => {
+   // navigate("/course");    
+    <Card course={course}/>
   };
 
   return (
@@ -15,7 +17,9 @@ const Grid = () => {
           <div className="flex-item">
             <h3>{course.productName}</h3>
             <p>{course.duration}</p>
-            <button onClick={handleClick}>Ver detalles</button>
+            <Link to={`/users/products/${course.id}`}>
+            <button onClick={() => handleClick(course)}>Ver detalles</button>
+            </Link>
           </div>
         );
       })}
