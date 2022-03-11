@@ -5,7 +5,7 @@ class Products extends S.Model {}
 
 Products.init(
   {
-    productName: {
+    productname: {
       type: S.STRING,
       allowNull: false,
     },
@@ -28,6 +28,7 @@ Products.init(
     },
     review: {
       type: S.ARRAY(S.TEXT),
+      defaultValue:[],
       allowNull: false,
     },
     duration: {
