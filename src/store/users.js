@@ -16,7 +16,7 @@ export const getAllCart= createAsyncThunk("SETCART", (userId)=>{
 }) 
 
 
-const userReducer = createReducer([], {
+const userReducer = createReducer({}, {
   // estado inicial []/{}
   [userRegister.fulfilled]: (state, action) => action.payload,
   [userLogin.fulfilled]: (state, action) => action.payload,

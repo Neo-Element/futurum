@@ -13,7 +13,7 @@ const Login = () => {
         e.preventDefault();
         dispatch(userLogin({email: email.value, password: password.value}))
         .then(()=> navigate("/users/products")) //revisar la ruta
-        .cath((err) => console.log(err))
+        .catch((err) => console.log(err))
     }
 
     return(

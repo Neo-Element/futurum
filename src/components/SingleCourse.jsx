@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import CardRange from "../commons/CardRange";
 import Reviews from "../commons/Reviews";
-
-
+import { products } from "../utils/fakeData";
 //RECIBE UN CURSO EN PARTICULAR
-const SingleCourse = ({ course }) => {
+const SingleCourse = () => {
+  const course = products[0];
+  const user = useSelector(state => state.user)
   return (
     <div className="containerSingle">
       <div className="singleCard">
@@ -36,9 +39,11 @@ const SingleCourse = ({ course }) => {
             </div>
             <div className="priceAndAdd">
               <p className="price">{`Price: $ ${course.price}`}</p>
-              <button className="btn btn-dark btn-lg btnAdd">
-                <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-              </button>
+              <Link to={`/users/${user.id}/cart`}>
+                <button className="btn btn-dark btn-lg btnAdd">
+                  <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
+                </button>
+              </Link>
             </div>
           </div>
         </div>
