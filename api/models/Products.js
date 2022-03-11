@@ -18,7 +18,7 @@ Products.init(
     },
     overview: {
       type: S.TEXT,
-     ,
+     
     },
     image: {
       type: S.TEXT,
@@ -27,8 +27,8 @@ Products.init(
       type: S.FLOAT,
     },
     review: {
-      type: S.ARRAY(S.TEXT),
-      defaultValue:[],
+      type: S.TEXT,
+      
       
     },
     duration: {
