@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CardRange from "../commons/CardRange";
 import Reviews from "../commons/Reviews";
 import { products } from "../utils/fakeData";
 //RECIBE UN CURSO EN PARTICULAR
 const SingleCourse = () => {
-  const course = products[0];
-  const user = useSelector(state => state.user)
+  const { id } = useParams();
+  const course = products[id];
+  const user = useSelector((state) => state.user);
   return (
     <div className="containerSingle">
       <div className="singleCard">

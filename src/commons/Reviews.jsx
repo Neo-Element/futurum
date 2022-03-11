@@ -1,4 +1,3 @@
-
 //VA A RECIBIR DIRECTAMENTE REVIEW DESDE SINGLECARD
 const Reviews = ({review}) => {
     //lo use despues
