@@ -5,20 +5,20 @@ class Products extends S.Model {}
 
 Products.init(
   {
-    productname: {
+    productName: {
       type: S.STRING,
-      allowNull: false,
+     
     },
     price: {
       type: S.FLOAT,
-      allowNull: false,
+      
     },
     category: {
       type: S.STRING,
     },
     overview: {
       type: S.TEXT,
-      allowNull: false,
+     ,
     },
     image: {
       type: S.TEXT,
@@ -29,7 +29,7 @@ Products.init(
     review: {
       type: S.ARRAY(S.TEXT),
       defaultValue:[],
-      allowNull: false,
+      
     },
     duration: {
       type: S.INTEGER,
@@ -38,14 +38,11 @@ Products.init(
       type: S.INTEGER,
     },
     requirements: {
-      type: S.ARRAY(S.TEXT),
-      defaultValue: [],
-      get() {
-        let value = this.getDataValue("favorites");
-        return value;
+      type: S.TEXT,
+      
       },
     },
-  },
+  
   {
     sequelize: db,
     modelName: "products",
