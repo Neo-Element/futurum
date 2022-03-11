@@ -253,7 +253,7 @@ export const products = [
   },
 
   {
-    id: "Learn Express",
+    productName: "Learn Express",
     price: 50, //moneda
     category: "Front-End", //cuáles van a ser las categorías
     overview:
