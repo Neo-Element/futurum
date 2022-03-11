@@ -20,7 +20,7 @@ const Login = () => {
         <div>
             <form onSubmit={handlerSubmit} >
                 <label>Email</label><input {...email} type = "email" placeholder="email@futurum.com" required/>
-                <label>Password</label><input {...password} type = "text" placeholder="password" required/>
+                <label>Password</label><input {...password} type = "password" placeholder="password" required/>
                 <button>Login</button>
             </form>
         </div>

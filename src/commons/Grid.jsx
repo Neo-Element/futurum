@@ -10,13 +10,13 @@ const Grid = () => {
 
   return (
     <div className="flex-container">
-      {products.map((course) => {
+      {products.map((course, i) => {
         return (
           <div className="flex-item ">
             <div className="rectangulo">
               <h3>{course.productName}</h3>
               <p className="p">{course.duration}</p>
-              <Link to={`/users/products/${course.id}`}>
+              <Link to={`/users/products/${i}`}>
                 <button className="btn btn-lg btn-dark borderMark">
                   Ver detalles
                 </button>
