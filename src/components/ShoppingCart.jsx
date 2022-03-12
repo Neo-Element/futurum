@@ -1,19 +1,20 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router";
-import { getAllCart } from "../store/users";
-import { products } from "../utils/fakeData";
+import { setCart } from "../store/in-cartCourses";
 
 const ShoppingCart = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const courses = useSelector(state => state.cart)
 
   useEffect(() => {
-    dispatch(getAllCart(id)).then(({ payload }) => {
-      console.log(payload);
-    });
-  }, []);
+    return
+  },[courses])
+
+  const handleClick = (course) => {
+    const deleted = courses.filter(e => e !== course)
+    dispatch(setCart(deleted))
+  } 
 
   return (
     <div>
@@ -28,7 +29,7 @@ const ShoppingCart = () => {
               <th scope="col">Remove</th>
             </tr>
           </thead>
-          {products.map((course, i) => {
+          {courses.map((course, i) => {
             return (
               <tbody>
                 <tr>
@@ -36,7 +37,7 @@ const ShoppingCart = () => {
                   <td>{course.productName}</td>
                   <td>{course.price}</td>
                   <td>
-                    <button>remove</button>
+                    <button onClick={() => handleClick(course)}>remove</button>
                   </td>
                 </tr>
               </tbody>
