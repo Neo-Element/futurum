@@ -7,6 +7,8 @@ import Grid from "./commons/Grid";
 import Login from "./commons/Login";
 import Register from "./commons/Register";
 import SingleCourse from "./components/SingleCourse";
+import Footer from "./commons/Footer";
+import Team from "./commons/Team";
 
 
 function App() {
@@ -46,8 +48,12 @@ function App() {
         {/* RUTAS ERROR */}
         <Route path="*" element={<Navigate to="404" />} />
         <Route path="/404" element={<NotFound />} />
+
+        {/* RUTA TEAM */}
+        <Route path="/team" element={<Team />} />
       </Routes>
       </div>
+      <Footer />
     </div>
   );
 }
