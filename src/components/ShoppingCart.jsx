@@ -5,16 +5,16 @@ import { setCart } from "../store/in-cartCourses";
 const ShoppingCart = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const courses = useSelector(state => state.cart)
+  const courses = useSelector((state) => state.cart);
 
   useEffect(() => {
-    return
-  },[courses])
+    return;
+  }, [courses]);
 
   const handleClick = (course) => {
-    const deleted = courses.filter(e => e !== course)
-    dispatch(setCart(deleted))
-  } 
+    const deleted = courses.filter((e) => e !== course);
+    dispatch(setCart(deleted));
+  };
 
   return (
     <div>
