@@ -43,18 +43,6 @@ Users.init(
     icon: {
       type: S.VIRTUAL,
     },
-    favorites: {
-      type: S.ARRAY(S.INTEGER),
-      defaultValue: [],
-      get() {
-        let value = this.getDataValue("favorites");
-        return value;
-      },
-    },
-    cart: {
-      type: S.ARRAY(S.INTEGER),
-      defaultValue: [],
-    },
     isAdmin: {
       type: S.BOOLEAN,
       defaultValue: false,
