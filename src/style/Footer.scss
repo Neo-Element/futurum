@@ -1,0 +1,28 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+  padding: 0px 5%;
+  box-shadow: 0px 5px 10px 0px;
+  background-color: antiquewhite;
+  img {
+    max-width: 200px;
+  }
+}
+
+.footerBox {
+  align-items: center;
+  text-decoration: none;
+}
+.footerLink {
+  text-decoration: none;
+}
+
+.footerName {
+  color: #40916c;
+}
