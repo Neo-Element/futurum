@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 
-import userReducer from "./users"
+import userReducer, { getAllCart } from "./users"
 import setProducts from "./products"
 
 const store = configureStore({
@@ -9,7 +9,7 @@ const store = configureStore({
   //que me loggee cada actualización//
   reducer: {
     user: userReducer,
-    products: setProducts
+    products: setProducts,
   },
 });
 

@@ -1,4 +1,4 @@
-const products = [
+export const products = [
   {
     id: 1,
     productName: "Learn React",
@@ -259,6 +259,7 @@ const products = [
   },
 
   {
+
     id: 7,
     productName: "Learn Express",
     price: 50, //moneda
@@ -345,5 +346,3 @@ const products = [
     ],
   },
 ];
-
-module.exports = products;

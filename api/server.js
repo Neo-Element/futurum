@@ -12,6 +12,7 @@ const User = require("./models/Users");
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(cookieParser());
+
 app.use("/api", routes);
 
 app.use(
@@ -29,39 +30,41 @@ passport.use(
   new localStrategy(
     {
       usernameField: "email",
-      passwordField : "password",
+      passwordField: "password",
     },
-    function (email, password, done) {
-      User.findOne({ where: {email}})
-      .then((user) => {
-        if (!user){
-          return done(null, false)
-        }
-
-        user.hash(passport, user.salt)
-        .then((hash) =>{
-          if (hash !== user.passport) {
+    function(email, password, done) {
+      User.findOne({ where: { email } })
+        .then((user) => {
+          if (!user) {
+            console.log("NO EXISTE EL USUARIO")
             return done(null, false);
           }
-          return done (null, user);
-        });
-      })
-      .catch(done);
+
+          user.hash(password, user.salt).then((hash) => {
+            if (hash !== user.password) {
+              console.log("ACA ESTA MAL LA CONTRASEÑA")
+              return done(null, false);
+            }
+            return done(null, user);
+          });
+        })
+        .catch(done);
     }
   )
 );
 
-passport.serializeUser(function (user, done){
+passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
 
-passport.deserializeUser(function (id, done){
+passport.deserializeUser(function(id, done) {
   User.findByPk(id)
-  .then((user) => {
-    done(null, user);
-  })
-  .catch(done);
-})
+    .then((user) => {
+      done(null, user);
+    })
+    .catch(done);
+});
+
 
 db.sync({ force: false }).then(() => {
   console.log("La base se sincronizó correctamente");

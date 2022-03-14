@@ -6,8 +6,9 @@ const { Users } = require("../models");
 //RUTA PARA REGISTRAR UN USUARIO
 router.post("/register", (req, res) => {
   Users.create(req.body).then((user) => {
-    res.status(201).send(user);
-  });
+    res.sendStatus(201);
+  })
+  .catch(err => console.log(err))
 });
 
 //RUTA PARA LOGIN
