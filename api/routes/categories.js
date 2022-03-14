@@ -2,7 +2,7 @@ const express = require("express");
 const categoriesRouter = express.Router();
 const Categories = require("../models/Categories"); //EN CASO QUE CATEGORÍAS SEA UNA TABLA
 
-router.get("/:name", (req, res, next) => {
+categoriesRouter.get("/:name", (req, res, next) => {
   Categories.findOne({ where: { name: req.params.name } })
     .then((category) => {
       Products.findAll({ where: { categoryId: category.id } });
