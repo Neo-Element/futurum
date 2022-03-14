@@ -1,13 +1,23 @@
-import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import CardRange from "../commons/CardRange";
 import Reviews from "../commons/Reviews";
 import { products } from "../utils/fakeData";
+import { setCart } from "../store/in-cartCourses";
+import { useState } from "react";
+import ShoppingCart from "./ShoppingCart";
+
 //RECIBE UN CURSO EN PARTICULAR
 const SingleCourse = () => {
   const { id } = useParams();
   const course = products[id];
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const handleClick = () => {
+    dispatch(setCart([...cart, course]));
+  };
+
   return (
     <div className="containerSingle">
       <div className="singleCard">
@@ -40,11 +50,12 @@ const SingleCourse = () => {
             </div>
             <div className="priceAndAdd">
               <p className="price">{`Price: $ ${course.price}`}</p>
-              <Link to={`/users/${user.id}/cart`}>
-                <button className="btn btn-dark btn-lg btnAdd">
-                  <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                </button>
-              </Link>
+              <button
+                onClick={handleClick}
+                className="btn btn-dark btn-lg btnAdd"
+              >
+                <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
+              </button>
             </div>
           </div>
         </div>
