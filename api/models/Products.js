@@ -26,10 +26,6 @@ Products.init(
     ranking: {
       type: S.FLOAT,
     },
-    review: {
-      type: S.ARRAY(S.TEXT),
-      allowNull: false,
-    },
     duration: {
       type: S.INTEGER,
     },

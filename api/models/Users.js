@@ -43,8 +43,6 @@ Users.init(
     icon: {
       type: S.VIRTUAL,
     },
-   
-   
     isAdmin: {
       type: S.BOOLEAN,
       defaultValue: false,
