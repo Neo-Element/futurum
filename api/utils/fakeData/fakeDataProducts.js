@@ -3,7 +3,7 @@ const products = [
     id: 1,
     productName: "Learn React",
     price: 100, //moneda
-    category: "Front-End", //cuáles van a ser las categorías
+    categories: 0, //cuáles van a ser las categorías
     overview:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
     image: "https://upload.wikimedia.org/wikipedia/commons/4/47/React.svg",
@@ -20,7 +20,7 @@ const products = [
     id: 2,
     productName: "Learn HTML & CSS",
     price: 50, //moneda
-    category: "Front-End", //cuáles van a ser las categorías
+    categories: 23, //cuáles van a ser las categorías
     overview:
       "HTML is the foundation of all web pages. It defines the structure of a page, while CSS defines its style. HTML and CSS are the beginning of everything you need to know to make your first web page! Learn both and start creating amazing websites.",
     image: "https://upload.wikimedia.org/wikipedia/commons/4/47/React.svg",
@@ -37,7 +37,7 @@ const products = [
     id: 3,
     productName: "Learn JavaScript",
     price: 50, //moneda
-    category: "Front-End", //cuáles van a ser las categorías
+    categories: 0, //cuáles van a ser las categorías
     overview:
       "HTML is the foundation of all web pages. It defines the structure of a page, while CSS defines its style. HTML and CSS are the beginning of everything you need to know to make your first web page! Learn both and start creating amazing websites.",
     image:
@@ -55,7 +55,7 @@ const products = [
     id: 4,
     productName: "Learn Sass",
     price: 30, //moneda
-    category: "Front-End", //cuáles van a ser las categorías
+    categories: 23, //cuáles van a ser las categorías
     overview:
       "Sass is an easy-to-use styling language that helps reduce a lot of the repetition and maintainability challenges of traditional CSS. Learning Sass will not only let you scale styles when working on big web development projects, it will also make it much faster and more efficient to write reusable styles from scratch for smaller projects.",
     image: "https://i.imgur.com/TNrP4ne.png",
@@ -72,7 +72,7 @@ const products = [
     id: 5,
     productName: "Learn Bootstrap",
     price: 50, //moneda
-    category: "Front-End", //cuáles van a ser las categorías
+    categories: 0, //cuáles van a ser las categorías
     overview:
       "HTML is the foundation of all web pages. It defines the structure of a page, while CSS defines its style. HTML and CSS are the beginning of everything you need to know to make your first web page! Learn both and start creating amazing websites.",
     image: "https://upload.wikimedia.org/wikipedia/commons/4/47/React.svg",
@@ -89,7 +89,7 @@ const products = [
     id: 6,
     productName: "Create a back-end app with JavaScript",
     price: 50, //moneda
-    category: "Back-End", //cuáles van a ser las categorías
+    categories: 12, //cuáles van a ser las categorías
     overview:
       "What we see is just the surface of the Internet. From posting to streaming, everything happens on the back-end of the web. Get ready to learn the technologies behind the scenes of companies like Twitter and PayPal.",
     image: "https://upload.wikimedia.org/wikipedia/commons/4/47/React.svg",
@@ -106,7 +106,7 @@ const products = [
     id: 7,
     productName: "Learn Express",
     price: 50, //moneda
-    category: "Front-End", //cuáles van a ser las categorías
+    categories: 12, //cuáles van a ser las categorías
     overview:
       "With these skills, you’ll be able to build APIs in JavaScript and implement the CRUD (create, retrieve, update, and delete) functionality which forms the backbone of modern-day apps. If you’ve ever wondered how to make a web app back-end or are looking to pick up a new back-end framework, this is the course for you!",
     image:
@@ -124,7 +124,7 @@ const products = [
     id: 8,
     productName: "Back-End Engineer",
     price: 50, //moneda
-    category: "Front-End", //cuáles van a ser las categorías
+    categories: 12, //cuáles van a ser las categorías
     overview:
       "No matter what you’re building, having a strong foundation is crucial — that’s where back-end engineers come in. In this Career Path, you’ll start with programming servers and client-side interfaces, then level up to designing databases. By the end, you’ll have everything you need to start your career as a back-end engineer.",
     image: "https://upload.wikimedia.org/wikipedia/commons/4/47/React.svg",

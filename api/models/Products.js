@@ -13,9 +13,7 @@ Products.init(
       type: S.FLOAT,
       allowNull: false,
     },
-    category: {
-      type: S.STRING,
-    },
+    
     overview: {
       type: S.TEXT,
       allowNull: false,
