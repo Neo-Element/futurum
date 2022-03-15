@@ -9,6 +9,8 @@ import Register from "./commons/Register";
 import SingleCourse from "./components/SingleCourse";
 import Footer from "./commons/Footer";
 import Team from "./commons/Team";
+import CategoriesBoard from "./components/CategoriesBoard";
+import AddCategorie from "./commons/AddCategorie";
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
         <Route path="/admin/products/:type/:id" element={<h1>VISTAS DE UN CURSO PARTICULAR</h1>} />
         <Route path="/admin/users" element={<h1>VISTAS DE USUARIOS</h1>} />
         <Route path="/admin/users/:id" element={<h1>VISTAS DE UN USUARIO PARTICULAR</h1>} />
+        <Route path="/admin/categories" element={<CategoriesBoard />} />
+        <Route path="/admin/categories/:id" element={<AddCategorie />} />
 
         {/* RUTAS USUARIOS */}
         <Route path="/users" element={<h1>VISTAS USUARIO</h1>} />
