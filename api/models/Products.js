@@ -13,9 +13,7 @@ Products.init(
       type: S.FLOAT,
       
     },
-    category: {
-      type: S.STRING,
-    },
+    
     overview: {
       type: S.TEXT,
      
@@ -25,11 +23,6 @@ Products.init(
     },
     ranking: {
       type: S.FLOAT,
-    },
-    review: {
-      type: S.TEXT,
-      
-      
     },
     duration: {
       type: S.INTEGER,

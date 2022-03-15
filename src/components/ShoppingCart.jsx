@@ -18,16 +18,32 @@ const ShoppingCart = () => {
   return (
     <div>
       <h1>Lista de deseos</h1>
-      {/* {user.cart.map((course) => {
-        return (
-          <div>
-            <h3>{course.productName}</h3>
-            <p>{course.price}</p>
-          </div>
-        );
-      })} */}
-      <h3>{products[0].productName}</h3>
-      <p>{products[0].price}</p>
+      <div>
+        <table class="table table-striped table-teal">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Course</th>
+              <th scope="col">Price</th>
+              <th scope="col">Remove</th>
+            </tr>
+          </thead>
+          {products.map((course, i) => {
+            return (
+              <tbody>
+                <tr>
+                  <th scope="row">{i}</th>
+                  <td>{course.productName}</td>
+                  <td>{course.price}</td>
+                  <td>
+                    <button>remove</button>
+                  </td>
+                </tr>
+              </tbody>
+            );
+          })}
+        </table>
+      </div>
     </div>
   );
 };
