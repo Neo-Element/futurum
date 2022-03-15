@@ -15,6 +15,9 @@ router.patch("/add", (req, res, next) => {
   }).catch(next);
 });
 
+<<<<<<< HEAD
+
+=======
 router.get("/:id/all", (req, res) => {
   Users.findOne({
     where: { id: req.params.id },
@@ -34,6 +37,7 @@ router.get("/:id/all", (req, res) => {
     .then((user) => res.send(user).status(200))
     .catch((err) => console.log(err));
 });
+>>>>>>> b5e0c1d1aeb0a423620191e1d2131ef9fc42871c
 
 router.patch("/remove", (req, res, next) => {
   Users.update(req.body, {
@@ -43,4 +47,13 @@ router.patch("/remove", (req, res, next) => {
   }).catch(next);
 });
 
+
+
+
+
+
+
+
 module.exports = router;
+
+
