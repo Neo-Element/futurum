@@ -9,6 +9,7 @@ import Register from "./commons/Register";
 import SingleCourse from "./components/SingleCourse";
 import Footer from "./commons/Footer";
 import Team from "./commons/Team";
+import AdminPanel from "./admin/AdminPanel";
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
         <Route path="/users/login" element={<Login />} />
 
         {/* RUTAS ADMINISTRADOR */}
-        <Route path="/admin" element={<h1>VISTAS ADMINISTRADOR</h1>} />
+        <Route path="/admin" element={<h1><AdminPanel/></h1>} />
         <Route path="/admin/products/:type" element={<Grid />} />
         <Route path="/admin/products/:type/:id" element={<h1>VISTAS DE UN CURSO PARTICULAR</h1>} />
         <Route path="/admin/users" element={<h1>VISTAS DE USUARIOS</h1>} />

@@ -34,21 +34,23 @@ productRouter.put("/:productId", (req, res) => {
 });
 
 productRouter.post("/add", (req, res) => {
+  console.log("REQ BODY -->", req.body)
   Products.create(req.body)
-    .then((product) => res.status(201).json(product))
+    .then((product) => res.status(201).send(product))
     .catch((err) => console.log(err));
 });
 
 productRouter.delete("/remove", (req, res) => {
-  const { id } = req.body;
+  const { productId } = req.query;
+  // console.log("esto es req.body -->",req.query);
 
   Products.destroy({
     where: {
-      id: id,
+      id: productId,
     },
   }).then((result) => {
     result
-      ? res.status(204).send()
+      ? res.status(204).send([])
       : res.status(404).send("The course you want to delete doesn't exist.");
   });
 });
