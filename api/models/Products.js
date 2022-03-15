@@ -13,6 +13,7 @@ Products.init(
       type: S.FLOAT,
       
     },
+   
     
     overview: {
       type: S.TEXT,

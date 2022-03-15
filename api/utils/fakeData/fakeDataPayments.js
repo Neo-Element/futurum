@@ -16,4 +16,4 @@ const payment=[{
 }
 ]
 
-module.exports= carts;
+module.exports= payment;
