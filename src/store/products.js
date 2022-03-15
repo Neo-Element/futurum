@@ -12,7 +12,7 @@ export const getOneProduct = createAsyncThunk("getOneProduct", () => {
 
 export const productCreated = createAsyncThunk("productCreated", (product) => {
   console.log("REDUX PRODUCT",product)
-  return axios.post("/api/product/add", product).then((res)=> res.data)
+  return axios.post("/api/product/add", product).then((res)=> {console.log())
 })
 
 export const deleteProduct = createAsyncThunk("productDeleted", (product) => {
