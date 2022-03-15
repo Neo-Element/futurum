@@ -27,15 +27,13 @@ router.get("/:id/all", (req, res) => {
           where: {
             id: product,
           },
-        })
-        .then((product) => product.data); //[react, js, python]
+        }).then((product) => product.data); //[react, js, python]
       });
-      return (user);
+      return user;
     })
     .then((user) => res.send(user).status(200))
     .catch((err) => console.log(err));
 });
-
 
 router.patch("/remove", (req, res, next) => {
   Users.update(req.body, {

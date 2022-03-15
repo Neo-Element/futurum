@@ -5,10 +5,11 @@ const { Users } = require("../models");
 
 //RUTA PARA REGISTRAR UN USUARIO
 router.post("/register", (req, res) => {
-  Users.create(req.body).then((user) => {
-    res.sendStatus(201);
-  })
-  .catch(err => console.log(err))
+  Users.create(req.body)
+    .then((user) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => console.log(err));
 });
 
 //RUTA PARA LOGIN
@@ -44,6 +45,7 @@ router.get("/me", (req, res) => {
     return res.sendStatus(401);
   }
   res.send(req.user);
+  console.log(req.user)
 });
 
 //OTRA OPCION ES HACER UN MIDDLEWARE
