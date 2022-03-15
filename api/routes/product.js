@@ -3,19 +3,14 @@ const productRouter = express.Router();
 const { Products, Categories } = require("../models");
 const fakeData = require("../utils/fakeData");
 
-productRouter.get("/all", (req, res) => {
-  // Products.findAll()
-  //   .then((products) => (products ? res.json(products) : res.sendStatus(404)))
-  //   .catch((err) => console.log(err));
-  res.send(fakeData[0]);
+productRouter.get("/", (req, res) => {
+   Products.findAll()
+    .then((products) => (products ? res.json(products) : res.sendStatus(404)))
+    .catch((err) => console.log(err));
 });
 
-productRouter.get("/:product", (req, res) => {
-  Products.findOne({
-    where: {
-      productName: req.params.product, //EN REALIDAD SERÍA MEJOR BUSCAR POR ID, PREGUNTAR
-    },
-  })
+productRouter.get("/:id", (req, res) => {
+  Products.findByPk(req.params.id)
     .then((product) => (product ? res.json(product) : res.sendStatus(404)))
     .catch((err) => console.log(err));
 });

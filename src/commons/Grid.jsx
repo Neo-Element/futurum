@@ -1,12 +1,15 @@
-import React from "react";
-import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import SingleCourse from "../components/SingleCourse";
-import { products } from "../utils/fakeData";
+import { getProducts } from "../store/products";
 
 const Grid = () => {
-  //const courses = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
 
   return (
     <div className="flex-container">
@@ -16,7 +19,7 @@ const Grid = () => {
             <div className="rectangulo">
               <h3>{course.productName}</h3>
               <p className="p">{course.duration}</p>
-              <Link to={`/users/products/${i}`}>
+              <Link to={`/users/products/${course.id}`}>
                 <button className="btn btn-lg btn-dark borderMark">
                   Ver detalles
                 </button>

@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCart } from "../store/in-cartCourses";
+import { getOneProduct } from "../store/products";
 
 const ShoppingCart = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const courses = useSelector(state => state.cart)
+  console.log(localStorage.getItem("Cart"))  
 
   useEffect(() => {
-    return
+
+   return
   },[courses])
 
   const handleClick = (course) => {

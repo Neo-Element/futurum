@@ -6,8 +6,8 @@ export const getProducts = createAsyncThunk("getProducts", () => {
   return axios.get("/api/product").then((res) => res.data);
 });
 
-export const getOneProduct = createAsyncThunk("getOneProduct", () => {
-  return axios.post("/api/findProduct").then((res) => res.data);
+export const getOneProduct = createAsyncThunk("getOneProduct", (id) => {
+  return axios.get(`/api/product/${id}`).then((res) => res.data);
 });
 
 export const productCreated = createAsyncThunk("productCreated", (product) => {
