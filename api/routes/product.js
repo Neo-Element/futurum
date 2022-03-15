@@ -1,6 +1,6 @@
 const express = require("express");
 const productRouter = express.Router();
-const Products = require("../models/Products"); //REVISAR QUE COINCIDA CON LA RUTA CORRESPONDIENTE
+const { Products, Categories } = require("../models");
 const fakeData = require("../utils/fakeData");
 
 productRouter.get("/all", (req, res) => {
@@ -33,12 +33,25 @@ productRouter.put("/:productId", (req, res) => {
   });
 });
 
+
+
 productRouter.post("/add", (req, res) => {
-  console.log("REQ BODY -->", req.body)
+  console.log("REQ BODY -->", req.body);
+
+const { category } = req.body;
+
+Categories.findOrCreate({where: {name: category }})
+.then(data => {
+  const category = data[0]
   Products.create(req.body)
-    .then((product) => res.status(201).send(product))
-    .catch((err) => console.log(err));
+  .then((product) => {
+    product.setCategories(category)
+    res.status(201).send(product)})
+  .catch((err) => console.log(err));
+})
 });
+
+
 
 productRouter.delete("/remove", (req, res) => {
   const { productId } = req.query;

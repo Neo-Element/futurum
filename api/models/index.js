@@ -5,7 +5,7 @@ const Reviews = require("./Reviews")
 const Payments = require("./Payments")
 const Categories = require("./Categories")
 
-Products.belongsToMany(Categories, {as: "categories", through: "product_categories"})
+Products.belongsTo(Categories, {as: "categories"})
 Products.hasMany(Reviews, {as: "reviews"})
 
 Reviews.belongsTo(Users,{as:"user"})
