@@ -15,26 +15,26 @@ router.patch("/add", (req, res, next) => {
   }).catch(next);
 });
 
-router.get("/:id/all", (req, res) => {
-  Users.findOne({
-    where: { id: req.params.id },
-  })
-    .then((user) => {
-      //user = alexis
-      const arr = user.cart; //arr = [3,5,7]
-      user.cart = arr.map((product) => {
-        Products.findOne({
-          where: {
-            id: product,
-          },
-        }).then((product) => product.data); //[react, js, python]
-      });
-      return user;
-    })
-    .then((user) => res.send(user).status(200))
-    .catch((err) => console.log(err));
-});
 
+// router.get("/:id/all", (req, res) => {
+//   Users.findOne({
+//     where: { id: req.params.id },
+//   })
+//     .then((user) => {
+//       //user = alexis
+//       const arr = user.cart; //arr = [3,5,7]
+//       user.cart = arr.map((product) => {
+//         Products.findOne({
+//           where: {
+//             id: product,
+//           },
+//         }).then((product) => product.data); //[react, js, python]
+//       });
+//       return user;
+//     })
+//     .then((user) => res.send(user).status(200))
+//     .catch((err) => console.log(err));
+// });
 
 router.patch("/remove", (req, res, next) => {
   Users.update(req.body, {
