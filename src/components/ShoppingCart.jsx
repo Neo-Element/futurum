@@ -44,6 +44,7 @@ const ShoppingCart = () => {
           })}
         </table>
       </div>
+      <button>Comprar</button>
     </div>
   );
 };
