@@ -15,8 +15,7 @@ router.patch("/add", (req, res, next) => {
   }).catch(next);
 });
 
-
-// router.get("/:id/all", (req, res) => {
+//  router.get("/:id/all", (req, res) => {
 //   Users.findOne({
 //     where: { id: req.params.id },
 //   })
@@ -34,7 +33,8 @@ router.patch("/add", (req, res, next) => {
 //     })
 //     .then((user) => res.send(user).status(200))
 //     .catch((err) => console.log(err));
-// });
+// }); 
+
 
 router.patch("/remove", (req, res, next) => {
   Users.update(req.body, {
