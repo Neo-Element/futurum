@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <Link to="/users/products">
+        <Link to="/">
           <img
             src="https://see.fontimg.com/api/renderfont4/OVZDd/eyJyIjoiZnMiLCJoIjo0NCwidyI6MTAwMCwiZnMiOjQ0LCJmZ2MiOiIjNzVDQTkzIiwiYmdjIjoiIzQ2NDY0NiIsInQiOjF9/RnV0dXJ1bQ/destruido.png"
             alt="logo"

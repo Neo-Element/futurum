@@ -24,7 +24,6 @@ const setProducts = createReducer([], {
   [getOneProduct.fulfilled]: (state, action) => action.payload,
   [productCreated.fulfilled]: (state, action) => action.payload,
   [deleteProduct.fulfilled]: (state, action) => action.payload,
-
 });
 
 export default setProducts;

@@ -9,6 +9,7 @@ productRouter.get("/", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+
 productRouter.get("/:id", (req, res) => {
   Products.findByPk(req.params.id)
     .then((product) => (product ? res.json(product) : res.sendStatus(404)))
