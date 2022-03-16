@@ -1,18 +1,25 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { getProducts } from "../store/products";
+import Header from "../commons/Header";
+import { getCategory, getCategoryProd } from "../store/singleCategory";
 
-const Grid = () => {
-  const dispatch = useDispatch();
+const Category = () => {
+  const category = useSelector((state) => state.category);
   const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  const { id } = useParams();
 
-  useEffect(() => {
-    dispatch(getProducts());
-  }, []);
+  useEffect(()=>{
+    dispatch(getCategory(id))
+    dispatch(getCategoryProd(category.name))
+  }, [category])
 
   return (
-    <div className="flex-container">
+    <div>
+      <Header category={category} />
+      <seccion className="flex-container">
       {products.map((course, i) => {
         return (
           <div className="flex-item ">
@@ -28,8 +35,9 @@ const Grid = () => {
           </div>
         );
       })}
+    </seccion>
     </div>
   );
 };
 
-export default Grid;
+export default Category;

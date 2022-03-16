@@ -1,19 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCart } from "../store/in-cartCourses";
+import { getOneProduct } from "../store/products";
 
 const ShoppingCart = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const courses = useSelector(state => state.cart)
+  //const courses = useSelector(state => state.cart)
+  let courses = JSON.parse(localStorage.getItem("Cart"))
+  const [cart, setCart] = useState(localStorage.getItem("Cart") ?  JSON.parse(localStorage.getItem("Cart")) : [] );
 
   useEffect(() => {
-    return
   },[courses])
 
   const handleClick = (course) => {
     const deleted = courses.filter(e => e !== course)
-    dispatch(setCart(deleted))
+    localStorage.setItem("Cart", JSON.stringify(deleted))
+    setCart(deleted);
   } 
 
   return (
@@ -45,6 +48,7 @@ const ShoppingCart = () => {
           })}
         </table>
       </div>
+      <button>Comprar</button>
     </div>
   );
 };

@@ -11,16 +11,10 @@ export const userLogin = createAsyncThunk("login", (user) => {
 
 
 
-export const getAllCart= createAsyncThunk("SETCART", (userId)=>{
-  return axios.get(`/api/shoppingCart/${userId}/all`).then((res)=>res.data)
-}) 
-
-
 const userReducer = createReducer({}, {
   // estado inicial []/{}
   [userRegister.fulfilled]: (state, action) => action.payload,
   [userLogin.fulfilled]: (state, action) => action.payload,
-  [getAllCart.fullfilled]: (state, action)=> action.payload 
 });
 
 export default userReducer;

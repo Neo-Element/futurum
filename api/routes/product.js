@@ -1,21 +1,17 @@
 const express = require("express");
 const productRouter = express.Router();
-const Products = require("../models/Products"); //REVISAR QUE COINCIDA CON LA RUTA CORRESPONDIENTE
+const { Products, Categories } = require("../models");
 const fakeData = require("../utils/fakeData");
 
-productRouter.get("/all", (req, res) => {
-  // Products.findAll()
-  //   .then((products) => (products ? res.json(products) : res.sendStatus(404)))
-  //   .catch((err) => console.log(err));
-  res.send(fakeData[0]);
+productRouter.get("/", (req, res) => {
+   Products.findAll()
+    .then((products) => (products ? res.json(products) : res.sendStatus(404)))
+    .catch((err) => console.log(err));
 });
 
-productRouter.get("/:product", (req, res) => {
-  Products.findOne({
-    where: {
-      productName: req.params.product, //EN REALIDAD SERÍA MEJOR BUSCAR POR ID, PREGUNTAR
-    },
-  })
+
+productRouter.get("/:id", (req, res) => {
+  Products.findByPk(req.params.id)
     .then((product) => (product ? res.json(product) : res.sendStatus(404)))
     .catch((err) => console.log(err));
 });
@@ -33,22 +29,37 @@ productRouter.put("/:productId", (req, res) => {
   });
 });
 
+
+
 productRouter.post("/add", (req, res) => {
+  console.log("REQ BODY -->", req.body);
+
+const { category } = req.body;
+
+Categories.findOrCreate({where: {name: category }})
+.then(data => {
+  const category = data[0]
   Products.create(req.body)
-    .then((product) => res.status(201).json(product))
-    .catch((err) => console.log(err));
+  .then((product) => {
+    product.setCategories(category)
+    res.status(201).send(product)})
+  .catch((err) => console.log(err));
+})
 });
 
+
+
 productRouter.delete("/remove", (req, res) => {
-  const { id } = req.body;
+  const { productId } = req.query;
+  // console.log("esto es req.body -->",req.query);
 
   Products.destroy({
     where: {
-      id: id,
+      id: productId,
     },
   }).then((result) => {
     result
-      ? res.status(204).send()
+      ? res.status(204).send([])
       : res.status(404).send("The course you want to delete doesn't exist.");
   });
 });
