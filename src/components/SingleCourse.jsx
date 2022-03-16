@@ -28,7 +28,7 @@ const SingleCourse = () => {
 
   return (
     <div className="containerSingle">
-      <div className="singleCard">
+      <div className="singleCardLogin">
         <div className="cardTitle">
           <div className="colorBar"> </div>
           <h5>{`${products.duration} hours`}</h5>
