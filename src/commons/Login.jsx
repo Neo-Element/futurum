@@ -1,6 +1,6 @@
 import useInput from "../hooks/useInput";
 import { useDispatch } from "react-redux";
-import { userLogin } from "../store/users";
+import { userLogin } from "../store/singleUser";
 import { useNavigate } from "react-router";
 
 const Login = () => {
