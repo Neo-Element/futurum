@@ -10,14 +10,17 @@ const SingleCourse = () => {
 
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
-  const [cart, setCart] = useState([]);
-  localStorage.setItem("Cart", `[${cart}]`)
-  console.log("PRODUCT", products)
-  console.log("cart",cart)
+  /// agregar SIngle product REdux
+  const [cart, setCart] = useState(localStorage.getItem("Cart") ?  JSON.parse(localStorage.getItem("Cart")) : [] );
 
   const handleClick = () => {
-    setCart([...cart, products]);
+    let noRepeat = cart.map(course => course.id === parseInt(id))
+    if(!noRepeat.includes(true)){
+      localStorage.setItem("Cart", JSON.stringify([...cart, products]))
+      setCart([...cart, products]);
+    }
   };
+
 
   useEffect(() => {
     dispatch(getOneProduct(id));
