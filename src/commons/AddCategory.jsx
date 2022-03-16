@@ -2,7 +2,7 @@ import React from "react";
 import useInput from "../hooks/useInput";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { categoryRegister } from "../store/singleCategorie";
+import { categoryRegister } from "../store/singleCategory";
 
 const AddCategory = () => {
   const name = useInput();
