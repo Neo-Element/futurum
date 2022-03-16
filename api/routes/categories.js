@@ -2,6 +2,14 @@ const express = require("express");
 const categoriesRouter = express.Router();
 const Categories = require("../models/Categories"); //EN CASO QUE CATEGORÍAS SEA UNA TABLA
 
+categoriesRouter.get("/", (req, res, next) => {
+  Categories.findAll()
+    .then((categories) =>
+      categories ? res.json(categories) : res.sendStatus(404)
+    )
+    .catch((err) => console.log(err));
+});
+
 categoriesRouter.get("/:name", (req, res, next) => {
   Categories.findOne({ where: { name: req.params.name } })
     .then((category) => {
@@ -11,7 +19,7 @@ categoriesRouter.get("/:name", (req, res, next) => {
     .catch(next);
 });
 
-categoriesRouter.get("/new", (req, res) => {
+categoriesRouter.post("/", (req, res) => {
   Categories.create(req.body)
     .then((category) => {
       res.status(201).json(category);

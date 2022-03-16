@@ -3,6 +3,8 @@ import logger from "redux-logger";
 import userReducer, { getAllCart } from "./users";
 import setProducts from "./products";
 import cartReducer from "./in-cartCourses";
+import singleCategoryReducer from "./singleCategorie";
+import categoriesReducer from "./categories";
 
 const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger), //middleware para -->
@@ -11,6 +13,8 @@ const store = configureStore({
     user: userReducer,
     products: setProducts,
     cart: cartReducer,
+    category: singleCategoryReducer,
+    categories: categoriesReducer,
   },
 });
 

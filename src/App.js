@@ -11,6 +11,8 @@ import Footer from "./commons/Footer";
 import Team from "./commons/Team";
 import AdminPanel from "./admin/AdminPanel";
 import AddProduct from "./commons/AddProduct";
+import AddCategory from "./commons/AddCategory";
+import AdminCategory from "./admin/AdminCategories";
 
 
 function App() {
@@ -28,11 +30,15 @@ function App() {
         <Route path="/users/login" element={<Login />} />
 
         {/* RUTAS ADMINISTRADOR */}
-        <Route path="/admin" element={<h1><AddProduct/></h1>} />
-        <Route path="/admin/products/:type" element={<Grid />} />
-        <Route path="/admin/products/:type/:id" element={<h1>VISTAS DE UN CURSO PARTICULAR</h1>} />
+        <Route path="/admin" element={<h1>HOME DEL ADMINISTRADOR</h1>} />
+        <Route path="/admin/products" element={<AdminPanel />} />
+        <Route path="/admin/products/add" element={<AddProduct/>} />
+        <Route path="/admin/products/:id" element={<h1>VISTAS DE UN CURSO PARTICULAR</h1>} />
         <Route path="/admin/users" element={<h1>VISTAS DE USUARIOS</h1>} />
         <Route path="/admin/users/:id" element={<h1>VISTAS DE UN USUARIO PARTICULAR</h1>} />
+        <Route path="/admin/categories" element={<AdminCategory />} />
+        <Route path="/admin/categories/add" element={<AddCategory/>} />
+        <Route path="/admin/categories/:id" element={<AddCategory/>} />
 
         {/* RUTAS USUARIOS */}
         <Route path="/users" element={<h1>VISTAS USUARIO</h1>} />
@@ -44,8 +50,8 @@ function App() {
 
         {/* RUTAS INVITADOS */}
         <Route path="/guest" element={<h1>VISTAS DE USUARIOS NO LOGUEADOS</h1>} />
-        <Route path="/guest/products/:type" element={<Grid />} />
-        <Route path="/guest/products/:type/:id" element={<h1>VISTAS DE UN CURSO PARTICULAR</h1>} />
+        <Route path="/guest/products" element={<Grid />} />
+        <Route path="/guest/products/:id" element={<SingleCourse/>} />
 
         {/* RUTAS ERROR */}
         <Route path="*" element={<Navigate to="404" />} />

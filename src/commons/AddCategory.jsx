@@ -2,8 +2,9 @@ import React from "react";
 import useInput from "../hooks/useInput";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { categoryRegister } from "../store/singleCategorie";
 
-const AddCategorie = () => {
+const AddCategory = () => {
   const name = useInput();
   const description = useInput();
   const image = useInput();
@@ -11,22 +12,23 @@ const AddCategorie = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-//   const handlerSubmit = (e) => {
-//     e.preventDefault();
-//     dispatch(
-//       categorieCreated({
-//         name: name.value,
-//         description: description.value,
-//         imagen: image.value,
-//       })
-//     ).then(() => navigate("/")) //ver ruta
-//     .catch((err) => console.log(err));
-//   };
+  const handlerSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      categoryRegister({
+        name: name.value,
+        description: description.value,
+        imagen: image.value,
+      })
+    )
+      .then(() => navigate("/admin/categories"))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
-        <h1 className="h1">ADD CATEGORIE</h1>
-      <form onSubmit={"handlerSubmit"} className="singleCard">
+      <h1 className="h1">ADD CATEGORIE</h1>
+      <form onSubmit={handlerSubmit} className="singleCard">
         <label className="cardTitle">Name</label>
         <input {...name} type="text" placeholder="categorie name" required />
         <label className="cardTitle">description</label>
@@ -44,4 +46,4 @@ const AddCategorie = () => {
   );
 };
 
-export default AddCategorie;
+export default AddCategory;
