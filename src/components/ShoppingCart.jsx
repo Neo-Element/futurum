@@ -1,12 +1,13 @@
 import { useEffect, useState} from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setCart } from "../store/in-cartCourses";
-import { getOneProduct } from "../store/products";
+import { useSelector} from "react-redux";
+import { useNavigate } from "react-router"; 
+import axios from "axios";
+
+
 
 const ShoppingCart = () => {
   const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-  //const courses = useSelector(state => state.cart)
+  const navigate = useNavigate();
   let courses = JSON.parse(localStorage.getItem("Cart"))
   const [cart, setCart] = useState(localStorage.getItem("Cart") ?  JSON.parse(localStorage.getItem("Cart")) : [] );
 
@@ -18,6 +19,20 @@ const ShoppingCart = () => {
     localStorage.setItem("Cart", JSON.stringify(deleted))
     setCart(deleted);
   } 
+
+  const handlerCheckout = () => {
+    if(!user.id){
+      navigate("/users/login")
+    } 
+    cart.map(course => {
+      axios
+      .put(`/api/orders/${user.id}/${course.id}`)
+      .catch(err => console.log(err))
+    })
+  }
+
+
+
 
   return (
     <div>
@@ -48,7 +63,7 @@ const ShoppingCart = () => {
           })}
         </table>
       </div>
-      <button>Comprar</button>
+      <button onClick={handlerCheckout}>Comprar</button>
     </div>
   );
 };

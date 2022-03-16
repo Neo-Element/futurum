@@ -1,18 +1,22 @@
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import axios from "axios";
 //import axios from "axios";
-import { useSelector } from "react-redux";
+
 
 
 const Buttons = () => {
 
-    const user = useSelector(state => state.user)
-
+    const user = JSON.parse(localStorage.getItem("user"));
     const navigate = useNavigate();
-    /* const handleLogout = (e) => {
-      axios.post("/api/logout").then((res) =>{ //setUser({})); //R setear user aca vacio / funcionalidad logout
-      navigate("/home");                            //R
-    });  */
+
+    /* const handleLogout = (e) => {navigate("/home");    
+      axios.post("/api/users/logout").then((res) =>{
+        console.log("RES", res)
+        localStorage.setItem("user",JSON.stringify(res.payload))
+      navigate("/");                            
+    })
+  }; */
   
 
     //REVISAR RUTAS LOGIN / REGISTER
@@ -24,7 +28,7 @@ const Buttons = () => {
         </div>
         <div className="dropdown-content">
           <a href="#">Favorites</a>
-          <a href="#" /* onClick={handleLogout }*/>
+          <a href="#"  /* onClick={handleLogout }*/> 
             LogOut
           </a>
         </div>

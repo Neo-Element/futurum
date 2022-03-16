@@ -45,7 +45,6 @@ router.get("/me", (req, res) => {
     return res.sendStatus(401);
   }
   res.send(req.user);
-  console.log(req.user)
 });
 
 //OTRA OPCION ES HACER UN MIDDLEWARE
