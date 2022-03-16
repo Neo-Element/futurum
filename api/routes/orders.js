@@ -4,7 +4,7 @@ const { Carts } = require("../models"); // correct routes
 
 
 //add new order 
-router.put("/:userId/:productId", (req,res,next) => {
+router.post("/", (req,res,next) => {
   Carts.create({
     userId: req.params.userId,
     productId: req.params.productId

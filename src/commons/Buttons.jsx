@@ -1,25 +1,28 @@
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { userLogout } from "../store/singleUser";
 //import axios from "axios";
 
 
 
 const Buttons = () => {
 
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = localStorage.getItem("user") ?  JSON.parse(localStorage.getItem("user")) : {none: "none"} ;
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    /* const handleLogout = (e) => {navigate("/home");    
-      axios.post("/api/users/logout").then((res) =>{
-        console.log("RES", res)
-        localStorage.setItem("user",JSON.stringify(res.payload))
-      navigate("/");                            
-    })
-  }; */
-  
+     const handleLogout = (e) => {;
+        dispatch(
+          userLogout()
+        )
+        .then(()=> navigate("/") )
+      
+      localStorage.removeItem("user")
+                              
+    }
+    
 
-    //REVISAR RUTAS LOGIN / REGISTER
     return user.id ? (
       <div className="dropdown userIcon">
        <i className="fa-solid fa-child fa-lg"></i>
@@ -27,8 +30,7 @@ const Buttons = () => {
           <h6 className="text-white userS">{user.userName}</h6>
         </div>
         <div className="dropdown-content">
-          <a href="#">Favorites</a>
-          <a href="#"  /* onClick={handleLogout }*/> 
+          <a href="#"  onClick={handleLogout }> 
             LogOut
           </a>
         </div>

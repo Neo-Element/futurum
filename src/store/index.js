@@ -4,7 +4,7 @@ import singleUserReducer from "./singleUser";
 import usersReducer from "./users";
 import setProducts from "./products";
 import singleProdReducer from "./singleProduct";
-import cartReducer from "./in-cartCourses";
+import cartReducer from "./cart";
 import singleCategoryReducer from "./singleCategory";
 import categoriesReducer from "./categories";
 
@@ -18,6 +18,7 @@ const store = configureStore({
     category: singleCategoryReducer,
     categories: categoriesReducer,
     cart: cartReducer,
+
   },
 });
 

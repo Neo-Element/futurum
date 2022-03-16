@@ -76,7 +76,7 @@ const NavBar = () => {
             </li>
           </ul>
 
-          <Link to={`/users/${user.id}/cart/`}>
+          <Link to={`/users/cart`}>
             <button className="btn  btn-lg botonColorNav">
               <i class="fa-solid fa-lg fa-cart-arrow-down"></i>
             </button>

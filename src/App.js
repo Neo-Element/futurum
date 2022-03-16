@@ -18,7 +18,8 @@ import Welcome from "./components/Welcome";
 import HomeUsers from "./components/HomeUsers";
 import HomeAdmin from "./admin/HomeAdmin";
 import { useDispatch, useSelector } from "react-redux";
-import { persistence } from "./store/users";
+import { persistence } from "./store/singleUser";
+import CheckOut from "./components/Checkout";
 
 
 
@@ -63,7 +64,7 @@ useEffect(()=>{
         <Route path="/users/products/:id" element={<SingleCourse/>} />
         <Route path="/users/categories/:id" element={<Category />} />
         <Route path="/users/cart/" element={<ShoppingCart />}/>
-        <Route path="/users/cart/:id" element={<h1>VISTA CHECKOUT</h1>}/>
+        <Route path="/users/cart/:id" element={<CheckOut/>}/>
 
         {/* RUTAS ERROR */}
         <Route path="*" element={<Navigate to="404" />} />

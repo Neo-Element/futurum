@@ -23,9 +23,14 @@ const Login = () => {
     e.preventDefault();
     if(validEmail(email) && validPassword(password)){
         dispatch(userLogin({ email: email.value, password: password.value }))
-      .then((user) => {
-        localStorage.setItem("user",JSON.stringify(user.payload))
-        navigate("/users/products")
+      .then((res) => {
+        console.log("USER",res)
+        if(res.payload){
+          localStorage.setItem("user",JSON.stringify(res.payload))
+        }else {
+          alert("Error! ")
+        }
+        navigate("/")
       }) //revisar la ruta
       .catch((err) => console.log(err));
     } else {
