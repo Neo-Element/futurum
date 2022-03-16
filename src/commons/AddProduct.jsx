@@ -23,26 +23,30 @@ const AddProduct = () => {
         price: price.value,
         category: category.value,
         overview: overview.value,
+        ranking: null,
         image: image.value,
         duration: duration.value,
         requirements: requirements.value,
+        students: 0
       })
     )
-      .then(() => navigate("/")) //ver ruta
+      .then((product) => {
+        console.log("curso creado -->", product)
+        navigate("/")}) //ver ruta
       .catch((err) => console.log(err));
   };
 
   return (
     <div>
       <form onSubmit={handlerSubmit}>
-        <label>Curso</label>
+        <label>Course</label>
         <input
           {...productName}
           type="text"
           placeholder="Nombre del curso"
           required
         />
-        <label>Precio</label>
+        <label>Price</label>
         <input {...price} type="text" placeholder="$" required />
         <label>Categoria</label>
         <input
@@ -51,25 +55,25 @@ const AddProduct = () => {
           placeholder="Diseño UX/UI, Programación.. "
           required
         />
-        <label>Sobre el curso</label>
+        <label>About</label>
         <input
           {...overview}
           type="text"
           placeholder="Breve descripción del curso"
           required
         />
-        <label>Imagen</label>
+        <label>Image</label>
         <input {...image} type="text" placeholder="img.jpg" required />
-        <label>Duración</label>
+        <label>Duration</label>
         <input {...duration} type="text" placeholder="4 semanas" required />
-        <label>Requisitos</label>
+        <label>Requirements</label>
         <input
           {...requirements}
           type="text"
           placeholder="Equipo, software y otros materiales requeridos"
           required
         />
-        <button>Crear Curso</button>
+        <button>Create Course</button>
       </form>
     </div>
   );

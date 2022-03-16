@@ -1,6 +1,5 @@
 const products = [
   {
-    id: 1,
     productName: "Learn React",
     price: 100, //moneda
     /* categoryId: 0, */ //cuáles van a ser las categorías
@@ -14,7 +13,6 @@ const products = [
   },
 
   {
-    id: 2,
     productName: "Learn HTML & CSS",
     price: 50, //moneda
     /* categoryId: 23, */ //cuáles van a ser las categorías
@@ -29,7 +27,6 @@ const products = [
   },
 
   {
-    id: 3,
     productName: "Learn JavaScript",
     price: 50, //moneda
     /* categoryId: 0, */ //cuáles van a ser las categorías
@@ -45,7 +42,6 @@ const products = [
   },
 
   {
-    id: 4,
     productName: "Learn Sass",
     price: 30, //moneda
    /*  categoryId: 23, */ //cuáles van a ser las categorías
@@ -60,7 +56,6 @@ const products = [
   },
 
   {
-    id: 5,
     productName: "Learn Bootstrap",
     price: 50, //moneda
     /* categoryId: 0, */ //cuáles van a ser las categorías
@@ -75,7 +70,6 @@ const products = [
   },
 
   {
-    id: 6,
     productName: "Create a back-end app with JavaScript",
     price: 50, //moneda
     /* categoryId: 12, */ //cuáles van a ser las categorías
@@ -90,7 +84,6 @@ const products = [
   },
 
   {
-    id: 7,
     productName: "Learn Express",
     price: 50, //moneda
     /* categoryId: 12, */ //cuáles van a ser las categorías
@@ -106,7 +99,6 @@ const products = [
   },
 
   {
-    id: 8,
     productName: "Back-End Engineer",
     price: 50, //moneda
    /*  categoryId: 12, */ //cuáles van a ser las categorías

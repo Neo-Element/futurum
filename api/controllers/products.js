@@ -1,4 +1,4 @@
-const Products = require("../models/Products");
+const {Products, Categories} = require("../models/Products");
 
 //GET PRODUCT
 exports.getProduct= async(req, res) => {
@@ -15,7 +15,7 @@ exports.getProduct= async(req, res) => {
   }
 
   //ACTUALIZAR PRODUCTO
-  exports.updateProduct=async (req, res) => {
+  exports.updateProduct=async (req, res,next) => {
     try{
       const result= await Products.update(req.body, {
       where: {
@@ -32,10 +32,14 @@ exports.getProduct= async(req, res) => {
     }
   }
   //AÑADIR PRODUCTO
-  exports.addProduct= async (req, res) => {
+  exports.addProduct= async (req, res, next) => {
     try{
+      const { category } = req.body;
+      const data= await Categories.findOrCreate({where: {name: category }})
       const product= await Products.create(req.body)
-      res.status(201).json(product)
+      const category=data[0]
+      product.setCategories(category)
+      res.status(201).send(product)
     }
       catch(err){
         console.log(err)
@@ -45,13 +49,13 @@ exports.getProduct= async(req, res) => {
   //BORRAR PRODUCTO
   exports.delete= async (req, res) => {
     try{
-       const { id } = req.body;
+      const { productId } = req.query;
        const result= await  Products.destroy({
       where: {
-        id: id,
+        id: productId,
       },
     })
-    result? res.status(204).send() :res.status(404).send("The course you want to delete doesn't exist.")
+    result? res.status(204).send([]) :res.status(404).send("The course you want to delete doesn't exist.")
     }
    catch(err){
     next(err)
