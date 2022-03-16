@@ -12,13 +12,13 @@ passport.use(
         User.findOne({ where: { email } })
           .then((user) => {
             if (!user) {
-              console.log("NO EXISTE EL USUARIO")
+              console.log("No existe el usuario")
               return done(null, false);
             }
   
             user.hash(password, user.salt).then((hash) => {
               if (hash !== user.password) {
-                console.log("ACA ESTA MAL LA CONTRASEÑA")
+                console.log("Contraseña incorrecta")
                 return done(null, false);
               }
               return done(null, user);
