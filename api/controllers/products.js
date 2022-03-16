@@ -1,4 +1,4 @@
-const {Products, Categories} = require("../models/Products");
+const {Products, Categories} = require("../models");
 
 //GET PRODUCT
 exports.getProduct= async(req, res) => {
@@ -37,8 +37,8 @@ exports.getProduct= async(req, res) => {
       const { category } = req.body;
       const data= await Categories.findOrCreate({where: {name: category }})
       const product= await Products.create(req.body)
-      const category=data[0]
-      product.setCategories(category)
+      const categories=data[0]
+      product.setCategories(categories)
       res.status(201).send(product)
     }
       catch(err){

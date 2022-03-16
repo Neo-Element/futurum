@@ -3,6 +3,7 @@ const { Products } = require("../models");
 
 //ADD TO CART
 exports.addCart= async (req, res, next) => {
+ console.log("PRODUCTO AÑADIDO CON CONTROLLERS")
   try{
     await Users.update(req.body, {
       where: {
@@ -33,10 +34,15 @@ exports.addCart= async (req, res, next) => {
       .catch((err) => console.log(err));
   }
   //REMOVE PRODUCTO DE CARRITO
-  exports.removeCart=(req, res, next) => {  ///funciona esto?
-    Users.update(req.body, {
-      where: {
-        id: req.body.id,
-      },
-    }).catch(next);
+  exports.removeCart= async (req, res, next) => {  ///funciona esto?
+    try{
+      await Users.update(req.body, {
+        where: {
+          id: req.body.id,
+        },
+      })
+
+    }catch(err){
+    next(err)
+    }
   }
