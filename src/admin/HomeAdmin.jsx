@@ -20,7 +20,7 @@ const HomeAdmin = () => {
           <h1>
           USERS
           </h1>
-          <Link to="/admin/login" className="link">
+          <Link to="/admin/users" className="link">
           <button
               type="submit"
               className="btn btn-lg btn-dark borderMark"
@@ -54,7 +54,7 @@ const HomeAdmin = () => {
           <h1>
           CATEGORIES
           </h1>
-          <Link to="/users/login" className="link">
+          <Link to="/admin/categories" className="link">
           <button
               type="submit"
               className="btn btn-lg btn-dark borderMark"
@@ -88,7 +88,7 @@ const HomeAdmin = () => {
           <h1>
           PRODUCTS
           </h1>
-         <Link to="/" className="link">
+         <Link to="/admin/products" className="link">
          <button
               type="submit"
               className="btn btn-lg btn-dark borderMark"
