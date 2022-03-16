@@ -11,7 +11,7 @@ categoriesRouter.get("/:name", (req, res, next) => {
     .catch(next);
 });
 
-categoriesRouter.get("/new", (req, res) => {
+categoriesRouter.post("/new", (req, res) => {
   Categories.create(req.body)
     .then((category) => {
       res.status(201).json(category);
