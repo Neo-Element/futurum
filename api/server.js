@@ -24,8 +24,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-db.sync({ force: false }).then(() => {
+db.sync({ force: true }).then(() => {
   console.log("La base se sincronizó correctamente");
   app.listen(3001, () => {
     console.log("Server corriendo en localhost:3001");

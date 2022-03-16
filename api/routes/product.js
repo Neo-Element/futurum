@@ -32,8 +32,6 @@ productRouter.put("/:productId", (req, res) => {
 
 
 productRouter.post("/add", (req, res) => {
-  console.log("REQ BODY -->", req.body);
-
 const { category } = req.body;
 
 Categories.findOrCreate({where: {name: category }})

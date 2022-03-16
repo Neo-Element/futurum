@@ -4,10 +4,12 @@ const routerShoppingCart = require("./shoppingCart");
 const productRouter = require("./product");
 const usersRouter = require("./users");
 const categoriesRouter = require("./categories");
+const reviewsRouter = require("./reviews");
 
 router.use("/shoppingCard", routerShoppingCart);
 router.use("/product", productRouter);
 router.use("/users", usersRouter);
-router.use("/categories", categoriesRouter)
+router.use("/categories", categoriesRouter);
+router.use("/reviews", reviewsRouter);
 
 module.exports = router;

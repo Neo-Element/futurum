@@ -19,14 +19,13 @@ categoriesRouter.get("/:id", (req, res, next) => {
 categoriesRouter.get("/prod/:name", (req, res, next) => {
   Categories.findOne({ where: { name: req.params.name } })
     .then((category) => {
-      Products.findAll({ where: { categoryId: category.id } });
+      Products.findAll({ where: { categoriesId: category.id } });
     })
     .then((courses) => res.send(courses))
     .catch(next);
 });
 
 categoriesRouter.post("/new", (req, res) => {
-
   Categories.create(req.body)
     .then((category) => {
       res.status(201).json(category);
