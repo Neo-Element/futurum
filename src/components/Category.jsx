@@ -3,18 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Header from "../commons/Header";
-import { getCategory } from "../store/singleCategory";
-import { getProductsByCategory } from "../store/products";
+import { getCategory, getCategoryProd } from "../store/singleCategory";
 
 const Category = () => {
   const category = useSelector((state) => state.category);
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
-  const { name } = useParams();
+  const { id } = useParams();
 
   useEffect(()=>{
-    dispatch(getCategory(name))
-    dispatch(getProductsByCategory(category.id))
+    dispatch(getCategory(id))
+    dispatch(getCategoryProd(category.name))
   }, [category])
 
   return (

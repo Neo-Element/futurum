@@ -14,6 +14,7 @@ import AddProduct from "./commons/AddProduct";
 import AddCategory from "./commons/AddCategory";
 import AdminCategory from "./admin/AdminCategories";
 import Category from "./components/Category";
+import Welcome from "./components/Welcome";
 
 
 function App() {
@@ -25,8 +26,8 @@ function App() {
       <Routes>
         {/* LAS RUTAS NO ESTAN DINAMIZADAS POR AHORA */}
         {/* HOME Y REGISTER */}
-        <Route path="/" element={<h1>FUTURUM</h1>} />
-        <Route path="/admin/login" element={<h1>LOGIN DE ADMINISTRADOR</h1>} />
+        <Route path="/" element={<Welcome />} />
+        <Route path="/admin/login" element={<Login />} />
         <Route path="/users/register" element={<Register />} />
         <Route path="/users/login" element={<Login />} />
 
@@ -45,14 +46,14 @@ function App() {
         <Route path="/users" element={<h1>VISTAS USUARIO</h1>} />
         <Route path="/users/products" element={<Grid />} />
         <Route path="/users/products/:id" element={<SingleCourse/>} />
-        <Route path="/users/categories/:name" element={<Category />} />
+        <Route path="/users/categories/:id" element={<Category />} />
         <Route path="/users/:id/cart/" element={<ShoppingCart />}/>
 
         {/* RUTAS INVITADOS */}
         <Route path="/guest" element={<h1>VISTAS DE USUARIOS NO LOGUEADOS</h1>} />
         <Route path="/guest/products" element={<Grid />} />
         <Route path="/guest/products/:id" element={<SingleCourse/>} />
-        <Route path="/guest/categories/:name" element={<Category />} />
+        <Route path="/guest/categories/:id" element={<Category />} />
         <Route path="/guest/cart" element={<ShoppingCart />} />
 
         {/* RUTAS ERROR */}

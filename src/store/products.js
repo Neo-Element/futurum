@@ -6,10 +6,6 @@ export const getProducts = createAsyncThunk("getProducts", () => {
   return axios.get("/api/product").then((res) => res.data);
 });
 
-export const getProductsByCategory = createAsyncThunk("PRODUCTS_CATEGORY", (categoryId) => {
-  return axios.get(`/api/product/category/${categoryId}`).then((res) => res.data);
-});
-
 export const getOneProduct = createAsyncThunk("getOneProduct", () => {
   return axios.post("/api/findProduct").then((res) => res.data);
 });
@@ -28,8 +24,6 @@ const setProducts = createReducer([], {
   [getOneProduct.fulfilled]: (state, action) => action.payload,
   [productCreated.fulfilled]: (state, action) => action.payload,
   [deleteProduct.fulfilled]: (state, action) => action.payload,
-  [getProductsByCategory.fulfilled]: (state, action) => action.payload,
-
 });
 
 export default setProducts;

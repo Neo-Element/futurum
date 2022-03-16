@@ -10,11 +10,11 @@ productRouter.get("/all", (req, res) => {
   res.send(fakeData[0]);
 });
 
-productRouter.get("/category/:id", (req, res) => {
-  Products.findAll({ where: { categoriesId : req.params.id}})
-    .then((products) => (products ? res.json(products) : res.sendStatus(404)))
-    .catch((err) => console.log(err));
-});
+// productRouter.get("/category/:id", (req, res) => {
+//   Products.findAll({ where: { categoriesId : req.params.id}})
+//     .then((products) => (products ? res.json(products) : res.sendStatus(404)))
+//     .catch((err) => console.log(err));
+// });
 
 productRouter.get("/:product", (req, res) => {
   Products.findOne({

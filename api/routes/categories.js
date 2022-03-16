@@ -10,7 +10,13 @@ categoriesRouter.get("/", (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
-categoriesRouter.get("/:name", (req, res, next) => {
+categoriesRouter.get("/:id", (req, res, next) => {
+  Categories.findOne({ where: { id: req.params.id } })
+    .then((category) => res.send(category))
+    .catch(next);
+});
+
+categoriesRouter.get("/prod/:name", (req, res, next) => {
   Categories.findOne({ where: { name: req.params.name } })
     .then((category) => {
       Products.findAll({ where: { categoryId: category.id } });
