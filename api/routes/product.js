@@ -1,7 +1,7 @@
 const express = require("express");
 const productRouter = express.Router();
 const Products = require("../models/Products"); //REVISAR QUE COINCIDA CON LA RUTA CORRESPONDIENTE
-const fakeData = require("../utils/fakeData");
+const ProductsControllers= require("../controllers/products")
 
 productRouter.get("/all", (req, res) => {
   // Products.findAll()
@@ -9,48 +9,13 @@ productRouter.get("/all", (req, res) => {
   //   .catch((err) => console.log(err));
   res.send(fakeData[0]);
 });
-
-productRouter.get("/:product", (req, res) => {
-  Products.findOne({
-    where: {
-      productName: req.params.product, //EN REALIDAD SERÍA MEJOR BUSCAR POR ID, PREGUNTAR
-    },
-  })
-    .then((product) => (product ? res.json(product) : res.sendStatus(404)))
-    .catch((err) => console.log(err));
-});
-
-productRouter.put("/:productId", (req, res) => {
-  Products.update(req.body, {
-    where: {
-      id: req.params.productId,
-    },
-    returning: true,
-    plain: true,
-  }).then((result) => {
-    const product = result[1];
-    res.status(201).json(product);
-  });
-});
-
-productRouter.post("/add", (req, res) => {
-  Products.create(req.body)
-    .then((product) => res.status(201).json(product))
-    .catch((err) => console.log(err));
-});
-
-productRouter.delete("/remove", (req, res) => {
-  const { id } = req.body;
-
-  Products.destroy({
-    where: {
-      id: id,
-    },
-  }).then((result) => {
-    result
-      ? res.status(204).send()
-      : res.status(404).send("The course you want to delete doesn't exist.");
-  });
-});
+//OBTER PRODUCTO INDIVUDUAL
+productRouter.get("/:product", ProductsControllers.getProduct);
+//EDITAR PRODUCT  
+productRouter.put("/:productId", ProductsControllers.updateProduct);
+//AÑADIR CURSO
+productRouter.post("/add", ProductsControllers.addProduct);
+//BORRAR CURSO
+productRouter.delete("/remove", ProductsControllers.delete);
 
 module.exports = productRouter;
