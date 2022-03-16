@@ -19,6 +19,7 @@ const SingleCourse = () => {
       localStorage.setItem("Cart", JSON.stringify([...cart, products]))
       setCart([...cart, products]);
     }
+    
   };
 
 

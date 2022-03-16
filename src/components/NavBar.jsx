@@ -1,10 +1,20 @@
+import { useEffect } from "react";
 import Buttons from "../commons/Buttons";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { persistence } from "../store/users";
 const NavBar = () => {
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
+/*   useEffect(()=>{
+    if(user){
+      dispatch(
+        persistence()
+      )
+    }
+   },[]) */
+  
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">

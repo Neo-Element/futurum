@@ -2,12 +2,15 @@ import useInput from "../hooks/useInput";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../store/users";
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 const Login = () => {
   const email = useInput();
   const password = useInput();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+
 
   const validEmail = (email) => {
       return /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi.test(email.value)
@@ -20,7 +23,10 @@ const Login = () => {
     e.preventDefault();
     if(validEmail(email) && validPassword(password)){
         dispatch(userLogin({ email: email.value, password: password.value }))
-      .then(() => navigate("/users/products")) //revisar la ruta
+      .then((user) => {
+        localStorage.setItem("user",JSON.stringify(user.payload))
+        navigate("/users/products")
+      }) //revisar la ruta
       .catch((err) => console.log(err));
     } else {
         if(!validEmail(email)){
