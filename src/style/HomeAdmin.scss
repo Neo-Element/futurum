@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300");
+
+//card con la info precio,etc
+
+.grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  grid-gap: 20px;
+  .singleCard {
+    box-shadow: 2px 6px 6px 6px rgba(#000, 0.3);
+    background: #40916c;
+    height: 400px;
+    width: 250px;
+    margin-top: 50px;
+    border-radius: 50px;
+    margin-left: 30px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  
+    .bodyCard {
+      padding: 0 40px;
+      display: flex;
+      flex-flow: row no-wrap;
+      margin-bottom: 25px;
+  
+      > .half {
+        box-sizing: border-box;
+        padding: 0 15px;
+        flex: 1 0 50%;
+        max-height: 600px;
+      }
+  
+      .text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        h3 {
+          margin: 0;
+          padding: 0;
+          font-weight: 800;
+          font-family: "Montserrat", sans-serif;
+          font-size: 25px;
+          line-height: 50px;
+          color: #081c15;
+        }
+      }
+      .image {
+        padding-top: 15px;
+        max-width: 90%;
+        display: flex;
+        justify-content: center;
+  
+        img {
+          display: block;
+          max-width: 30%;
+          height: auto;
+          max-height: 400px;
+          box-shadow: 0px 6px 6px rgba(rgb(134, 134, 134), 0.3);
+        }
+      }
+  
+      .description {
+        margin-bottom: 25px;
+        margin-top: 80px;
+  
+        p {
+          margin: 0;
+          font-family: "Open Sans", sans-serif;
+          font-weight: 300;
+          line-height: 27px;
+          font-size: 16px;
+          color: rgb(255, 255, 255);
+        }
+      }
+    }
+  }
+  
+}
+.borderMark {
+    display: block;
+    position: relative;
+    margin-bottom: 60px;
+  }
+
+  link {
+    text-decoration: none;
+  }

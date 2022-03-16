@@ -16,6 +16,7 @@ import AdminCategory from "./admin/AdminCategories";
 import Category from "./components/Category";
 import Welcome from "./components/Welcome";
 import HomeUsers from "./components/HomeUsers";
+import HomeAdmin from "./admin/HomeAdmin";
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
         <Route path="/users/login" element={<Login />} />
 
         {/* RUTAS ADMINISTRADOR */}
-        <Route path="/admin" element={<h1>HOME DEL ADMINISTRADOR</h1>} />
+        <Route path="/admin" element={<HomeAdmin />} />
         <Route path="/admin/products" element={<AdminPanel />} />
         <Route path="/admin/products/add" element={<AddProduct/>} />
         <Route path="/admin/products/:id" element={<SingleCourse/>} />

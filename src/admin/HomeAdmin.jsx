@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import imageUser from "../assets/users.png";
-import imageAdmin from "../assets/admin.jpeg";
-import imageGuest from "../assets/guest.png";
+import imageUser from "../assets/user.svg";
+import imageCat from "../assets/category.jpeg";
+import imageProd from "../assets/products.png";
 
-const Welcome = () => {
+const HomeAdmin = () => {
   return (
     <div className="grid">
       <div className="singleCard">
       <div>
           <div className="image">
           <img
-            src={imageAdmin}
+            src={imageUser}
             alt="admin logo"
             style={{ width: "118px", height: "118px" }}
           />
           </div>
           <h1>
-          ADMIN
+          USERS
           </h1>
           <Link to="/admin/login" className="link">
           <button
@@ -37,7 +37,7 @@ const Welcome = () => {
                   />
                 </svg>
               </span>
-              Signin
+              Config Users
             </button>
           </Link>
         </div>
@@ -46,13 +46,13 @@ const Welcome = () => {
       <div>
           <div className="image">
           <img
-            src={imageUser}
+            src={imageCat}
             alt="user logo"
             style={{ width: "118px", height: "118px" }}
           />
           </div>
           <h1>
-          USERS
+          CATEGORIES
           </h1>
           <Link to="/users/login" className="link">
           <button
@@ -71,7 +71,7 @@ const Welcome = () => {
                   />
                 </svg>
               </span>
-              Welcome
+              Config Categories
             </button>
           </Link>
         </div>
@@ -80,13 +80,13 @@ const Welcome = () => {
       <div>
           <div className="image">
           <img
-            src={imageGuest}
+            src={imageProd}
             alt="guest logo"
             style={{ width: "118px", height: "118px" }}
           />
           </div>
           <h1>
-          GUEST
+          PRODUCTS
           </h1>
          <Link to="/" className="link">
          <button
@@ -105,7 +105,7 @@ const Welcome = () => {
                   />
                 </svg>
               </span>
-              Join
+              Config Products
             </button>
          </Link>
         </div>
@@ -114,4 +114,4 @@ const Welcome = () => {
   )
 }
 
-export default Welcome
+export default HomeAdmin;
