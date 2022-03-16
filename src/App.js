@@ -15,6 +15,7 @@ import AddCategory from "./commons/AddCategory";
 import AdminCategory from "./admin/AdminCategories";
 import Category from "./components/Category";
 import Welcome from "./components/Welcome";
+import HomeUsers from "./components/HomeUsers";
 
 
 function App() {
@@ -43,14 +44,14 @@ function App() {
         <Route path="/admin/categories/:id" element={<AddCategory/>} />
 
         {/* RUTAS USUARIOS */}
-        <Route path="/users" element={<h1>VISTAS USUARIO</h1>} />
+        <Route path="/users" element={<HomeUsers />} />
         <Route path="/users/products" element={<Grid />} />
         <Route path="/users/products/:id" element={<SingleCourse/>} />
         <Route path="/users/categories/:id" element={<Category />} />
         <Route path="/users/:id/cart/" element={<ShoppingCart />}/>
 
         {/* RUTAS INVITADOS */}
-        <Route path="/guest" element={<h1>VISTAS DE USUARIOS NO LOGUEADOS</h1>} />
+        <Route path="/guest" element={<HomeUsers />} />
         <Route path="/guest/products" element={<Grid />} />
         <Route path="/guest/products/:id" element={<SingleCourse/>} />
         <Route path="/guest/categories/:id" element={<Category />} />
