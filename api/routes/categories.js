@@ -33,15 +33,16 @@ categoriesRouter.post("/new", (req, res) => {
     .catch((err) => console.err(err));
 });
 
-categoriesRouter.delete("/delete/:id", (req, res) => {
+categoriesRouter.delete("/:id", (req, res) => {
   Categories.destroy({
     where: {
       id: req.params.id,
-    }, //VER SI HACE FALTA CATEGORIES.UPDATE()
-  });
+    },
+  }).then(()=> res.sendStatus(202))
+  .catch(err => console.log(err))
 });
 
-categoriesRouter.put("/edit/:id", (req, res) => {
+categoriesRouter.put("/:id", (req, res) => {
   Categories.update(req.body, {
     where: {
       id: req.params.id,

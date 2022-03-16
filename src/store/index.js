@@ -1,20 +1,23 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
-import userReducer, { getAllCart } from "./users";
+import singleUserReducer from "./singleUser";
+import usersReducer from "./users";
 import setProducts from "./products";
+import singleProdReducer from "./singleProduct";
 import cartReducer from "./in-cartCourses";
 import singleCategoryReducer from "./singleCategory";
 import categoriesReducer from "./categories";
 
 const store = configureStore({
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger), //middleware para -->
-  //que me loggee cada actualización//
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
   reducer: {
-    user: userReducer,
+    user: singleUserReducer,
+    users: usersReducer,
     products: setProducts,
-    cart: cartReducer,
+    product: singleProdReducer,
     category: singleCategoryReducer,
     categories: categoriesReducer,
+    cart: cartReducer,
   },
 });
 

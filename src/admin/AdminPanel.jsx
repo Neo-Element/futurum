@@ -4,7 +4,7 @@ import { userRegister } from "../store/users";
 import { useNavigate } from "react-router";
 import Login from "../commons/Login";
 import { products } from "../utils/fakeData";
-import { deleteProduct, productCreated, setProductPrueba } from "../store/products";
+import { deleteProduct, productCreated, setProductPrueba } from "../store/singleProduct";
 
 const AdminPanel = () => {
 

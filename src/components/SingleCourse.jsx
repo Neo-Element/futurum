@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CardRange from "../commons/CardRange";
-import { getOneProduct } from "../store/products";
+import { getOneProduct } from "../store/singleProduct";
 
 //RECIBE UN CURSO EN PARTICULAR
 const SingleCourse = () => {
