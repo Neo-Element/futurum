@@ -1,0 +1,43 @@
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .flex-item {
+    background: #52b788;
+    padding: 5px;
+    width: 400px;
+    height: 250px;
+    margin-top: 10px;
+    line-height: 150px;
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+  }
+  
+  .borderMark {
+    display: block;
+    position: relative;
+    margin-bottom: 60px;
+  }
+  
+  .rectangulo {
+    width: 400px;
+    height: 250px;
+    margin-left: 0px;
+  }
+  
+  .p {
+    height: 100px;
+    width: 200px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }

@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300");
+
+.header {
+  box-shadow: 2px 6px 6px 6px rgba(#000, 0.3);
+  background: #40916c;
+  height: 700px;
+  width: 1250px;
+  margin-top: 50px;
+  border-radius: 50px;
+  margin-left: 30px;
+
+  .title {
+    display: flex;
+    align-items: flex-start;
+    text-align: center;
+    padding: 30px 40px;
+
+    h5 {
+      flex: 0 1 120px;
+      margin: 0;
+      text-align: right;
+      color: #081c15;
+      font-family: sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+  }
+  .image {
+    padding-top: 15px;
+    max-width: 90%;
+    display: flex;
+    justify-content: center;
+
+    img {
+      display: block;
+      max-width: 90%;
+      height: auto;
+      max-height: 400px;
+      box-shadow: 0px 6px 6px rgba(rgb(134, 134, 134), 0.3);
+    }
+  }
+
+  .description {
+    margin-bottom: 25px;
+    margin-top: 133px;
+
+    p {
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 300;
+      line-height: 27px;
+      font-size: 16px;
+      color: rgb(255, 255, 255);
+    }
+  }
+}

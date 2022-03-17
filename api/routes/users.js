@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const { Users } = require("../models");
+
 const UserController=  require( "../controllers/usersController")
 
 //RUTA PARA REGISTRAR UN USUARIO
@@ -18,7 +18,11 @@ router.put("/:id", UserController.editUsers);
 
 //RUTA PARA DEVOLVER USUARIO LOGUEADO
 
+
 router.get("/me", UserController.getMe);
+
+
+
 
 //OTRA OPCION ES HACER UN MIDDLEWARE
 // const estaLogueado = (req, res, next) => {

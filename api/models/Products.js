@@ -7,17 +7,12 @@ Products.init(
   {
     productName: {
       type: S.STRING,
-     
     },
     price: {
       type: S.FLOAT,
-      
     },
-   
-    
     overview: {
       type: S.TEXT,
-     
     },
     image: {
       type: S.TEXT,
@@ -33,10 +28,9 @@ Products.init(
     },
     requirements: {
       type: S.TEXT,
-      
-      },
     },
-  
+  },
+
   {
     sequelize: db,
     modelName: "products",

@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300');
+
+//card con la info precio,etc
+ .singleCardLogin {
+    box-shadow: 2px 6px 6px 6px rgba(#000, 0.3);
+    background: #40916C;
+    height: 700px;
+    width: 1250px;
+    margin-top: 50px;
+    border-radius: 50px;
+    margin-left: 30px;
+
+    .cardTitle{
+        display: flex;
+        align-items: flex-start;
+        text-align: center;
+        padding: 30px 40px;
+
+        h5{
+            flex: 0 1 120px;
+            margin: 0;
+            text-align: right;
+            color: #081C15;
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            text-transform: uppercase;
+          }
+
+        .colorBar{
+            background-color: #1B4332;
+            padding: 10px 10px;
+            width: 1000px;
+            height: 5px;
+            margin-right: 50px;
+        }
+    }
+
+    .bodyCard{
+        padding: 0 40px;
+        display: flex;
+        flex-flow: row no-wrap;
+        margin-bottom: 25px;
+        
+        > .half{
+          box-sizing: border-box;
+          padding: 0 15px;
+          flex: 1 0 50%;
+          max-height: 600px;
+        }
+        
+        .text{
+          h1{
+            margin: 0;
+            padding: 0;
+            font-weight: 800;
+            font-family: "Montserrat", sans-serif;
+            font-size: 55px;
+            line-height: 50px;
+            color: #081C15;
+          }
+          
+          p{
+            margin: 0;
+            padding: 0;
+            
+            &.sub{
+              font-family: "Montserrat", sans-serif;
+              font-size: 26px;
+              text-transform: uppercase;
+              color: rgb(255, 255, 255);
+              font-weight: 300;
+              margin-bottom: 5px;
+            }
+            
+          }
+        }
+        .image{
+            padding-top: 15px;
+            max-width: 90%;
+            display: flex;
+            justify-content: center;
+       
+            
+            
+            img{
+              display: block;
+              max-width: 90%;
+              height: auto;
+              max-height: 400px;
+              box-shadow: 0px 6px 6px rgba(rgb(134, 134, 134), 0.3);
+              
+            }
+          }
+
+          .description{
+            margin-bottom: 25px;
+            margin-top: 133px;
+         
+            
+            p{
+              margin: 0;
+              font-family: "Open Sans", sans-serif;
+              font-weight: 300;
+              line-height: 27px;
+              font-size: 16px;
+              color: rgb(255, 255, 255);
+            }
+          }
+          
+          span.stock{
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            color: #a1cc16;
+          }
+          
+          .calification{
+            .rating-color{
+                color: #a1cc16;
+            }
+            > span{
+              font-family: "Open Sans", sans-serif;
+              font-size: 14px;
+              margin-left: 5px;
+              color: rgb(255, 255, 255);
+            }
+          }
+         
+          .priceAndAdd{
+              display: flex;
+              margin-top: 100px;
+              justify-content: space-between;
+            
+              align-items: center;
+              text-align: center;
+
+            .price{
+                font-family: "Montserrat", sans-serif;
+                color: #081C15;
+                font-size: 40px;
+                font-weight: 600;
+                
+    
+              }
+
+            .btnAdd{
+                margin-bottom: 12px;
+                box-shadow: 0px 6px 6px rgba(#000, 0.3);
+            }
+          }
+    }
+
+} 
+
+
+//testimonials
+.reviewsCard{
+    height: 400px;
+    width: 1000px;
+    text-align: center;
+    align-items: center;
+    margin-left: 7%;
+    margin-top: 10px;
+    background-color: rgba(50, 54, 54, 0.739);
+    .img-text{
+        width: 100%;
+        height: 300px;
+        display: block;
+        text-align: center;
+        padding: 40% 5%;
+        background: #B7E4C7;
+        color: black;
+        border-radius: 15px;
+   
+    h2 {
+        font-size: 25px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+     p {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+    .single-box{
+        position: relative;
+        margin-bottom: 30px;
+    }
+    .img-area{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border:  5px solid #fff;
+        overflow: hidden;
+        top: 15px;
+        left: 110px;
+        border-radius: 50%;
+
+        img {
+            width: 100%;
+        }
+    }
+    .carousel-indicators{
+        left:0;
+        top: auto;
+        bottom: -70px;
+    }
+    
+}
+
+.borderMark{
+    position: relative;
+    margin-left: 33.5% ;
+}
+
+.hrDown{
+    color: #eeab2e;
+    width: 1300px;
+    height: 3px;
+}
+
+//REQUIERS AND PROGRAM
+.bodyInfo{
+    text-align: center;
+    align-items: center;
+    margin-left: 90px;
+    background-color: #40916C;
+    border-radius: 50px;
+    height: 300px;
+    width:1100px ;
+    display: block;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    p{
+        color: #fff;
+        background-color: #40916C;
+    }
+}
+
+
+
