@@ -4,7 +4,7 @@ import useInput from "../hooks/useInput";
 import { productCreated } from "../store/singleProduct";
 
 
-const AddProduct = () => {
+const AddProduct = (course) => {
   const productName = useInput();
   const price = useInput();
   const category = useInput(); 

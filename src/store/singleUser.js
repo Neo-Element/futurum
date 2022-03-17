@@ -18,7 +18,6 @@ export const userLogout = createAsyncThunk("logout", () => {
 });
 
 
-
 const singleUserReducer = createReducer({}, {
   [userRegister.fulfilled]: (state, action) => action.payload,
   [userLogin.fulfilled]: (state, action) => action.payload,

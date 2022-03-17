@@ -13,6 +13,7 @@ export const getCategoryProd = createAsyncThunk("CATEGORY_PRODUCTS", (id) => {
 const setProducts = createReducer([], {
   [getProducts.fulfilled]: (state, action) => action.payload,
   [getCategoryProd.fulfilled]: (state, action) => action.payload,
+
 });
 
 export default setProducts;

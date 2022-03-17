@@ -14,10 +14,17 @@ export const deleteProduct = createAsyncThunk("productDeleted", (product) => {
   return axios.delete(`/api/product/remove?productId=${product.id}`).then((res)=> res.data)
 })
 
-const singleProdReducer = createReducer({}, {
+export const modifyProduct = createAsyncThunk("modifyProduct", (product) => {
+  console.log("PRODUCT", product);
+  return axios.put(`/api/product/${product.id}`, product).then((res)=> res.data)
+})
+
+const setProduct = createReducer([], {
   [getOneProduct.fulfilled]: (state, action) => action.payload,
   [productCreated.fulfilled]: (state, action) => action.payload,
   [deleteProduct.fulfilled]: (state, action) => action.payload,
+  [modifyProduct.fulfilled]: (state, action) => action.payload,
 });
 
-export default singleProdReducer;
+export default setProduct;
+

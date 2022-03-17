@@ -38,6 +38,17 @@ router.put("/:id", (req, res, next) => {
     .catch(next);
 });
 
+//ADD/REVOQUE ADMIN ROLE FOR USER
+
+// router.put("/:id", (req, res, next) => {
+//   Users.update(req.body, {
+//     isAdmin : false
+//   }, 
+//   {where: {id: req.params.id}}
+//   )
+//     .then(() => res.send(user))
+//     .catch(next);
+// });
 //RUTA PARA DEVOLVER USUARIO LOGUEADO
 
 router.get("/me", (req, res) => {
@@ -82,7 +93,7 @@ router.put("/admin/:id", isAdmin, (req, res, next) => {
 });
 
 //RUTA PARA ELIMINAR UN USUARIO
-router.delete("/:id", isAdmin, (req, res, next) => {
+router.delete("/:id", /*isAdmin*/ (req, res, next) => {
   Users.destroy({
     where: {
       id: req.params.id,
@@ -93,7 +104,7 @@ router.delete("/:id", isAdmin, (req, res, next) => {
 });
 
 //RUTA PARA VER TODOS LOS USUARIOS
-router.get("/", isAdmin, (req, res, next) => {
+router.get("/", /*isAdmin*/ (req, res, next) => {
   Users.findAll()
     .then((users) => {
       return res.send(users);

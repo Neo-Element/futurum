@@ -5,14 +5,16 @@ const fakeData = require("../utils/fakeData");
 
 productRouter.get("/", (req, res) => {
    Products.findAll()
-    .then((products) => (products ? res.json(products) : res.sendStatus(404)))
+    .then((products) => (products ? res.status(200).json(products) : res.sendStatus(404)))
     .catch((err) => console.log(err));
 });
 
 
 productRouter.get("/:id", (req, res) => {
+
   Products.findByPk(req.params.id)
-    .then((product) => (product ? res.json(product) : res.sendStatus(404)))
+    .then((product) => {
+      (product ? res.status(200).json(product) : res.sendStatus(404))})
     .catch((err) => console.log(err));
 });
 
@@ -26,6 +28,7 @@ productRouter.get("/categories/:id", (req, res, next) => {
 });
 
 productRouter.put("/:productId", (req, res) => {
+  console.log("req.body back", req.body)
   Products.update(req.body, {
     where: {
       id: req.params.productId,
@@ -33,6 +36,7 @@ productRouter.put("/:productId", (req, res) => {
     returning: true,
     plain: true,
   }).then((result) => {
+    console.log("DENTRO DEL THEN BACK",result)
     const product = result[1];
     res.status(201).json(product);
   });

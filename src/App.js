@@ -9,8 +9,8 @@ import Register from "./commons/Register";
 import SingleCourse from "./components/SingleCourse";
 import Footer from "./commons/Footer";
 import Team from "./commons/Team";
-import AdminPanel from "./admin/AdminPanel";
-import AddProduct from "./commons/AddProduct";
+import AdminCourses from "./admin/AdminCourses";
+import AddProduct from "./admin/AddProduct";
 import AddCategory from "./commons/AddCategory";
 import AdminCategory from "./admin/AdminCategories";
 import Category from "./components/Category";
@@ -21,7 +21,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { persistence } from "./store/singleUser";
 import CheckOut from "./components/Checkout";
 import SideBar from "./components/SideBar";
-
+import AdminUser from "./admin/AdminUser";
+import EditCourse from "./admin/EditCourse"
 
 
 
@@ -51,13 +52,17 @@ useEffect(()=>{
 
         {/* RUTAS ADMINISTRADOR */}
         <Route path="/admin" element={<HomeAdmin />} />
-        <Route path="/admin/products" element={<AdminPanel />} />
+        <Route path="/admin/products" element={<AdminCourses />} />
         <Route path="/admin/products/add" element={<AddProduct/>} />
-        <Route path="/admin/products/edit/:id" element={<SingleCourse/>} />
-        <Route path="/admin/users" element={<h1>VISTAS DE USUARIOS</h1>} />
+        <Route path="/admin/products/:id" element={<SingleCourse/>} />
+        <Route path="/admin/products/edit/:id" element={<EditCourse/>} />
+        <Route path="/admin/users" element={<AdminUser/>} />
+        <Route path="/admin/users/:id" element={<h1>VISTAS DE UN USUARIO PARTICULAR</h1>} />
         <Route path="/admin/users/edit/:id" element={<h1>VISTAS DE UN USUARIO PARTICULAR</h1>} />
+
         <Route path="/admin/categories" element={<AdminCategory />} />
         <Route path="/admin/categories/add" element={<AddCategory/>} />
+        <Route path="/admin/categories/:id" element={<Category />} />
         <Route path="/admin/categories/edit/:id" element={<AddCategory/>} />
 
         {/* RUTAS USUARIOS */}
