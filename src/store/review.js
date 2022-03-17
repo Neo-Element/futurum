@@ -2,10 +2,7 @@ import { createAsyncThunk, createReducer } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const sendReview = createAsyncThunk("SET_REVIEW", (review) => {
-  return axios.post("/api/reviews/new", review).then((res) => {
-    console.log(res.data);
-    return res.data;
-  });
+  return axios.post("/api/reviews/new", review).then((res) => res.data);
 });
 
 const reviewReducer = createReducer([], {
@@ -13,4 +10,3 @@ const reviewReducer = createReducer([], {
 });
 
 export default reviewReducer;
-

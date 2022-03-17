@@ -5,20 +5,18 @@ import { sendReview } from "../store/review";
 const ShoppingHistory = () => {
   const courses = useSelector((state) => state.products);
   const user = useSelector((state) => state.user.id);
+  const dispatch = useDispatch();
   const [input, setInput] = useState({
     productId: null,
     comment: null,
     userId: null,
   });
 
-  const dispatch = useDispatch();
-
-  const handleClick = (e) => {};
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setInput({ ...input, userId: user });
     dispatch(sendReview(input));
+    alert("Thanks for leaving a review!")
   };
 
   return (
