@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const { Users } = require("../models");
-const UserController=  require( "../controllers/users")
+const UserController=  require( "../controllers/usersController")
 
 //RUTA PARA REGISTRAR UN USUARIO
 router.post("/register", UserController.registerUsers)
