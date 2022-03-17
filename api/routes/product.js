@@ -16,6 +16,15 @@ productRouter.get("/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+productRouter.get("/categories/:id", (req, res, next) => {
+  console.log("PARAMS->", req.params);
+  Products.findAll({ where: { categoriesId: req.params.id } })
+    .then((courses) => {
+      console.log("CURSOS->", courses);
+      res.send(courses)})
+    .catch(next);
+});
+
 productRouter.put("/:productId", (req, res) => {
   Products.update(req.body, {
     where: {

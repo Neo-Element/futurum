@@ -3,11 +3,13 @@
 .header {
   box-shadow: 2px 6px 6px 6px rgba(#000, 0.3);
   background: #40916c;
-  height: 700px;
+  height: 200px;
   width: 1250px;
   margin-top: 50px;
   border-radius: 50px;
   margin-left: 30px;
+  display: flex;
+  flex-wrap: wrap;
 
   .title {
     display: flex;

@@ -2,6 +2,7 @@ const express = require("express");
 const categoriesRouter = express.Router();
 const {Categories,Products } = require("../models"); //EN CASO QUE CATEGORÍAS SEA UNA TABLA
 
+
 categoriesRouter.get("/", (req, res, next) => {
   Categories.findAll()
     .then((categories) =>
@@ -12,19 +13,8 @@ categoriesRouter.get("/", (req, res, next) => {
 
 categoriesRouter.get("/:id", (req, res, next) => {
   Categories.findOne({ where: { id: req.params.id } })
-    .then((category) => res.send(category))
-    .catch(next);
-});
-
-categoriesRouter.get("/prod/:name", (req, res, next) => {
-  Categories.findOne({ where: { name: req.params.name } })
     .then((category) => {
-      Products.findAll({ where: { categoriesId: category.id } });
-    })
-    .then((courses) => {
-      console.log(courses)
-      res.send(courses)
-    })
+      res.send(category)})
     .catch(next);
 });
 
@@ -41,8 +31,9 @@ categoriesRouter.delete("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-  }).then(()=> res.sendStatus(202))
-  .catch(err => console.log(err))
+  })
+    .then(() => res.sendStatus(202))
+    .catch((err) => console.log(err));
 });
 
 categoriesRouter.put("/:id", (req, res) => {
