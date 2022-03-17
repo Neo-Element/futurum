@@ -23,9 +23,14 @@ const Login = () => {
     e.preventDefault();
     if(validEmail(email) && validPassword(password)){
         dispatch(userLogin({ email: email.value, password: password.value }))
-      .then((user) => {
-        localStorage.setItem("user",JSON.stringify(user.payload))
-        navigate("/users/products")
+      .then((res) => {
+        console.log("USER",res)
+        if(res.payload){
+          localStorage.setItem("user",JSON.stringify(res.payload))
+        }else {
+          alert("Error! ")
+        }
+        navigate("/")
       }) //revisar la ruta
       .catch((err) => console.log(err));
     } else {
@@ -39,53 +44,53 @@ const Login = () => {
   };
   return (
     <div className="containerSingle">
-      <div className="singleCard">
+      <div className="singleCardLogin">
         <div className="cardTitle">
-          <div className="colorBar"> </div>
           <form onSubmit={handlerSubmit}>
             <fieldset>
               <legend>
                 <h1>Login Usuario</h1>
               </legend>
-              <div class="mb-3">
-                <label for="disabledTextInput" class="form-label">
+              <div className="mb-3">
+                <label for="disabledTextInput" className="form-label">
                   Email
                 </label>
                 <input
                   {...email}
                   type="email"
                   id="disabledTextInput"
-                  class="form-control"
+                  className="form-control"
                   placeholder="email@futurum.com"
                   
                   required
                 />
               </div>
-              <div class="mb-3">
-                <label for="inputPassword6" class="col-form-label">
+              <div className="mb-3">
+                <label for="inputPassword6" v="col-form-label">
                   Password
                 </label>
               </div>
-              <div class="mb-3">
-                <div class="col-auto">
+              <div className="mb-3">
+                <div className="col-auto">
                   <input
                     {...password}
                     type="password"
                     id="inputPassword6"
-                    class="form-control"
+                    className="form-control"
                     aria-describedby="passwordHelpInline"
                     required
                   />
                 </div>
-                <div class="col-auto">
-                  <span id="passwordHelpInline" class="form-text">
+                <div className="col-auto">
+                  <span id="passwordHelpInline" className="form-text text-white">
                     Must be 8-20 characters long.
                   </span>
                 </div>
               </div>
-              <button className="btn btn-dark btn-lg btnAdd">
-                <i class="fa-solid fa-cart-arrow-down"></i> Sing in
-              </button>
+              <div className="btnAdd"> 
+                  <button className="btn btn-dark btn-lg "> Sing in</button>   
+              </div>
+            
             </fieldset>
           </form>
         </div>

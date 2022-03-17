@@ -1,0 +1,34 @@
+.singleCardRegister{
+    box-shadow: 2px 6px 6px 6px rgba(#000, 0.3);
+    background: #40916C;
+    height: 650px;
+    width: 500px;
+    margin-top: 50px;
+    border-radius: 50px;
+    margin-left: 40%;
+    display: flex;
+    justify-content: center;
+    
+    .cardTitle{
+        padding: 30px 40px;
+
+        legend{
+          text-align: center;
+        }
+
+        .colorBar{
+            background-color: #1B4332;
+            padding: 10px 10px;
+            width: 1000px;
+            height: 5px;
+            margin-right: 50px;
+        }
+        .btnAddR{
+          display: flex;
+          justify-content: center;
+          text-align: center  ;
+          margin-top: 15px;
+        }
+    }
+
+  }

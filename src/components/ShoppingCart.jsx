@@ -8,12 +8,12 @@ import axios from "axios";
 const ShoppingCart = () => {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
-  let courses = JSON.parse(localStorage.getItem("Cart"))
+  let courses =localStorage.getItem("Cart") ? JSON.parse(localStorage.getItem("Cart")) : [];
   const [cart, setCart] = useState(localStorage.getItem("Cart") ?  JSON.parse(localStorage.getItem("Cart")) : [] );
 
   useEffect(() => {
-  },[courses])
-
+  },[courses]);
+  
   const handleClick = (course) => {
     const deleted = courses.filter(e => e !== course)
     localStorage.setItem("Cart", JSON.stringify(deleted))
@@ -23,12 +23,10 @@ const ShoppingCart = () => {
   const handlerCheckout = () => {
     if(!user.id){
       navigate("/users/login")
-    } 
-    cart.map(course => {
-      axios
-      .put(`/api/orders/${user.id}/${course.id}`)
-      .catch(err => console.log(err))
-    })
+    } else {
+      navigate(`/users/cart/${user.id}`)
+    }
+   
   }
 
 
@@ -63,7 +61,10 @@ const ShoppingCart = () => {
           })}
         </table>
       </div>
-      <button onClick={handlerCheckout}>Comprar</button>
+      {courses.length ? (
+        <button onClick={handlerCheckout}>Comprar</button>
+      ): null}
+      
     </div>
   );
 };

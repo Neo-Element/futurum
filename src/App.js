@@ -9,8 +9,8 @@ import Register from "./commons/Register";
 import SingleCourse from "./components/SingleCourse";
 import Footer from "./commons/Footer";
 import Team from "./commons/Team";
-import AdminPanel from "./admin/AdminPanel";
-import AddProduct from "./commons/AddProduct";
+import AdminCourses from "./admin/AdminCourses";
+import AddProduct from "./admin/AddProduct";
 import AddCategory from "./commons/AddCategory";
 import AdminCategory from "./admin/AdminCategories";
 import Category from "./components/Category";
@@ -18,8 +18,12 @@ import Welcome from "./components/Welcome";
 import HomeUsers from "./components/HomeUsers";
 import HomeAdmin from "./admin/HomeAdmin";
 import { useDispatch, useSelector } from "react-redux";
-/ import { persistence } from "./store/users"; 
-
+import { persistence } from "./store/singleUser";
+import CheckOut from "./components/Checkout";
+import SideBar from "./components/SideBar";
+import AdminUser from "./admin/AdminUser";
+import EditCourse from "./admin/EditCourse"
+import ShoppingHistory from "./components/ShoppingHistory";
 
 
 
@@ -37,6 +41,7 @@ const dispatch = useDispatch();
 
     <div>
       <NavBar/>
+      <SideBar/>
       <div>
       <Routes>
         {/* LAS RUTAS NO ESTAN DINAMIZADAS POR AHORA */}
@@ -48,13 +53,17 @@ const dispatch = useDispatch();
 
         {/* RUTAS ADMINISTRADOR */}
         <Route path="/admin" element={<HomeAdmin />} />
-        <Route path="/admin/products" element={<AdminPanel />} />
+        <Route path="/admin/products" element={<AdminCourses />} />
         <Route path="/admin/products/add" element={<AddProduct/>} />
-        <Route path="/admin/products/edit/:id" element={<SingleCourse/>} />
-        <Route path="/admin/users" element={<h1>VISTAS DE USUARIOS</h1>} />
+        <Route path="/admin/products/:id" element={<SingleCourse/>} />
+        <Route path="/admin/products/edit/:id" element={<EditCourse/>} />
+        <Route path="/admin/users" element={<AdminUser/>} />
+        <Route path="/admin/users/:id" element={<h1>VISTAS DE UN USUARIO PARTICULAR</h1>} />
         <Route path="/admin/users/edit/:id" element={<h1>VISTAS DE UN USUARIO PARTICULAR</h1>} />
+
         <Route path="/admin/categories" element={<AdminCategory />} />
         <Route path="/admin/categories/add" element={<AddCategory/>} />
+        <Route path="/admin/categories/:id" element={<Category />} />
         <Route path="/admin/categories/edit/:id" element={<AddCategory/>} />
 
         {/* RUTAS USUARIOS */}
@@ -63,7 +72,8 @@ const dispatch = useDispatch();
         <Route path="/users/products/:id" element={<SingleCourse/>} />
         <Route path="/users/categories/:id" element={<Category />} />
         <Route path="/users/cart/" element={<ShoppingCart />}/>
-        <Route path="/users/cart/:id" element={<h1>VISTA CHECKOUT</h1>}/>
+        <Route path="/users/cart/:id" element={<CheckOut/>}/>
+        <Route path="/users/my_courses/" element={<ShoppingHistory />}/>
 
         {/* RUTAS ERROR */}
         <Route path="*" element={<Navigate to="404" />} />

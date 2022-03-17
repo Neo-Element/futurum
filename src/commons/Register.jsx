@@ -1,6 +1,9 @@
 import useInput from "../hooks/useInput";
 import { useDispatch } from "react-redux";
- import { userRegister } from "../store/singleUser"; 
+
+
+import { userRegister } from "../store/singleUser";
+
 import { useNavigate } from "react-router";
 
 const Register = () => {
@@ -34,47 +37,66 @@ const Register = () => {
   };
   //Revisar estilos de requiered
   return (
-    <div>
-      <form onSubmit={handlerSubmit}>
-        <label>User Name</label>
-        <input
-          {...userName}
-          type="text"
-          placeholder="User Name"
-          required
-          /* minlength="3"
-          maxlength="20" */
-        />
-        <label>Name and lastname</label>
-        <input
-          {...nameAndLastname}
-          type="text"
-          placeholder="Name and lastname"
-          required
-        />
-        <label>Email</label>
-        <input
-          {...email}
-          type="email"
-          placeholder="email@futurum.com"
-          required
-        />
-        <label>City</label>
-        <input {...city} type="text" placeholder="City" required />
-        <label>Country</label>
-        <input {...country} type="text" placeholder="Country" required />
-        <label>Password</label>
-        <input
-          {...password}
-          type="password"
-          placeholder=">Password"
-          required
-          /* minlength="6"
-          maxlength="8" */
-        />
-        <button type="submit" >Submit</button>
-      </form>
+    <div className="containerSingle">
+     <div className="singleCardRegister">
+        <div className="cardTitle">
+        <form onSubmit={handlerSubmit}>
+              <legend>
+                <h1>Register</h1>
+              </legend>
+          <div className="mb-3">
+            <label>User Name</label>
+            <input
+              {...userName}
+              type="text"
+              placeholder="User Name"
+              required
+              minlength="3"
+              maxlength="20" 
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label>Name and lastname</label>
+            <input
+              {...nameAndLastname}
+              type="text"
+              placeholder="Name and lastname"
+              className="form-control"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label>Email</label>
+            <input
+              {...email}
+              type="email"
+              placeholder="email@futurum.com"
+              className="form-control"
+              required
+            />
+          </div>
+          <label>City</label>
+          <input {...city} type="text" placeholder="City" required className="form-control"/>
+          <label>Country</label>
+          <input {...country} type="text" placeholder="Country" required className="form-control" />
+          <label>Password</label>
+          <input
+            {...password}
+            type="password"
+            placeholder=">Password"
+            className="form-control"
+            required
+            minlength="6"
+            maxlength="8"
+          />
+          <div className="btnAddR"> 
+            <button type="submit" className="btn btn-dark btn-lg btnAdd" >Register</button>
+          </div>
+        </form>
     </div>
+  </div>
+</div>
   );
 };
 export default Register;

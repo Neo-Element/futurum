@@ -1,5 +1,4 @@
 const users=[{
-    id:1,
     userName: "Lucy Arr",
     nameAndLastname:"Lucia Fernandez",
     email: "lucy2@gmail.com",
@@ -11,7 +10,6 @@ const users=[{
 
 },
 {
-    id:2,
     userName: "Ana Wat",
     nameAndLastname:"Ana Watson",
     email: "ana3@gmail.com",
@@ -23,7 +21,6 @@ const users=[{
 
 },
 {
-    id:3,
     userName: "Agos Martinez",
     nameAndLastname:"Agostina Martinez",
     email: "agosti@gmail.com",
@@ -35,7 +32,6 @@ const users=[{
 
 },
 {
-    id:4,
     userName: "Facu Alg",
     nameAndLastname:"Facundo Algo",
     email: "facu@gmail.com",

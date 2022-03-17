@@ -16,19 +16,38 @@ productRouter.delete("/remove", ProductsControllers.delete);
 
 /* En el merge no vinieron mas funciones de product 
 
+*/
+/* productRouter.post("/add", (req, res) => {
+  console.log("REQ BODY -->", req.body); */
 
-productRouter.post("/add", (req, res) => {
-  console.log("REQ BODY -->", req.body);
+
+productRouter.get("/", (req, res) => {
+   Products.findAll()
+    .then((products) => (products ? res.status(200).json(products) : res.sendStatus(404)))
+    .catch((err) => console.log(err));
+});
 
 
 
 productRouter.get("/:id", (req, res) => {
+
   Products.findByPk(req.params.id)
-    .then((product) => (product ? res.json(product) : res.sendStatus(404)))
+    .then((product) => {
+      (product ? res.status(200).json(product) : res.sendStatus(404))})
     .catch((err) => console.log(err));
 });
 
+productRouter.get("/categories/:id", (req, res, next) => {
+  console.log("PARAMS->", req.params);
+  Products.findAll({ where: { categoriesId: req.params.id } })
+    .then((courses) => {
+      console.log("CURSOS->", courses);
+      res.send(courses)})
+    .catch(next);
+});
+
 productRouter.put("/:productId", (req, res) => {
+  console.log("req.body back", req.body)
   Products.update(req.body, {
     where: {
       id: req.params.productId,
@@ -36,6 +55,7 @@ productRouter.put("/:productId", (req, res) => {
     returning: true,
     plain: true,
   }).then((result) => {
+    console.log("DENTRO DEL THEN BACK",result)
     const product = result[1];
     res.status(201).json(product);
   });
@@ -56,7 +76,7 @@ Categories.findOrCreate({where: {name: category }})
     res.status(201).send(product)})
   .catch((err) => console.log(err));
 })
-}); */
+}); 
 
 
 
