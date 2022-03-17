@@ -1,4 +1,4 @@
-const users=[{
+ const users=[{
     userName: "Lucy Arr",
     nameAndLastname:"Lucia Fernandez",
     email: "lucy2@gmail.com",
@@ -44,4 +44,4 @@ const users=[{
 }
 ];
 
-module.exports= users;
+module.exports= users; 
