@@ -28,9 +28,9 @@ const CheckOut = () => {
   const handleBuy = () => {
     const orders = courses.map(course => {
       let order = {
-        date: date.toLocaleDateString(),
+        date: date.toISOString(),
         paymentId: document.getElementById("payment").value,
-        userId: user.id,
+        userId: 3,//harcodeado OJO
         productId: course.id
       }
       return order;
