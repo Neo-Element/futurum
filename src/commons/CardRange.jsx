@@ -1,28 +1,34 @@
 //RANGE genera un rango segun el valor que contenga la propiedad vote_average de cada pelicula de TMDB,
 //se fija el valor y pinta los corazones segun el rango correspondiendte
 const CardRange = ({ range }) => {
-  let rangeFloor = Math.floor(range);
-  let loop = rangeFloor / 2;
+  let rating = Math.round(range); // range va de 0 a 10
 
   const voidStar = <i className="fa-regular fa-star"></i>;
   const halfStar = (
     <i className="fa-solid fa-star-half-stroke rating-color"></i>
   );
   const completeStar = <i className="fa-solid fa-star rating-color"></i>;
-  let rating = [voidStar, voidStar, voidStar, voidStar, voidStar];
+  let arr = [];
 
-  //cambia la className de stars
-  if (rangeFloor !== 0) {
-    for (let i = 0; i <= loop; i += 0.5) {
-      if (rangeFloor % 2 === 0 && Math.floor(i) === loop) {
-        rating[i] = halfStar;
-        break;
-      }
-      rating[i] = completeStar;
+  while (rating >0) {
+    if (rating >= 2) {
+      arr.push(completeStar);
+    } else {
+        arr.push(halfStar);
     }
+    rating -= 2;
   }
 
-  return <>{rating.map((star) => star)}</>;
+  while (arr.length < 5) {
+    arr.push(voidStar);
+  }
+
+
+  return (
+    <>
+      {arr.map((star) => star)}
+    </>
+  );
 };
 
 export default CardRange;
