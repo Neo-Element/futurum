@@ -2,7 +2,7 @@ import axios from "axios";
 import { createReducer, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const categoryRegister = createAsyncThunk("INSERT", (category) => {
-  return axios.post("/api/categories", category).then((res) => res.data);
+  return axios.post("/api/categories/new", category).then((res) => res.data);
 });
 
 export const getCategory = createAsyncThunk("SINGLE_CATEGORY", (id) => {
