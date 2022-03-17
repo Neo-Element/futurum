@@ -16,7 +16,7 @@ export const deleteProduct = createAsyncThunk("productDeleted", (product) => {
 
 export const modifyProduct = createAsyncThunk("modifyProduct", (product) => {
   console.log("PRODUCT", product);
-  return axios.put(`/api/product/${product.id}`, product).then((res)=> res.data)
+  return axios.put(`/api/product/edit/${product.id}`, product).then((res)=> res.data)
 })
 
 const setProduct = createReducer([], {

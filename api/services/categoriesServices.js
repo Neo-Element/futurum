@@ -10,6 +10,7 @@ exports.serviceGetAll = async (req, next) => {
     next(err);
   }
 };
+
 //OBTENER UNA CATEGORIA
 exports.serviceGetOne = async (req, next) => {
   try {
@@ -40,7 +41,8 @@ exports.serviceGetByCategory = async (req, next) => {
 exports.serviceNewCategory = async (req, next) => {
   try {
     const category = await Categories.create(req.body);
-    return category;
+    console.log(category.dataValues);
+    return category.dataValues;
   } catch (err) {
     console.err(err);
     next(err);

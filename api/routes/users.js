@@ -2,17 +2,12 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 
-const UserController=  require( "../controllers/usersController")
-
+const { Users } = require("../models");
+const UserController = require("../controllers/usersController");
 //RUTA PARA REGISTRAR UN USUARIO
-
-router.post("/register", UserController.registerUsers)
-
-
+router.post("/register", UserController.registerUsers);
 //RUTA PARA LOGIN
-
-router.post("/login",passport.authenticate("local"),UserController.loginUsers);
-
+router.post("/login", UserController.loginUsers);
 //RUTA PARA LOGOUT
 router.post("/logout", UserController.logOutUsers);
 
@@ -24,7 +19,7 @@ router.put("/:id", UserController.editUsers);
 // router.put("/:id", (req, res, next) => {
 //   Users.update(req.body, {
 //     isAdmin : false
-//   }, 
+//   },
 //   {where: {id: req.params.id}}
 //   )
 //     .then(() => res.send(user))
@@ -32,11 +27,7 @@ router.put("/:id", UserController.editUsers);
 // });
 //RUTA PARA DEVOLVER USUARIO LOGUEADO
 
-
 router.get("/me", UserController.getMe);
-
-
-
 
 //OTRA OPCION ES HACER UN MIDDLEWARE
 // const estaLogueado = (req, res, next) => {
@@ -61,24 +52,10 @@ const isAdmin = (req, res, next) => {
 router.put("/admin/:id", isAdmin, UserController.promoveAdmin);
 
 //RUTA PARA ELIMINAR UN USUARIO
-
-router.delete("/:id", isAdmin, UserController.deliteUsers);
-
-//RUTA PARA VER TODOS LOS USUARIOS
-
-router.get("/",isAdmin, UserController.getUsers)
-
-
+router.delete("/:id", /*isAdmin*/ UserController.deliteUsers);
 
 //RUTA PARA VER TODOS LOS USUARIOS
-router.get("/", /*isAdmin*/ (req, res, next) => {
-  Users.findAll()
-    .then((users) => {
-      return res.send(users);
-    })
-    .catch(next);
-});
-
+router.get("/", /*isAdmin*/ UserController.getUsers);
 
 //NO PEDIDAS EN TRELLO
 //RUTA PARA VER UN USUARIO PARTICULAR
