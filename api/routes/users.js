@@ -2,41 +2,16 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const { Users } = require("../models");
-
+const UserController= require("../controllers/usersController")
 //RUTA PARA REGISTRAR UN USUARIO
-router.post("/register", (req, res) => {
-  Users.create(req.body)
-    .then((user) => {
-      res.json(user);
-    })
-    .catch((err) => console.log(err));
-});
-
+router.post("/register", UserController.registerUsers)
 //RUTA PARA LOGIN
-router.post("/login", passport.authenticate("local"), (req, res) => {
-  res.send(req.user);
-});
-
+router.post("/login", UserController.loginUsers);
 //RUTA PARA LOGOUT
-router.post("/logout", (req, res) => {
-  req.logOut();
-  res.status(200).send({});
-});
+router.post("/logout", UserController.logOutUsers);
 
 //RUTA PARA EDITAR UN USUARIO
-router.put("/:id", (req, res, next) => {
-  Users.update(req.body, {
-    where: {
-      id: req.params.id,
-    },
-    returning: true,
-  })
-    .then(([affectedRows, updated]) => {
-      const user = updated[0];
-      res.send(user);
-    })
-    .catch(next);
-});
+router.put("/:id", UserController.editUsers);
 
 //ADD/REVOQUE ADMIN ROLE FOR USER
 
@@ -78,50 +53,16 @@ const isAdmin = (req, res, next) => {
 //app.use(isAdmin);
 
 //RUTA PARA PROMOVER UN ADMINISTRADOR
-router.put("/admin/:id", isAdmin, (req, res, next) => {
-  Users.update(req.body, {
-    where: {
-      id: req.params.id,
-    },
-    returning: true,
-  })
-    .then(([affectedRows, updated]) => {
-      const user = updated[0];
-      res.send(user);
-    })
-    .catch(next);
-});
+router.put("/admin/:id", isAdmin, UserController.promoveAdmin);
 
 //RUTA PARA ELIMINAR UN USUARIO
-router.delete("/:id", /*isAdmin*/ (req, res, next) => {
-  Users.destroy({
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then(() => res.sendStatus(202))
-    .catch(next);
-});
+router.delete("/:id", /*isAdmin*/ UserController.deliteUsers);
 
 //RUTA PARA VER TODOS LOS USUARIOS
-router.get("/", /*isAdmin*/ (req, res, next) => {
-  Users.findAll()
-    .then((users) => {
-      return res.send(users);
-    })
-    .catch(next);
-});
+router.get("/", /*isAdmin*/ UserController.getUsers);
 
 //NO PEDIDAS EN TRELLO
 //RUTA PARA VER UN USUARIO PARTICULAR
-router.get("/:id", (req, res, next) => {
-  Users.findOne({
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((user) => res.send(user))
-    .catch(next);
-});
+router.get("/:id", UserController.getOne);
 
 module.exports = router;
