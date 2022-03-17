@@ -1,78 +1,22 @@
 const express = require("express");
 const productRouter = express.Router();
-const { Products, Categories } = require("../models");
-const fakeData = require("../utils/fakeData");
+const ProductsControllers = require("../controllers/productsController");
+//ALL PRODUCTS
+productRouter.get("/", ProductsControllers.getAll);
 
-productRouter.get("/", (req, res) => {
-   Products.findAll()
-    .then((products) => (products ? res.status(200).json(products) : res.sendStatus(404)))
-    .catch((err) => console.log(err));
-});
+//GET PRODUCT
+productRouter.get("/:id", ProductsControllers.getProduct);
 
+//GET PRODUCT BY CATEGORY
+productRouter.get("/categories/:id", ProductsControllers.productByCategory);
 
-productRouter.get("/:id", (req, res) => {
+//UPDATE PRODUCT
+productRouter.put("/:productId", ProductsControllers.updateProduct);
 
-  Products.findByPk(req.params.id)
-    .then((product) => {
-      (product ? res.status(200).json(product) : res.sendStatus(404))})
-    .catch((err) => console.log(err));
-});
+// ADD PRODUCT
+productRouter.post("/add", ProductsControllers.addProduct);
 
-productRouter.get("/categories/:id", (req, res, next) => {
-  console.log("PARAMS->", req.params);
-  Products.findAll({ where: { categoriesId: req.params.id } })
-    .then((courses) => {
-      console.log("CURSOS->", courses);
-      res.send(courses)})
-    .catch(next);
-});
-
-productRouter.put("/:productId", (req, res) => {
-  console.log("req.body back", req.body)
-  Products.update(req.body, {
-    where: {
-      id: req.params.productId,
-    },
-    returning: true,
-    plain: true,
-  }).then((result) => {
-    console.log("DENTRO DEL THEN BACK",result)
-    const product = result[1];
-    res.status(201).json(product);
-  });
-});
-
-
-
-productRouter.post("/add", (req, res) => {
-const { category } = req.body;
-
-Categories.findOrCreate({where: {name: category }})
-.then(data => {
-  const category = data[0]
-  Products.create(req.body)
-  .then((product) => {
-    product.setCategories(category)
-    res.status(201).send(product)})
-  .catch((err) => console.log(err));
-})
-});
-
-
-
-productRouter.delete("/remove", (req, res) => {
-  const { productId } = req.query;
-  // console.log("esto es req.body -->",req.query);
-
-  Products.destroy({
-    where: {
-      id: productId,
-    },
-  }).then((result) => {
-    result
-      ? res.status(204).send([])
-      : res.status(404).send("The course you want to delete doesn't exist.");
-  });
-});
+//DELETE PRODUCT
+productRouter.delete("/remove", ProductsControllers.delete);
 
 module.exports = productRouter;
