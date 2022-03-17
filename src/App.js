@@ -26,16 +26,17 @@ import EditCourse from "./admin/EditCourse"
 import ShoppingHistory from "./components/ShoppingHistory";
 
 
+
 function App() {
 const user = useSelector(state => state.user);
 const dispatch = useDispatch();
-useEffect(()=>{
+ useEffect(()=>{
   if(localStorage.getItem("user")){
     dispatch(
       persistence()
     )
     }
-},[])
+},[]) 
   return (
 
     <div>
