@@ -29,7 +29,7 @@ const SingleCourse = () => {
 
   return (
     <div className="containerSingle">
-      <div className="singleCardLogin">
+      <div className="singleCardProduct">
         <div className="cardTitle">
           <div className="colorBar"> </div>
           <h5>{`${product.duration} hours`}</h5>
