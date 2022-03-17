@@ -1,6 +1,6 @@
 import useInput from "../hooks/useInput";
 import { useDispatch } from "react-redux";
-import { userRegister } from "../store/users";
+ import { userRegister } from "../store/singleUser"; 
 import { useNavigate } from "react-router";
 
 const Register = () => {

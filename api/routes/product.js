@@ -3,14 +3,8 @@ const productRouter = express.Router();
 const ProductsControllers= require("../controllers/productsController")
 
 
-
-productRouter.get("/", (req, res) => {
-   Products.findAll()
-    .then((products) => (products ? res.json(products) : res.sendStatus(404)))
-    .catch((err) => console.log(err));
-});
-
-
+//OBTENER TODOS LOS PRODUCTOS
+productRouter.get("/", ProductsControllers.getAll);
 //OBTER PRODUCTO INDIVUDUAL
 productRouter.get("/:product", ProductsControllers.getProduct);
 //EDITAR PRODUCT  

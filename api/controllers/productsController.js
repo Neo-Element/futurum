@@ -1,4 +1,10 @@
-const ProductController = require("../services/productsService");
+const ProductService = require("../services/productsService");
+
+//ALL PRODUCTS
+exports.getAll=async(req,res,next)=>{
+  const products= await ProductService.serviceGetAll(req, next)
+  return products ? res.json(products) : res.sendStatus(404)
+}
 
 //GET PRODUCT
 exports.getProduct = async (req, res) => {

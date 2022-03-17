@@ -1,7 +1,6 @@
-const { Users } = require("../models"); // correct routes
-const { Products } = require("../models");
-
-//ADD TO CART
+const {  Carts } = require("../models");
+const OrderService= require("../services/orderServices")
+//ADD TO CART ESTA RUAT FALTA TERMINARLA
 exports.addCart= async (req, res, next) => {
  console.log("PRODUCTO AÑADIDO CON CONTROLLERS")
   try{
@@ -14,7 +13,7 @@ exports.addCart= async (req, res, next) => {
       next(err)
     };
 }
-  // TRAER TODO LO DEL CARRITO DE UN USUARIO
+  /* // TRAER TODO LO DEL CARRITO DE UN USUARIO
   exports.getAllCart=(req, res) => {  /// checkear si esto es modificado
     Users.findOne({
       where: { id: req.params.id },
@@ -45,4 +44,4 @@ exports.addCart= async (req, res, next) => {
     }catch(err){
     next(err)
     }
-  }
+  } */

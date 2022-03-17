@@ -1,5 +1,16 @@
 const { Products, Categories } = require("../models");
 
+//ALL PRODUCTS
+exports.serviceGetAll= async (req, next)=>{
+  try{
+    const products= await  Products.findAll();
+    return products
+  }catch(err){
+   next(err)
+  }
+}
+
+
 //GET PRODUCT
 
 exports.serviceGetProduct = async (req) => {
