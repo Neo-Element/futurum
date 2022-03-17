@@ -40,15 +40,29 @@ router.put("/:id", (req, res, next) => {
 
 //ADD/REVOQUE ADMIN ROLE FOR USER
 
-// router.put("/:id", (req, res, next) => {
-//   Users.update(req.body, {
-//     isAdmin : false
-//   }, 
-//   {where: {id: req.params.id}}
-//   )
-//     .then(() => res.send(user))
-//     .catch(next);
-// });
+router.patch("/admin/:id", (req, res, next) => {
+  const adminRole = req.body.isAdmin;
+
+  console.log(req.body)
+  if(adminRole) {
+    Users.update({
+      isAdmin : false
+    },
+    {
+      where : { id : req.params.id}
+    }).then(() => {
+      res.sendStatus(200)})
+  } else {
+    Users.update({
+      isAdmin : true
+    },
+    {
+      where : { id : req.params.id}
+    }).then(() => {
+      res.sendStatus(200)})
+  } 
+})
+
 //RUTA PARA DEVOLVER USUARIO LOGUEADO
 
 router.get("/me", (req, res) => {
