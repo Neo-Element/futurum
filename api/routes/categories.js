@@ -41,7 +41,7 @@ categoriesRouter.put("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    returnin: true,
+    returning: true,
     plain: true,
   }).then((result) => {
     const category = result[1];
