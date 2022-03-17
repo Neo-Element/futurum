@@ -5,9 +5,10 @@ const { Carts } = require("../models"); // correct routes
 
 //add new order 
 router.post("/", (req,res,next) => {
-  Carts.create({
-    userId: req.params.userId,
-    productId: req.params.productId
+  Carts.create(req.body)
+  .then(cart => {
+    console.log(cart)
+    res.status(201).send(cart)
   })
 })
 

@@ -7,14 +7,15 @@ const CheckOut = () => {
     let courses = localStorage.getItem("Cart") ? JSON.parse(localStorage.getItem("Cart")) : [];
     const dispatch = useDispatch();
 
+
+
     const handleBuy = () => {
         dispatch(
             cartRegister(courses)
-        )
+        ) 
     
     }
 
-    
 
     return( 
         <div className="containerSingle">
