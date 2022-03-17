@@ -11,7 +11,6 @@ const Login = () => {
   const navigate = useNavigate();
 
 
-
   const validEmail = (email) => {
       return /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi.test(email.value)
   }
@@ -28,17 +27,18 @@ const Login = () => {
         if(res.payload){
           localStorage.setItem("user",JSON.stringify(res.payload))
         }else {
-          alert("Error! ")
+          alert("Invalid Email or Password")
+          return
         }
         navigate("/")
       }) //revisar la ruta
       .catch((err) => console.log(err));
     } else {
         if(!validEmail(email)){
-            alert ("Se ha ingresado un email invalido")
+            alert ("Invalid Email")
         }
         if(!validPassword(password)){
-            alert ("Se ha ingresado un password invalido")
+            alert ("Invalid Password")
         }
     }
   };
@@ -67,7 +67,7 @@ const Login = () => {
               </div>
               <div className="mb-3">
                 <label for="inputPassword6" v="col-form-label">
-                  Password
+                Password
                 </label>
               </div>
               <div className="mb-3">
@@ -83,7 +83,7 @@ const Login = () => {
                 </div>
                 <div className="col-auto">
                   <span id="passwordHelpInline" className="form-text text-white">
-                    Must be 8-20 characters long.
+                  Minimum 8 characters, at least one letter and one number.
                   </span>
                 </div>
               </div>

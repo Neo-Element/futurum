@@ -6,7 +6,8 @@ import axios from "axios";
 
 
 const ShoppingCart = () => {
-  const user = useSelector((state) => state.user);
+  //const user = useSelector((state) => state.user);
+  const user = localStorage.getItem("user") ?  JSON.parse(localStorage.getItem("user")) : {none: "none"} ;
   const navigate = useNavigate();
   let courses =localStorage.getItem("Cart") ? JSON.parse(localStorage.getItem("Cart")) : [];
   const [cart, setCart] = useState(localStorage.getItem("Cart") ?  JSON.parse(localStorage.getItem("Cart")) : [] );

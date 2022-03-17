@@ -1,17 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
-import { cartRegister } from "../store/cart";
+import { cartRegister, sendMail } from "../store/cart";
 
 
 const CheckOut = () => {
     const user = useSelector(state => state.user)
     let courses = localStorage.getItem("Cart") ? JSON.parse(localStorage.getItem("Cart")) : [];
     const dispatch = useDispatch();
-    //let cart = 
+    
 
     const handleBuy = () => {
         dispatch(
             cartRegister(courses)
         ) 
+        dispatch(
+          sendMail(courses, user)
+        )
     }
 
 
