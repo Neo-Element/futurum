@@ -1,6 +1,6 @@
 const express = require("express");
 const categoriesRouter = express.Router();
-const {Categories,Products } = require("../models"); //EN CASO QUE CATEGORÍAS SEA UNA TABLA
+const { Categories } = require("../models");
 
 
 categoriesRouter.get("/", (req, res, next) => {

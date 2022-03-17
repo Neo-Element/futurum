@@ -19,10 +19,8 @@ productRouter.get("/:id", (req, res) => {
 });
 
 productRouter.get("/categories/:id", (req, res, next) => {
-  console.log("PARAMS->", req.params);
   Products.findAll({ where: { categoriesId: req.params.id } })
     .then((courses) => {
-      console.log("CURSOS->", courses);
       res.send(courses)})
     .catch(next);
 });
@@ -36,7 +34,6 @@ productRouter.put("/:productId", (req, res) => {
     returning: true,
     plain: true,
   }).then((result) => {
-    console.log("DENTRO DEL THEN BACK",result)
     const product = result[1];
     res.status(201).json(product);
   });
