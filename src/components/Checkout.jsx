@@ -4,7 +4,8 @@ import { cartRegister } from "../store/cart";
 import { getPayments } from "../store/payments";
 
 const CheckOut = () => {
-  const user = useSelector((state) => state.user);
+  //const user = useSelector((state) => state.user);
+  const user = localStorage.getItem("user") ?  JSON.parse(localStorage.getItem("user")) : {none: "none"} ;
   const payments = useSelector((state) => state.payments);
   let courses = localStorage.getItem("Cart")
     ? JSON.parse(localStorage.getItem("Cart"))
@@ -30,7 +31,7 @@ const CheckOut = () => {
       let order = {
         date: date.toISOString(),
         paymentId: document.getElementById("payment").value,
-        userId: 3,//harcodeado OJO
+        userId: user.id,
         productId: course.id
       }
       return order;
