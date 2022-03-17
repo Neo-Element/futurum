@@ -1,7 +1,13 @@
-const { useState } = require("react");
+const { useState, useEffect } = require("react");
 
-function useInput() {
-  const [value, setValue] = useState("");
+function useInput(initialState= "") {
+
+  const [value, setValue] = useState(initialState);
+
+  useEffect(() => {
+    setValue(initialState)
+  }, [initialState])
+  console.log("VALUE",value)
 
   const onChange = (e) => {
     setValue(e.target.value);

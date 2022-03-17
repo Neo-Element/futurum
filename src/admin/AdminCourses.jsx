@@ -35,11 +35,24 @@ const AdminCourses = () => {
 
   return (
     <div>
+
       <h1>Admin Panel</h1>
       <h2>Edit courses</h2>
       <br></br>
+      <button className="botonColorNav" onClick={() => handleCreate()}>
+        ADD NEW COURSE
+      </button>
+      <br></br>
 
-      <table class="table table-sm">
+      <table class="table table">
+      <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">COURSE</th>
+            <th scope="col">EDIT</th>
+            <th scope="col">DELETE</th>
+          </tr>
+        </thead>
         <tbody>
           {courses.map((course, i) => {
             return (
@@ -47,21 +60,18 @@ const AdminCourses = () => {
                 <th scope="row">{i + 1}</th>
                 <td>{course.productName}</td>
                 <td>
-                  <Link to={`/admin/products/${course.id}`}>
-                    <button>EDIT</button>
+                  <Link to={`/admin/products/edit/${course.id}`}>
+                    <button>✏️</button>
                   </Link>
                 </td>
                 <td>
-                  <button onClick={() => handleDelete(course)}>Delete</button>
+                  <button onClick={() => handleDelete(course)}>🗑️</button>
                 </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      <button className="botonColorNav" onClick={() => handleCreate()}>
-        ADD NEW COURSE
-      </button>
     </div>
   );
 };

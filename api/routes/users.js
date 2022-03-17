@@ -1,30 +1,47 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-
 const { Users } = require("../models");
 const UserController = require("../controllers/usersController");
+
 //RUTA PARA REGISTRAR UN USUARIO
 router.post("/register", UserController.registerUsers);
 //RUTA PARA LOGIN
 router.post("/login", UserController.loginUsers);
 //RUTA PARA LOGOUT
 router.post("/logout", UserController.logOutUsers);
-
 //RUTA PARA EDITAR UN USUARIO
 router.put("/:id", UserController.editUsers);
-
 //ADD/REVOQUE ADMIN ROLE FOR USER
+router.patch("/admin/:id", (req, res, next) => {
+  const adminRole = req.body.isAdmin;
 
-// router.put("/:id", (req, res, next) => {
-//   Users.update(req.body, {
-//     isAdmin : false
-//   },
-//   {where: {id: req.params.id}}
-//   )
-//     .then(() => res.send(user))
-//     .catch(next);
-// });
+  console.log(req.body);
+  if (adminRole) {
+    Users.update(
+      {
+        isAdmin: false,
+      },
+      {
+        where: { id: req.params.id },
+      }
+    ).then(() => {
+      res.sendStatus(200);
+    });
+  } else {
+    Users.update(
+      {
+        isAdmin: true,
+      },
+      {
+        where: { id: req.params.id },
+      }
+    ).then(() => {
+      res.sendStatus(200);
+    });
+  }
+});
+
 //RUTA PARA DEVOLVER USUARIO LOGUEADO
 
 router.get("/me", UserController.getMe);

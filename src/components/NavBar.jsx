@@ -61,7 +61,7 @@ const NavBar = () => {
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Desing
+                      Design
                     </a>
                   </li>
                 </ul>

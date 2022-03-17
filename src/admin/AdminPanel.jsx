@@ -10,8 +10,6 @@ const AdminPanel = () => {
 
   const dispatch = useDispatch();
 
-   //cuando esté ok la db usar el store de redux cart
-  //const courses = useSelector((state) => state.cart); //mapeo courses
 
   const handleDelete = (course) => {
      dispatch(deleteProduct(course))
@@ -34,7 +32,7 @@ const AdminPanel = () => {
         <button>Add Course</button>
       </div> */}
 
-      <table class="table table-sm">
+      <table class="table table-white">
         <tbody>
           {products.map((course, i) => {
             return (

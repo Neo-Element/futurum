@@ -4,18 +4,25 @@ import { userRegister } from "../store/users";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import { getUsers } from "../store/users";
-import { deleteUser } from "../store/admin";
+import { deleteUser, adminRole } from "../store/admin";
 
 const AdminUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const users = useSelector((state) => state.users);
-  console.log("USERS", users);
+  let state = 1
+
 
   useEffect(() => {
     dispatch(getUsers());
   }, []);
 
+  const handleAdminRole = (user) => {
+    dispatch(adminRole(user))
+    .then(() => {
+      dispatch(getUsers());
+    })
+  }
 
   const handleDelete = (user) => {
     dispatch(deleteUser(user))
@@ -23,6 +30,7 @@ const AdminUser = () => {
         dispatch(getUsers());
       })
   };
+
   return (
     <div>
       <h1>Admin Panel</h1>
@@ -45,10 +53,10 @@ const AdminUser = () => {
                 <th scope="row">{i + 1}</th>
                 <td>{user.userName}</td>
                 {user.isAdmin ? <td>Admin</td> : <td>User</td>}
-                {user.isAdmin ? (<td><button>Revoque admin</button></td>) : 
-                (<td><button>Make admin</button></td>)}
+                {user.isAdmin ? (<td><button onClick={() => handleAdminRole(user)}>Revoque admin</button></td>) : 
+                (<td><button onClick={() => handleAdminRole(user)}>Make admin</button></td>)}
                 <td>
-                  <button onClick={() => {handleDelete(user)}}>DELETE</button>
+                  <button onClick={() => {handleDelete(user)}}>🗑️</button>
                 </td>
               </tr>
             );

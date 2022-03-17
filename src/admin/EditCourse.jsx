@@ -5,22 +5,25 @@ import { useEffect } from "react";
 import { getOneProduct, modifyProduct } from "../store/singleProduct";
 
 const EditCourse = () => {
+
+  const course = useSelector(state => state.product)
+
   const dispatch = useDispatch();
   const { id } = useParams();
-  const productName = useInput();
-  const price = useInput();
-  const category = useInput();
-  const overview = useInput();
-  const image = useInput();
-  const duration = useInput();
-  const requirements = useInput();
+  const productName = useInput(course.productName);
+  const price = useInput(course.price);
+  const category = useInput(course.category);
+  const overview = useInput(course.overview);
+  const image = useInput(course.image);
+  const duration = useInput(course.duration);
+  const requirements = useInput(course.requirements);
   const navigate = useNavigate();
+
+  console.log("category", category)
 
   useEffect(() => {
     dispatch(getOneProduct(id));
   }, [])
-
-  const course = useSelector(state => state.product)
 
 
   const handlerSubmit = (e) => {
@@ -39,7 +42,7 @@ const EditCourse = () => {
     )
       .then((course) => {
         navigate("/admin/products")
-      }) 
+      })
       .catch((err) => console.log(err));
   };
 
@@ -48,38 +51,50 @@ const EditCourse = () => {
       <h1>editar curso: {course.productName}</h1>
 
       <form onSubmit={handlerSubmit}>
-        <label>Course</label>
-        <input
-          {...productName}
-          type="text"
-          placeholder={course.productName}
-    
-        />
-        <label>Price</label>
-        <input {...price} type="text" placeholder={course.price} required />
-        <label>Categoria</label>
-        <input
-          {...category}
-          type="text"
-          placeholder="category"
-        />
-        <label>About</label>
-        <input
-          {...overview}
-          type="text"
-          placeholder="Breve descripción del curso"
-        />
-        <label>Image</label>
-        <input {...image} type="text" placeholder="img.jpg" required />
-        <label>Duration</label>
-        <input {...duration} type="text" placeholder="4 semanas" required />
-        <label>Requirements</label>
-        <input
-          {...requirements}
-          type="text"
-          placeholder="Equipo, software y otros materiales requeridos"
-        />
-        <button>EDIT COURSE</button>
+        <select class="custom-select custom-select-lg mb-3">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+
+        <ul>
+          <li> <label>Course</label>
+            <input
+              {...productName}
+              type="text"
+
+              required
+            />
+            <label>Price</label>
+            <input value={price.value} onChange={price.onChange} type="text" placeholder={course.price} required></input></li>
+          <label>Categoria</label>
+          <input
+            {...category}
+            type="text"
+            placeholder={course.category}
+            required
+          />
+          <label>About</label>
+          <input
+            {...overview}
+            type="text"
+            placeholder={course.overview}
+            required
+          />
+          <label>Image</label>
+          <input {...image} type="text" placeholder={course.image} required />
+          <label>Duration</label>
+          <input {...duration} type="text" placeholder={course.duration} required />
+          <label>Requirements</label>
+          <input
+            {...requirements}
+            type="text"
+            placeholder={course.requirements}
+            required
+          />
+          <button>UPDATE</button>
+        </ul>
       </form>
     </div>
   );
@@ -87,5 +102,13 @@ const EditCourse = () => {
 
 };
 
-
 export default EditCourse;
+
+{/* // export default EditCourse;
+// <select class="custom-select custom-select-lg mb-3">
+//   <option selected>Open this select menu</option>
+//   <option value="1">One</option>
+//   <option value="2">Two</option>
+//   <option value="3">Three</option>
+// </select>
+// } */}

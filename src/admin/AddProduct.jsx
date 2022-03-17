@@ -32,7 +32,7 @@ const AddProduct = (course) => {
     )
       .then((product) => {
         console.log("curso creado -->", product)
-        navigate("/")}) //ver ruta
+        navigate("/admin/products")}) //ver ruta
       .catch((err) => console.log(err));
   };
 
@@ -48,7 +48,7 @@ const AddProduct = (course) => {
         />
         <label>Price</label>
         <input {...price} type="text" placeholder="$" required />
-        <label>Categoria</label>
+        <label>Categoria</label> 
         <input
           {...category}
           type="text"
