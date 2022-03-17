@@ -13,7 +13,11 @@ exports.servicGetAllReviews= async (next)=>{
 //GET ONE
 exports.serviceGetOneReview= async(req, next)=>{
     try{
-        const review= await  Reviews.findByPk(req.params.id)
+        const review= await   Reviews.findOne({
+            where: {
+              productId: req.params.productId,
+            },
+        })
         return review
     }catch(err){
      next(err)
