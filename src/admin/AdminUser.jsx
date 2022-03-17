@@ -2,27 +2,25 @@ import useInput from "../hooks/useInput";
 import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../store/users";
 import { useNavigate } from "react-router";
-import Login from "../commons/Login";
-import { products } from "../utils/fakeData";
 import { useEffect } from "react";
-import { getAllUsers } from "../store/allUsers";
-import { deleteUser } from "../store/deleteUser";
+import { getUsers } from "../store/users";
+import { deleteUser } from "../store/admin";
 
 const AdminUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const users = useSelector((state) => state.allUsers);
+  const users = useSelector((state) => state.users);
   console.log("USERS", users);
 
   useEffect(() => {
-    dispatch(getAllUsers());
+    dispatch(getUsers());
   }, []);
 
 
   const handleDelete = (user) => {
     dispatch(deleteUser(user))
       .then(() => {
-        dispatch(getAllUsers());
+        dispatch(getUsers());
       })
   };
   return (

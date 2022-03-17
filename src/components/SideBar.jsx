@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {getCategoryProd} from "../store/singleCategory";
+import {getCategoryProd} from "../store/products";
 
 const SideBar = () => {
     const dispatch = useDispatch();

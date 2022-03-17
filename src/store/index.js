@@ -6,11 +6,14 @@ import singleCategoryReducer from "./singleCategory";
 import categoriesReducer from "./categories";
 import setProduct from "./singleProduct";
 import adminUserReducer from "./admin";
+import usersReducer from "./users";
+import singleUserReducer from "./singleUser";
 
 const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
   reducer: {
-    user: userReducer,
+    user: singleUserReducer,
+    users: usersReducer,
     admin: adminUserReducer,
     products: setProducts,
     product: setProduct,
