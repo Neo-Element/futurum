@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CardRange from "../commons/CardRange";
 import { getOneProduct } from "../store/singleProduct";
-
+import Reviews from "../commons/Reviews"
 //RECIBE UN CURSO EN PARTICULAR
 const SingleCourse = () => {
   const { id } = useParams();
@@ -28,7 +28,7 @@ const SingleCourse = () => {
   }, []);
 
   return (
-    <div className="containerSingle">
+    <div className="containerSingleProducts">
       <div className="singleCardProduct">
         <div className="cardTitle">
           <div className="colorBar"> </div>
@@ -69,10 +69,12 @@ const SingleCourse = () => {
           </div>
         </div>
       </div>
-      <div className="reviewsCard">
+
+      <div className="reviewsCardProduct">
         <h2>Testimonials</h2>
-        {/* <Reviews review={products.review} /> */}
+        {/* <Reviews review={product.review} /> */}
       </div>
+
       <hr className="hrDown"></hr>
       <div className="bodyInfo">
         <h2>Requirements</h2>

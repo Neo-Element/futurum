@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300');
 
+
+
+.containerSingleProducts{
+  margin-top: 100px;
+  margin-left: 400px;
+
 //card con la info precio,etc
  .singleCardProduct {
     box-shadow: 2px 6px 6px 6px rgba(#000, 0.3);
@@ -95,6 +101,7 @@
           .description{
             margin-bottom: 25px;
             margin-top: 133px;
+            text-align: left;
          
             
             p{
@@ -108,12 +115,14 @@
           }
           
           span.stock{
+            display: block;
             font-family: "Montserrat", sans-serif;
             font-weight: 600;
             color: #a1cc16;
           }
           
           .calification{
+            text-align: left;
             .rating-color{
                 color: #a1cc16;
             }
@@ -153,14 +162,14 @@
 
 
 //testimonials
-.reviewsCard{
+.reviewsCardProduct{
     height: 400px;
     width: 1000px;
     text-align: center;
     align-items: center;
-    margin-left: 7%;
+    margin-left: 11%;
     margin-top: 10px;
-    background-color: rgba(50, 54, 54, 0.739);
+    background-color: rgba(187, 187, 187, 0.76);
     .img-text{
         width: 100%;
         height: 300px;
@@ -175,6 +184,7 @@
         font-size: 25px;
         text-transform: uppercase;
         letter-spacing: 2px;
+        color: #40916C;
     }
      p {
         font-size: 10px;
@@ -208,13 +218,14 @@
     
 }
 
+
 .borderMark{
     position: relative;
     margin-left: 33.5% ;
 }
 
 .hrDown{
-    color: #eeab2e;
+    color: #d12eee;
     width: 1300px;
     height: 3px;
 }
@@ -223,7 +234,7 @@
 .bodyInfo{
     text-align: center;
     align-items: center;
-    margin-left: 90px;
+    margin-left: 110px;
     background-color: #40916C;
     border-radius: 50px;
     height: 300px;
@@ -238,5 +249,5 @@
     }
 }
 
-
+}
 

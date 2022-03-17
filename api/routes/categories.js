@@ -2,7 +2,7 @@ const express = require("express");
 const categoriesRouter = express.Router();
 const CategoriesCrontroller = require("../controllers/categoriesControllers"); //EN CASO QUE CATEGORÍAS SEA UNA TABLA
 
-<<<<<<< HEAD
+
 //OBTENER TODAS LAS CATEGORIAS
 categoriesRouter.get("/", CategoriesCrontroller.getAll);
 //OBTENER UNA SOLA CATEGORIA

@@ -6,11 +6,12 @@ const NavBar = () => {
   
 
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div className="navBarContainer">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="container-fluid">
         <Link to="/">
           <img className="logo"
-            src="https://see.fontimg.com/api/renderfont4/vmyL4/eyJyIjoiZnMiLCJoIjo0NiwidyI6MTAwMCwiZnMiOjQ2LCJmZ2MiOiIjNzVDQTkzIiwiYmdjIjoiIzQ2NDY0NiIsInQiOjF9/RnV0dXJ1bQ/axeon-regular.png"
+            src="https://see.fontimg.com/api/renderfont4/vmyL4/eyJyIjoiZnMiLCJoIjo0NiwidyI6MTAwMCwiZnMiOjQ2LCJmZ2MiOiIjMTQxNDE0IiwiYmdjIjoiIzQ2NDY0NiIsInQiOjF9/RnV0dXJ1bQ/axeon-regular.png"
             alt="logo"
           />
         </Link>
@@ -25,18 +26,18 @@ const NavBar = () => {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <Link to="/users/my_courses">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item navItem">
+              <a className="nav-link textGeneralNav" href="#">
                 Shopping History
               </a>
             </li>
             </Link>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle textGeneralNav"
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -45,24 +46,24 @@ const NavBar = () => {
               >
                 Courses
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
               
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Front-End
                     </a>
                 </li>
                 
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Back-End
                   </a>
                 </li>
                 <li>
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Desing
                   </a>
                 </li>
@@ -72,7 +73,7 @@ const NavBar = () => {
 
           <Link to={`/users/cart`}>
             <button className="btn  btn-lg botonColorNav">
-              <i class="fa-solid fa-lg fa-cart-arrow-down"></i>
+              <i className="fa-solid fa-lg fa-cart-arrow-down"></i>
             </button>
           </Link>
 
@@ -80,6 +81,7 @@ const NavBar = () => {
         </div>
       </div>
     </nav>
+    </div>
   );
 };
 

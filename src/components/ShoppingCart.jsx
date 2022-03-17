@@ -1,7 +1,6 @@
 import { useEffect, useState} from "react";
 import { useSelector} from "react-redux";
 import { useNavigate } from "react-router"; 
-import axios from "axios";
 
 
 
@@ -28,9 +27,6 @@ const ShoppingCart = () => {
     }
    
   }
-
-
-
 
   return (
     <div>
