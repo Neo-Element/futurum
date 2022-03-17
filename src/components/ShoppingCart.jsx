@@ -1,35 +1,53 @@
+<<<<<<< HEAD
 import { useEffect, useState} from "react";
 import { useSelector} from "react-redux";
 import { useNavigate } from "react-router"; 
-
-
+=======
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import axios from "axios";
+>>>>>>> origin/Alexis/logicaReviews
 
 const ShoppingCart = () => {
   //const user = useSelector((state) => state.user);
   const user = localStorage.getItem("user") ?  JSON.parse(localStorage.getItem("user")) : {none: "none"} ;
   const navigate = useNavigate();
-  let courses =localStorage.getItem("Cart") ? JSON.parse(localStorage.getItem("Cart")) : [];
-  const [cart, setCart] = useState(localStorage.getItem("Cart") ?  JSON.parse(localStorage.getItem("Cart")) : [] );
+  let courses = localStorage.getItem("Cart")
+    ? JSON.parse(localStorage.getItem("Cart"))
+    : [];
+  const [cart, setCart] = useState(
+    localStorage.getItem("Cart") ? JSON.parse(localStorage.getItem("Cart")) : []
+  );
 
+  useEffect(() => {}, [courses]);
+
+<<<<<<< HEAD
   console.log("USUARIO->", user);
 
   useEffect(() => {
   },[courses]);
   
+=======
+>>>>>>> origin/Alexis/logicaReviews
   const handleClick = (course) => {
-    const deleted = courses.filter(e => e !== course)
-    localStorage.setItem("Cart", JSON.stringify(deleted))
+    const deleted = courses.filter((e) => e !== course);
+    localStorage.setItem("Cart", JSON.stringify(deleted));
     setCart(deleted);
-  } 
+  };
 
   const handlerCheckout = () => {
-    if(!user.id){
-      navigate("/users/login")
+    if (!user.id) {
+      navigate("/users/login");
     } else {
-      navigate(`/users/cart/${user.id}`)
+      navigate(`/users/cart/${user.id}`);
     }
+<<<<<<< HEAD
    
   }
+=======
+  };
+>>>>>>> origin/Alexis/logicaReviews
 
   return (
     <div>
@@ -62,8 +80,7 @@ const ShoppingCart = () => {
       </div>
       {courses.length ? (
         <button onClick={handlerCheckout}>Comprar</button>
-      ): null}
-      
+      ) : null}
     </div>
   );
 };

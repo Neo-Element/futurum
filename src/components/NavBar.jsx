@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
+<<<<<<< HEAD
     <div className="navBarContainer">
       <nav class="navbar navbar-expand-lg navbar-dark ">
         <div class="container-fluid">
@@ -30,6 +31,66 @@ const NavBar = () => {
                 <li className="nav-item navItem">
                   <a className="nav-link textGeneralNav" href="#">
                     Shopping History
+=======
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <Link to="/users/products">
+          <img className="logo"
+            src="https://see.fontimg.com/api/renderfont4/vmyL4/eyJyIjoiZnMiLCJoIjo0NiwidyI6MTAwMCwiZnMiOjQ2LCJmZ2MiOiIjNzVDQTkzIiwiYmdjIjoiIzQ2NDY0NiIsInQiOjF9/RnV0dXJ1bQ/axeon-regular.png"
+            alt="logo"
+          />
+        </Link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <Link to="/users/my_courses">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Shopping History
+              </a>
+            </li>
+            </Link>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Courses
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Front-End
+                    </a>
+                </li>
+                
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Back-End
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Desing
+>>>>>>> origin/Alexis/logicaReviews
                   </a>
                 </li>
               </Link>

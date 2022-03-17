@@ -9,9 +9,10 @@ import adminUserReducer from "./admin";
 import usersReducer from "./users";
 import singleUserReducer from "./singleUser";
 import paymentReducer from "./payments";
+import reviewReducer from "./review";
 
 const store = configureStore({
-  //middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
   reducer: {
     user: singleUserReducer,
     users: usersReducer,
@@ -22,6 +23,7 @@ const store = configureStore({
     category: singleCategoryReducer,
     categories: categoriesReducer,
     payments: paymentReducer,
+    reviews: reviewReducer,
   },
 });
 

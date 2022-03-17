@@ -10,6 +10,7 @@ router.post("/register", UserController.registerUsers);
 router.post("/login", UserController.loginUsers);
 //RUTA PARA LOGOUT
 router.post("/logout", UserController.logOutUsers);
+
 //RUTA PARA EDITAR UN USUARIO
 router.put("/:id", UserController.editUsers);
 //ADD/REVOQUE ADMIN ROLE FOR USER

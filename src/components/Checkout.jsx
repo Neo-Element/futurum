@@ -20,7 +20,6 @@ const CheckOut = () => {
   for (let i = 0; i < courses.length; i++) {
     total += courses[i].price;
   }
-  //
 
   useEffect(() => {
     dispatch(getPayments());
@@ -44,12 +43,11 @@ const CheckOut = () => {
     <div className="containerSingle">
       <div className="singleCardLogin">
         <div className="cardTitle">
-          <p className="text-black text-lg">NOMBRE DE USUARIO</p>
+          <p className="text-black text-lg">{user.nameAndLastname}</p>
           <div className="colorBar"> </div>
         </div>
         <div className="bodyCard">
           <p className="date">{date.toLocaleDateString()}</p>
-
           <table className="table table-sm">
             <thead>
               <tr>
@@ -72,7 +70,6 @@ const CheckOut = () => {
               ))}
             </tbody>
           </table>
-
           <div className="priceAndAdd">
             <p className="price">{`Total:${total}`}</p>
             <p className="price">{`Tipo de Pago:`}</p>
