@@ -1,17 +1,12 @@
-<<<<<<< HEAD
-import { useEffect, useState} from "react";
-import { useSelector} from "react-redux";
-import { useNavigate } from "react-router"; 
-=======
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import axios from "axios";
->>>>>>> origin/Alexis/logicaReviews
 
 const ShoppingCart = () => {
   //const user = useSelector((state) => state.user);
-  const user = localStorage.getItem("user") ?  JSON.parse(localStorage.getItem("user")) : {none: "none"} ;
+  const user = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : { none: "none" };
   const navigate = useNavigate();
   let courses = localStorage.getItem("Cart")
     ? JSON.parse(localStorage.getItem("Cart"))
@@ -22,14 +17,6 @@ const ShoppingCart = () => {
 
   useEffect(() => {}, [courses]);
 
-<<<<<<< HEAD
-  console.log("USUARIO->", user);
-
-  useEffect(() => {
-  },[courses]);
-  
-=======
->>>>>>> origin/Alexis/logicaReviews
   const handleClick = (course) => {
     const deleted = courses.filter((e) => e !== course);
     localStorage.setItem("Cart", JSON.stringify(deleted));
@@ -42,12 +29,7 @@ const ShoppingCart = () => {
     } else {
       navigate(`/users/cart/${user.id}`);
     }
-<<<<<<< HEAD
-   
-  }
-=======
   };
->>>>>>> origin/Alexis/logicaReviews
 
   return (
     <div>
