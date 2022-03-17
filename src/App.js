@@ -18,7 +18,7 @@ import Welcome from "./components/Welcome";
 import HomeUsers from "./components/HomeUsers";
 import HomeAdmin from "./admin/HomeAdmin";
 import { useDispatch, useSelector } from "react-redux";
-/* import { persistence } from "./store/users"; */
+/ import { persistence } from "./store/users"; 
 
 
 
@@ -26,13 +26,13 @@ import { useDispatch, useSelector } from "react-redux";
 function App() {
 const user = useSelector(state => state.user);
 const dispatch = useDispatch();
-/* useEffect(()=>{
+ useEffect(()=>{
   if(localStorage.getItem("user")){
     dispatch(
       persistence()
     )
     }
-},[]) */
+},[]) 
   return (
 
     <div>

@@ -27,13 +27,8 @@ exports.logOutUsers = (req, res) => {
 
 //DEVUELVE USUARIO ME LOGUEADO 
 exports.getMe = async (req, res) => {
-  console.log("GETME DESDE CONTROLLERS");
   const user= await UserService.serviceGetMe(req)
-  if (!user) {
-    return res.sendStatus(401);
-  }else{
-   console.log(user)   
-  res.send(user)}
+  return user? res.send(user): res.sendStatus(401)
   
 };
 
@@ -42,11 +37,8 @@ exports.getMe = async (req, res) => {
 exports.getUsers = async (req, res, next) => {
   console.log("GETUSERS DESDE CONTROLLERS");
   const users= await UserService.serviceGetUsers()
-  if(!users){
-    console.log(users)
-   return  res.sendStatus(500)
-  }
- return res.send(users).status(200);
+  return users? res.send(users).status(200):res.sendStatus(500)
+  
 };
 
 
