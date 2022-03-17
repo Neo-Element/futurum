@@ -10,9 +10,11 @@
 @import "./Header.scss";
 @import "./Welcome.scss";
 @import "./HomeUsers.scss";
-
+@import "./SideBar.scss";
+@import "./NavBar.scss";
+@import "./Register.scss";
 
 body {
- background-color: antiquewhite;
+ background-color: rgb(24, 24, 24);
  padding-bottom: 10%;
 }

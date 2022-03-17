@@ -1,6 +1,6 @@
 const express = require("express");
 const categoriesRouter = express.Router();
-const Categories = require("../models/Categories"); //EN CASO QUE CATEGORÍAS SEA UNA TABLA
+const {Categories,Products } = require("../models"); //EN CASO QUE CATEGORÍAS SEA UNA TABLA
 
 categoriesRouter.get("/", (req, res, next) => {
   Categories.findAll()
@@ -21,7 +21,10 @@ categoriesRouter.get("/prod/:name", (req, res, next) => {
     .then((category) => {
       Products.findAll({ where: { categoriesId: category.id } });
     })
-    .then((courses) => res.send(courses))
+    .then((courses) => {
+      console.log(courses)
+      res.send(courses)
+    })
     .catch(next);
 });
 

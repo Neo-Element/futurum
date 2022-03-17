@@ -20,6 +20,7 @@ import HomeAdmin from "./admin/HomeAdmin";
 import { useDispatch, useSelector } from "react-redux";
 import { persistence } from "./store/singleUser";
 import CheckOut from "./components/Checkout";
+import SideBar from "./components/SideBar";
 
 
 
@@ -38,6 +39,7 @@ useEffect(()=>{
 
     <div>
       <NavBar/>
+      <SideBar/>
       <div>
       <Routes>
         {/* LAS RUTAS NO ESTAN DINAMIZADAS POR AHORA */}

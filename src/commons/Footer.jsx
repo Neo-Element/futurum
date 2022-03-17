@@ -10,13 +10,11 @@ const Footer = () => {
         </Link>
         </div>
         <div className="footerBox">
-          <Link to="/" className="footerLink">
-        <h2 className="footerName">Contact</h2>
-        </Link>
+          <p>Copyright© Futurum 2022s</p>
         </div>
         <div className="footerBox">
           <img
-            src="https://see.fontimg.com/api/renderfont4/OVZDd/eyJyIjoiZnMiLCJoIjo0NCwidyI6MTAwMCwiZnMiOjQ0LCJmZ2MiOiIjNzVDQTkzIiwiYmdjIjoiIzQ2NDY0NiIsInQiOjF9/RnV0dXJ1bQ/destruido.png"
+            src="https://see.fontimg.com/api/renderfont4/vmyL4/eyJyIjoiZnMiLCJoIjo0NiwidyI6MTAwMCwiZnMiOjQ2LCJmZ2MiOiIjNzVDQTkzIiwiYmdjIjoiIzQ2NDY0NiIsInQiOjF9/RnV0dXJ1bQ/axeon-regular.png"
             alt="logo"
           />
         </div>
