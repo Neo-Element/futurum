@@ -20,8 +20,9 @@ reviewsRouter.get("/:productId", (req, res) => {
 });
 
 reviewsRouter.post("/new", (req, res) => {
+  console.log("ESTO ES REQ BODY", req.body)
   Reviews.create(req.body)
-    .then(() => res.sendStatus(201))
+    .then((review) => res.json(review).sendStatus(201))
     .catch((err) => console.error(err));
 });
 

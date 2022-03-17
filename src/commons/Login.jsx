@@ -10,38 +10,39 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
-
   const validEmail = (email) => {
-      return /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi.test(email.value)
-  }
-  const validPassword = (password) =>{
-      return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password.value)
-  }
+    return /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi.test(
+      email.value
+    );
+  };
+  const validPassword = (password) => {
+    return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password.value);
+  };
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    if(validEmail(email) && validPassword(password)){
-        dispatch(userLogin({ email: email.value, password: password.value }))
-      .then((res) => {
-        console.log("USER",res)
-        if(res.payload){
-          localStorage.setItem("user",JSON.stringify(res.payload))
-        }else {
-          alert("Error! ")
-        }
-        navigate("/")
-      }) //revisar la ruta
-      .catch((err) => console.log(err));
+    if (validEmail(email) && validPassword(password)) {
+      dispatch(userLogin({ email: email.value, password: password.value }))
+        .then((res) => {
+          console.log("USER", res);
+          if (res.payload) {
+            localStorage.setItem("user", JSON.stringify(res.payload));
+          } else {
+            alert("Error! ");
+          }
+          navigate("/");
+        }) //revisar la ruta
+        .catch((err) => console.log(err));
     } else {
-        if(!validEmail(email)){
-            alert ("Se ha ingresado un email invalido")
-        }
-        if(!validPassword(password)){
-            alert ("Se ha ingresado un password invalido")
-        }
+      if (!validEmail(email)) {
+        alert("Se ha ingresado un email invalido");
+      }
+      if (!validPassword(password)) {
+        alert("Se ha ingresado un password invalido");
+      }
     }
   };
+  
   return (
     <div className="containerSingle">
       <div className="singleCardLogin">
@@ -61,7 +62,6 @@ const Login = () => {
                   id="disabledTextInput"
                   className="form-control"
                   placeholder="email@futurum.com"
-                  
                   required
                 />
               </div>
@@ -82,15 +82,17 @@ const Login = () => {
                   />
                 </div>
                 <div className="col-auto">
-                  <span id="passwordHelpInline" className="form-text text-white">
+                  <span
+                    id="passwordHelpInline"
+                    className="form-text text-white"
+                  >
                     Must be 8-20 characters long.
                   </span>
                 </div>
               </div>
-              <div className="btnAdd"> 
-                  <button className="btn btn-dark btn-lg "> Sing in</button>   
+              <div className="btnAdd">
+                <button className="btn btn-dark btn-lg "> Sing in</button>
               </div>
-            
             </fieldset>
           </form>
         </div>

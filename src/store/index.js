@@ -8,6 +8,7 @@ import setProduct from "./singleProduct";
 import adminUserReducer from "./admin";
 import usersReducer from "./users";
 import singleUserReducer from "./singleUser";
+import reviewReducer from "./review";
 
 const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
@@ -20,6 +21,7 @@ const store = configureStore({
     cart: cartReducer,
     category: singleCategoryReducer,
     categories: categoriesReducer,
+    reviews: reviewReducer,
   },
 });
 
