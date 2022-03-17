@@ -23,7 +23,7 @@ import CheckOut from "./components/Checkout";
 import SideBar from "./components/SideBar";
 import AdminUser from "./admin/AdminUser";
 import EditCourse from "./admin/EditCourse"
-
+import ShoppingHistory from "./components/ShoppingHistory";
 
 
 function App() {
@@ -72,6 +72,7 @@ useEffect(()=>{
         <Route path="/users/categories/:id" element={<Category />} />
         <Route path="/users/cart/" element={<ShoppingCart />}/>
         <Route path="/users/cart/:id" element={<CheckOut/>}/>
+        <Route path="/users/my_courses/" element={<ShoppingHistory />}/>
 
         {/* RUTAS ERROR */}
         <Route path="*" element={<Navigate to="404" />} />

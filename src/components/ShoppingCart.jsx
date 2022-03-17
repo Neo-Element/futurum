@@ -12,8 +12,8 @@ const ShoppingCart = () => {
   const [cart, setCart] = useState(localStorage.getItem("Cart") ?  JSON.parse(localStorage.getItem("Cart")) : [] );
 
   useEffect(() => {
-  },[courses])
-
+  },[courses]);
+  
   const handleClick = (course) => {
     const deleted = courses.filter(e => e !== course)
     localStorage.setItem("Cart", JSON.stringify(deleted))
