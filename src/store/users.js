@@ -10,9 +10,8 @@ export const userLogin = createAsyncThunk("login", (user) => {
 });
 
 
-
 const userReducer = createReducer({}, {
-  // estado inicial []/{}
+  
   [userRegister.fulfilled]: (state, action) => action.payload,
   [userLogin.fulfilled]: (state, action) => action.payload,
 });

@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import useInput from "../hooks/useInput";
-import { productCreated } from "../store/products";
+import { productCreated } from "../store/singleProduct";
 
 
-const AddProduct = () => {
+const AddProduct = (course) => {
   const productName = useInput();
   const price = useInput();
   const category = useInput(); 
