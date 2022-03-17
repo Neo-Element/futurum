@@ -11,6 +11,8 @@ const ShoppingCart = () => {
   let courses =localStorage.getItem("Cart") ? JSON.parse(localStorage.getItem("Cart")) : [];
   const [cart, setCart] = useState(localStorage.getItem("Cart") ?  JSON.parse(localStorage.getItem("Cart")) : [] );
 
+  console.log("USUARIO->", user);
+
   useEffect(() => {
   },[courses]);
   
