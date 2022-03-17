@@ -17,7 +17,7 @@ import Category from "./components/Category";
 import Welcome from "./components/Welcome";
 import HomeUsers from "./components/HomeUsers";
 import HomeAdmin from "./admin/HomeAdmin";
-
+import ShoppingHistory from "./components/ShoppingHistory";
 
 function App() {
   return (
@@ -50,6 +50,8 @@ function App() {
         <Route path="/users/products/:id" element={<SingleCourse/>} />
         <Route path="/users/categories/:id" element={<Category />} />
         <Route path="/users/:id/cart/" element={<ShoppingCart />}/>
+        <Route path="/users/my_courses/" element={<ShoppingHistory />}/>
+
 
         {/* RUTAS INVITADOS */}
         <Route path="/guest" element={<HomeUsers />} />

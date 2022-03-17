@@ -13,7 +13,7 @@ const Grid = () => {
 
   return (
     <div className="flex-container">
-      {products.map((course, i) => {
+      {products.map((course) => {
         return (
           <div className="flex-item ">
             <div className="rectangulo">

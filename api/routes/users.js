@@ -7,7 +7,7 @@ const { Users } = require("../models");
 router.post("/register", (req, res) => {
   Users.create(req.body)
     .then((user) => {
-      res.sendStatus(201);
+      res.json(user);
     })
     .catch((err) => console.log(err));
 });

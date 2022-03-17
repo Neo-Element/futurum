@@ -44,11 +44,13 @@ const NavBar = () => {
                 Dropdown
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <Link to="/users/my_courses">
                 <li>
-                  <a class="dropdown-item" href="#">
-                    Action
+                  <a class="dropdown-item">
+                    Shopping History
                   </a>
                 </li>
+                </Link>
                 <li>
                   <a class="dropdown-item" href="#">
                     Another action
