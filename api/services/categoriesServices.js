@@ -67,7 +67,7 @@ exports.serviceEdit = async (req, next) => {
       where: {
         id: req.params.id,
       },
-      returnin: true,
+      returning: true,
       plain: true,
     });
     const category = result[1];
