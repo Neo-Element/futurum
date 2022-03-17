@@ -1,4 +1,19 @@
-.logo{
-    margin-left: 30px;
-    margin-right: 10px;
+.navBarContainer {
+    background-image: url('https://i.pinimg.com/564x/94/24/f5/9424f50e6dcdd230d42aea1d2a1e5614.jpg');
+    opacity: 2;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    font-size: x-large;
+    padding-left: 21px;
+    box-shadow: 1px 3px 4px 0 rgba(7, 7, 7, 0.424), 0 4px 15px 0 rgba(0, 0, 0, 0.623);
+}
+
+.logo {
+  margin-left: 30px;
+  margin-right: 10px;
+}
+
+.textGeneralNav{
+   color: white;
 }

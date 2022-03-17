@@ -38,11 +38,10 @@ const dispatch = useDispatch();
     }
 },[]) 
   return (
-
-    <div>
+<>
       <NavBar/>
       <SideBar/>
-      <div>
+<div className="row">
       <Routes>
         {/* LAS RUTAS NO ESTAN DINAMIZADAS POR AHORA */}
         {/* HOME Y REGISTER */}
@@ -82,9 +81,9 @@ const dispatch = useDispatch();
         {/* RUTA TEAM */}
         <Route path="/team" element={<Team />} />
       </Routes>
-      </div>
       <Footer />
-    </div>
+      </div>
+      </>
   );
 }
 
