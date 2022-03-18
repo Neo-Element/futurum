@@ -10,16 +10,18 @@ import {
 } from "../store/singleCategory";
 
 const AddCategory = () => {
+
+  const category = useSelector((state) => state.category);
+
   const isNew = useMatch("/admin/categories/add");
-  const name = useInput();
-  const description = useInput();
-  const image = useInput();
+  const name = useInput(category.name);
+  const description = useInput(category.description);
+  const image = useInput(category.image);
   const { id } = useParams();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const category = useSelector((state) => state.category);
 
   useEffect(() => {
     if (!isNew) {
@@ -55,43 +57,52 @@ const AddCategory = () => {
 
   if (!isNew) {
     return (
-      <div>
-        <h1 className="h1">EDIT CATEGORIE</h1>
-        <form onSubmit={handlerSubmit} className="singleCard">
-          <label className="cardTitle">Name</label>
-          <input {...name} type="text" placeholder={category.name} required />
-          <label className="cardTitle">description</label>
-          <input
-            {...description}
-            type="text"
-            placeholder={category.description}
-            required
-          />
-          <label className="cardTitle">image</label>
-          <input {...image} type="text" placeholder={category.imagen} required />
-          <button className="btn btn-dark btn-lg btnAdd">Save</button>
-        </form>
+      <div className="containerSingle">
+        <div className="AddCategory">
+          <div className="cardTitle">
+            <h1 className="h1" className="cardTitle">EDIT CATEGORY</h1>
+            <form onSubmit={handlerSubmit} className="singleCard">
+              <label className="mb-3" className="cardTitle">Name</label>
+              <input {...name} type="text" placeholder={category.name} required />
+              <label className="mb-3" className="cardTitle">description</label>
+              <input
+                {...description}
+                type="text"
+                placeholder={category.description}
+                required
+              />
+              <label className="mb-3" className="cardTitle">image</label>
+              <input {...image} type="text" placeholder={category.imagen} required />
+              <button className="btn btn-dark btn-lg btnAdd">Save</button>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div>
-      <h1 className="h1">ADD CATEGORIE</h1>
-      <form onSubmit={handlerSubmit} className="singleCard">
-        <label className="cardTitle">Name</label>
-        <input {...name} type="text" placeholder="categorie name" required />
-        <label className="cardTitle">description</label>
-        <input
-          {...description}
-          type="text"
-          placeholder="description"
-          required
-        />
-        <label className="cardTitle">image</label>
-        <input {...image} type="text" placeholder="url-image " required />
-        <button className="btn btn-dark btn-lg btnAdd">Save</button>
-      </form>
+
+    <div className="containerSingle">
+      <div className="AddCategory">
+        <div className="cardTitle">
+          <h1 className="h1" className="cardTitle">ADD CATEGORY</h1>
+          <form onSubmit={handlerSubmit} className="singleCard">
+            <label className="mb-3" className="cardTitle">Name</label>
+            <input {...name} type="text" placeholder="categorie name" required />
+            <label className="mb-3" className="cardTitle">description</label>
+            <input
+              {...description}
+              type="text"
+              placeholder="description"
+              required
+            />
+            <label className="mb-3" className="cardTitle">image</label>
+            <input {...image} type="text" placeholder="url-image " required />
+            <button className="btn btn-dark btn-lg btnAdd">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

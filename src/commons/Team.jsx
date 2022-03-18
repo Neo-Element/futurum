@@ -1,5 +1,5 @@
 import React from "react";
-
+import marisol from "../assets/marisol.png" 
 const Team = () => {
   return (
     <div className="grid">
@@ -12,7 +12,7 @@ const Team = () => {
           </div>
           <div class="image">
             <img
-              src=""
+              src={marisol}
               alt="perfil"
             />
           </div>
@@ -20,7 +20,7 @@ const Team = () => {
         <div className="half">
           <div className="description">
             <h3>Perfil</h3>
-            <p>Algo que quieran poner</p>
+            <p>me gusta el back, hago tablas</p>
           </div>
         </div>
       </div>

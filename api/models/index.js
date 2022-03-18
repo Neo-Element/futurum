@@ -14,4 +14,7 @@ Users.hasMany(Orders, {as: "orders_users"})
 Products.hasMany(Orders, {as: "orders_products"}) 
 Payments.hasMany(Orders, {as: "payment"})
 
+
+
+
 module.exports = { Users, Products, Orders , Reviews, Payments, Categories};

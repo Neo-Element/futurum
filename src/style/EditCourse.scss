@@ -1,0 +1,39 @@
+.EditCourseCard{
+    box-shadow: 2px 6px 6px 6px rgba(#000, 0.3);
+    background: #ffffff;
+    height: 760px;
+    width: 500px;
+    margin-top: 50px;
+    border-radius: 50px;
+    margin-left: 40%;
+    display: flex;
+    justify-content: center;
+    
+    .cardTitle{
+        padding: 1px 1px;
+
+        h1{
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        legend{
+          text-align: center;
+        }
+
+        .colorBar{
+            background-color: #ffffff;
+            padding: 10px 10px;
+            width: 0px;
+            height: 5px;
+            margin-right: 50px;
+        }
+        .btnAddR{
+          display: flex;
+          justify-content: center;
+          text-align: center  ;
+          margin-top: 25px;
+        }
+    }
+
+  }

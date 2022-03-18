@@ -56,7 +56,7 @@ const AdminUser = () => {
                 {user.isAdmin ? (<td><button onClick={() => handleAdminRole(user)}>Revoque admin</button></td>) : 
                 (<td><button onClick={() => handleAdminRole(user)}>Make admin</button></td>)}
                 <td>
-                  <button onClick={() => {handleDelete(user)}}>🗑️</button>
+                  <button onClick={() => {if(window.confirm("Are you sure you want to delete this user?")) {handleDelete(user)}}}>🗑️</button>
                 </td>
               </tr>
             );

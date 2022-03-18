@@ -51,7 +51,6 @@ const dispatch = useDispatch();
         <Route path="/users/login" element={<Login />} />
 
         {/* RUTAS ADMINISTRADOR */}
-        <Route path="/admin" element={<HomeAdmin />} />
         <Route path="/admin/products" element={<AdminCourses />} />
         <Route path="/admin/products/add" element={<AddProduct/>} />
         <Route path="/admin/products/:id" element={<SingleCourse/>} />

@@ -77,6 +77,6 @@ router.get("/", /*isAdmin*/ UserController.getUsers);
 
 //NO PEDIDAS EN TRELLO
 //RUTA PARA VER UN USUARIO PARTICULAR
-router.get("/:id", UserController.getOne);
+router.get("/:id", UserController.getOneUsers);
 
 module.exports = router;

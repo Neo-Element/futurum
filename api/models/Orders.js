@@ -1,6 +1,5 @@
 const S = require("sequelize");
 const db = require("../confDb");
-
 class Orders extends S.Model {}
 
 Orders.init({
@@ -11,4 +10,6 @@ Orders.init({
 },{
     sequelize:db, modelName: "shopcart",
 })
+
+
 module.exports= Orders

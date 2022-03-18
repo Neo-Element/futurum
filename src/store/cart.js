@@ -8,6 +8,8 @@ export const cartRegister = createAsyncThunk("Cart", async(cart) => {
             arr.push( axios
               .post("/api/orders", element))   
          }))
+        
+         
          return resposes
     }
   catch (err){

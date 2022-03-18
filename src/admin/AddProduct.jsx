@@ -1,19 +1,26 @@
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import useInput from "../hooks/useInput";
 import { productCreated } from "../store/singleProduct";
+import { getCategories } from "../store/categories";
 
 
-const AddProduct = (course) => {
+const AddProduct = () => {
   const productName = useInput();
   const price = useInput();
-  const category = useInput(); 
+  const category = useInput();
   const overview = useInput();
   const image = useInput();
   const duration = useInput();
   const requirements = useInput();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const categories = useSelector(state => state.categories)
+
+  useEffect(() => {
+    dispatch(getCategories())
+  }, [])
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +28,7 @@ const AddProduct = (course) => {
       productCreated({
         productName: productName.value,
         price: price.value,
-        category: category.value,
+        category: document.getElementById("category").value,
         overview: overview.value,
         ranking: null,
         image: image.value,
@@ -31,50 +38,75 @@ const AddProduct = (course) => {
       })
     )
       .then((product) => {
-        console.log("curso creado -->", product)
-        navigate("/admin/products")}) //ver ruta
+        alert("Course successfully created 📖")
+        navigate("/admin/products")
+      }) //ver ruta
       .catch((err) => console.log(err));
   };
 
   return (
     <div>
-      <form onSubmit={handlerSubmit}>
-        <label>Course</label>
-        <input
-          {...productName}
-          type="text"
-          placeholder="Nombre del curso"
-          required
-        />
-        <label>Price</label>
-        <input {...price} type="text" placeholder="$" required />
-        <label>Categoria</label> 
-        <input
-          {...category}
-          type="text"
-          placeholder="Diseño UX/UI, Programación.. "
-          required
-        />
-        <label>About</label>
-        <input
-          {...overview}
-          type="text"
-          placeholder="Breve descripción del curso"
-          required
-        />
-        <label>Image</label>
-        <input {...image} type="text" placeholder="img.jpg" required />
-        <label>Duration</label>
-        <input {...duration} type="text" placeholder="4 semanas" required />
-        <label>Requirements</label>
-        <input
-          {...requirements}
-          type="text"
-          placeholder="Equipo, software y otros materiales requeridos"
-          required
-        />
-        <button>Create Course</button>
-      </form>
+      <h1></h1>
+      <div className="containerSingle" >
+        <div className="EditCourseCard">
+          <div className="cardTitle">
+            <h1 id="title">Add new course</h1>
+            <form onSubmit={handlerSubmit}>
+              <label className="mb-2">Course</label>
+              <input
+                {...productName}
+                type="text"
+                placeholder="Nombre del curso"
+                className="form-control"
+                required
+              />
+              <label className="mb-4">Price</label>
+              <input {...price} type="text" placeholder="$" className="form-control" required />
+              <label className="mb-2">Category</label>
+              <br></br>
+
+              <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Action
+                </button>
+                <div class="dropdown-menu">
+                  {categories.map((category) => {
+                    return (
+                      <a class="dropdown-item" href="#" value={category.id}>{category.name}</a>
+                    );
+                  })}
+                </div>
+              </div>
+
+
+              <br></br>
+              <label className="mb-2">About</label>
+              <input
+                {...overview}
+                type="text"
+                placeholder="Breve descripción del curso"
+                className="form-control"
+                required
+              />
+              <label className="mb-2">Image</label>
+              <input {...image} type="text" placeholder="img.jpg" className="form-control" required />
+              <label className="mb-2">Duration</label>
+              <input {...duration} type="text" placeholder="4 semanas" className="form-control" required />
+              <label className="mb-2">Requirements</label>
+              <input
+                {...requirements}
+                type="text"
+                placeholder="Equipo, software y otros materiales requeridos"
+                className="form-control"
+                required
+              />
+              <div className="btnAddR">
+                <button type="submit" className="btn btn-dark btn-lg btnAdd">Create Course</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
