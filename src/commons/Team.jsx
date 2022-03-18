@@ -1,4 +1,5 @@
 import React from "react";
+import mateo from "../assets/mateo.jpeg";
 
 const Team = () => {
   return (
@@ -122,7 +123,7 @@ const Team = () => {
           </div>
           <div class="image">
             <img
-              src="https://i.pinimg.com/222x/74/74/84/747484018ebe30e085435460566dcdf1.jpg"
+              src={mateo}
               alt="perfil"
             />
           </div>

@@ -35,7 +35,6 @@ const CheckOut = () => {
       };
       return order;
     });
-    console.log("ARREGLO DE ORDENES->", orders);
     dispatch(cartRegister(orders));
   };
 

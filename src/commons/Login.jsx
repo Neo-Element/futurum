@@ -24,15 +24,14 @@ const Login = () => {
     if (validEmail(email) && validPassword(password)) {
       dispatch(userLogin({ email: email.value, password: password.value }))
         .then((res) => {
-          console.log("USER", res);
-          if (res.payload) {
-            localStorage.setItem("user", JSON.stringify(res.payload));
-          } else {
-            alert("Invalid Email or Password");
-            return;
-          }
-          navigate("/");
-        }) //revisar la ruta
+          // if (res.payload) {
+          //   localStorage.setItem("user", JSON.stringify(res.payload));
+          // } else {
+          //   alert("Invalid Email or Password");
+          //   return;
+          // }
+          navigate("/users");
+        })
         .catch((err) => console.log(err));
     } else {
       if (!validEmail(email)) {

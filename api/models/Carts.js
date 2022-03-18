@@ -11,4 +11,4 @@ Carts.init({
 },{
     sequelize:db, modelName: "shopcart",
 })
-module.exports= Carts
+module.exports= Carts;
