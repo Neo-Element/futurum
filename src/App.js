@@ -39,7 +39,7 @@ function App() {
         <Routes>
           {/* LAS RUTAS NO ESTAN DINAMIZADAS POR AHORA */}
           {/* HOME Y REGISTER */}
-          <Route path="/" element={<Welcome />} />
+          <Route path="/" element={<HomeUsers/>} />
           <Route path="/admin/login" element={<Login />} />
           <Route path="/users/register" element={<Register />} />
           <Route path="/users/login" element={<Login />} />
@@ -50,14 +50,7 @@ function App() {
           <Route path="/admin/products/:id" element={<SingleCourse />} />
           <Route path="/admin/products/edit/:id" element={<EditCourse />} />
           <Route path="/admin/users" element={<AdminUser />} />
-          <Route
-            path="/admin/users/:id"
-            element={<h1>VISTAS DE UN USUARIO PARTICULAR</h1>}
-          />
-          <Route
-            path="/admin/users/edit/:id"
-            element={<h1>VISTAS DE UN USUARIO PARTICULAR</h1>}
-          />
+
           <Route path="/admin" element={<HomeAdmin />} />
 
           <Route path="/admin/categories" element={<AdminCategory />} />
