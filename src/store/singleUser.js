@@ -10,7 +10,7 @@ export const userLogin = createAsyncThunk("login", (user) => {
 });
 
 export const persistence = createAsyncThunk("user", () => {
-  return axios.get("/api/users/me".then((res) => res.data));
+  return axios.get("/api/users/me").then((res) => res.data);
 });
 
 export const userLogout = createAsyncThunk("logout", () => {

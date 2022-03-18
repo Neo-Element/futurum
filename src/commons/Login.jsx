@@ -24,12 +24,8 @@ const Login = () => {
     if (validEmail(email) && validPassword(password)) {
       dispatch(userLogin({ email: email.value, password: password.value }))
         .then((res) => {
-          console.log("USER", res);
-          if (res.payload) {
-            localStorage.setItem("user", JSON.stringify(res.payload));
-          } else {
-            alert("Invalid Email or Password");
-            return;
+          if (!res.payload) {
+            return alert("Invalid Email or Password");
           }
           navigate("/");
         }) //revisar la ruta

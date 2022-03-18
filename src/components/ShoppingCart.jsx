@@ -3,10 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 const ShoppingCart = () => {
-  //const user = useSelector((state) => state.user);
-  const user = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))
-    : { none: "none" };
+  const user = useSelector((state) => state.user);
   const navigate = useNavigate();
   let courses = localStorage.getItem("Cart")
     ? JSON.parse(localStorage.getItem("Cart"))

@@ -4,10 +4,8 @@ import { cartRegister, sendMail } from "../store/cart";
 import { getPayments } from "../store/payments";
 
 const CheckOut = () => {
-  //const user = useSelector((state) => state.user);
-  const user = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))
-    : { none: "none" };
+  const user = useSelector((state) => state.user);
+  
   const payments = useSelector((state) => state.payments);
   let courses = localStorage.getItem("Cart")
     ? JSON.parse(localStorage.getItem("Cart"))

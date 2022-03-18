@@ -29,14 +29,7 @@ exports.serviceLogin = async (req) => {
 //GETME
 exports.serviceGetMe = async (req) => {
   try {
-    const user = await Users.findOne({
-      where: { id: req.user.id },
-      attributes: {
-        exclude: ["password", "salt"],
-      },
-    });
-    console.log("ME DESDE SERVICE,", user);
-    return user;
+    return req.user ? req.user : null;
   } catch (err) {
     console.log(err);
   }
