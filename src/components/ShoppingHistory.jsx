@@ -17,7 +17,7 @@ const ShoppingHistory = () => {
     e.preventDefault();
     setInput({ ...input, userId: user });
     dispatch(sendReview(input));
-    alert("Thanks for leaving a review!")
+    alert("Thanks for leaving a review!");
   };
 
   return (
@@ -40,7 +40,7 @@ const ShoppingHistory = () => {
                 <td>{course.productName}</td>
                 <td>{course.price}</td>
                 <td>
-                  <StarsRating />
+                  <StarsRating  className="star" productId={course.id} userId={user}/>
                 </td>
                 <td>
                   <div class="box">
