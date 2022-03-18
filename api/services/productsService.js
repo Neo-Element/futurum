@@ -56,7 +56,7 @@ exports.serviceUpdateProduct = async (req, next) => {
 exports.serviceAddProduct = async (req, next) => {
   try {
     const { category } = req.body;
-    const data = await Categories.findOrCreate({ where: { name: category } });
+    const data = await Categories.findOrCreate({ where: { id: category } });
     const product = await Products.create(req.body);
     const categories = data[0];
     product.setCategories(categories);

@@ -26,12 +26,9 @@ const AdminCourses = () => {
   };
 
   const handleCreate = () => {
-    navigate("/admin/products/add"); //ver de hacer pop-up en vez de redirigir
+    navigate("/admin/products/add"); 
   };
 
-  const handleEdit = (course) => {
-    console.log("CURSO", course.id);
-  };
 
   return (
     <div>
@@ -61,11 +58,11 @@ const AdminCourses = () => {
                 <td>{course.productName}</td>
                 <td>
                   <Link to={`/admin/products/edit/${course.id}`}>
-                    <button>✏️</button>
+                    <button className="btn-white btn">✏️</button>
                   </Link>
                 </td>
                 <td>
-                  <button onClick={() => handleDelete(course)}>🗑️</button>
+                  <button className="btn-white btn" onClick={() => {if(window.confirm("Are you sure you want to delete this course?")) {handleDelete(course)}}}>🗑️</button>
                 </td>
               </tr>
             );

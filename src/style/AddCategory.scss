@@ -1,38 +1,35 @@
-.singleCard {
-    box-shadow: 2px 6px 6px 6px rgba(#000, 0.3);
-    background: #40916c;
-    height: 450px;
-    width: 450px;
-    margin-top: 50px;
-    border-radius: 50px;
-    margin-left: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
+.AddCategory{
+  box-shadow: 2px 6px 6px 6px rgba(#000, 0.3);
+  background: #ffffff;
+  height: 650px;
+  width: 500px;
+  margin-top: 200px;
+  border-radius: 50px;
+  margin-left: 40%;
+  display: flex;
+  justify-content: center;
   
-    .cardTitle {
-      display: flex;
-      align-items: flex-start;
-      text-align: center;
+  .cardTitle{
       padding: 30px 40px;
-      font-weight: 600;
-      font-size: 20px;
-    }
-  
-    .btnAdd {
-      box-shadow: 0px 6px 6px rgba(#000, 0.3);
-      display: flex;
-      justify-content: center;
-    }
+      margin-bottom: 0px;
+
+      legend{
+        text-align: center;
+      }
+
+      .colorBar{
+          background-color: #ffffff;
+          padding: 10px 10px;
+          width: 1000px;
+          height: 5px;
+          margin-right: 50px;
+      }
+      .btnAddR{
+        display: flex;
+        justify-content: center;
+        text-align: center  ;
+        margin-top: 15px;
+      }
   }
-  
-  .h1 {
-    text-align: center;
-    color: #1b4332;
-    font-family: sans-serif;
-    font-weight: 600;
-    font-size: 40px;
-    text-transform: uppercase;
-  }
-  
+
+}
