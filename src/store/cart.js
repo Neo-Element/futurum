@@ -15,11 +15,6 @@ export const cartRegister = createAsyncThunk("Cart", async(cart) => {
   }
   });
 
-export const sendMail = createAsyncThunk("sendMail", (courses, user) =>{
-  return axios.post("/api/mail",courses, user)
- // .then((res)=> res.data)
-})  
-
 const cartReducer = createReducer([], {
   [cartRegister.fulfilled]: (state, action) => action.payload
 }); 

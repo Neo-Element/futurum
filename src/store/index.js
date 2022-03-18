@@ -10,6 +10,7 @@ import usersReducer from "./users";
 import singleUserReducer from "./singleUser";
 import paymentReducer from "./payments";
 import reviewReducer from "./review";
+import mailReducer from "./mail";
 
 const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
@@ -24,6 +25,7 @@ const store = configureStore({
     categories: categoriesReducer,
     payments: paymentReducer,
     reviews: reviewReducer,
+    mail: mailReducer,
   },
 });
 
