@@ -14,21 +14,20 @@ const AdminCategories = () => {
 
   const handleDelete = (categoryId) => {
     dispatch(deleteCategory(categoryId))
-    .then(()=> {
-      alert("Element deleted!");
-      dispatch(getCategories());
-    })
+      .then(() => {
+        alert("Element deleted!");
+        dispatch(getCategories());
+      })
   };
 
   return (
-      <div>
-        <h1>Categories</h1>
-        <h2>Config categories</h2>
-        <Link to="/admin/categories/add" className="link">
-        <button className="botonColorNav">ADD</button>
-        </Link>
-        <br></br>
-        <table className="table table-sm">
+    <div>
+      <h1>Categories</h1>
+      <h2>Config categories</h2>
+
+      <br></br>
+      <div className="tables">
+        <table className="table table-sm" id="categorieTable">
           <tbody>
             {categories.map((category, i) => {
               return (
@@ -36,12 +35,12 @@ const AdminCategories = () => {
                   <th scope="row">{i + 1}</th>
                   <td>{category.name}</td>
                   <td>
-                  <Link to={`/admin/categories/edit/${category.id}`}  className="link">
-                  <button>Edit</button>
-                  </Link>
+                    <Link to={`/admin/categories/edit/${category.id}`} className="link">
+                      <button className="btn-dark btn">Edit</button>
+                    </Link>
                   </td>
                   <td>
-                    <button onClick={() =>{if (window.confirm("Are you sure you want to delete?")) {handleDelete(category.id)}}}>
+                    <button className="btn-dark btn" onClick={() => { if (window.confirm("Are you sure you want to delete?")) { handleDelete(category.id) } }}>
                       Delete
                     </button>
                   </td>
@@ -50,7 +49,11 @@ const AdminCategories = () => {
             })}
           </tbody>
         </table>
+        <Link to="/admin/categories/add" className="link">
+        <button className="botonColorNav" className="btn-dark btn">ADD NEW CATEGORY</button>
+      </Link>
       </div>
+    </div>
   );
 };
 

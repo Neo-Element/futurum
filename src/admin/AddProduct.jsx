@@ -65,18 +65,16 @@ const AddProduct = () => {
               <label className="mb-2">Category</label>
               <br></br>
 
-              <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Action
-                </button>
-                <div class="dropdown-menu">
-                  {categories.map((category) => {
-                    return (
-                      <a class="dropdown-item" href="#" value={category.id}>{category.name}</a>
-                    );
-                  })}
-                </div>
-              </div>
+              
+                <select id="category" className="btn-dark btn">
+                    {categories.map((category) => {
+                      return(
+                        <option href="#" value={category.id}>{category.name}</option>
+                      );
+                    })}
+       
+                </select>
+  
 
 
               <br></br>

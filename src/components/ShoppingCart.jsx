@@ -12,7 +12,7 @@ const ShoppingCart = () => {
     localStorage.getItem("Cart") ? JSON.parse(localStorage.getItem("Cart")) : []
   );
 
-  useEffect(() => {}, [courses]);
+  useEffect(() => { }, [courses]);
 
   const handleClick = (course) => {
     const deleted = courses.filter((e) => e !== course);
@@ -31,8 +31,8 @@ const ShoppingCart = () => {
   return (
     <div>
       <h1>Lista de deseos</h1>
-      <div>
-        <table class="table table-striped table-teal">
+      <div className="tables">
+        <table class="table table- table">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -49,17 +49,19 @@ const ShoppingCart = () => {
                   <td>{course.productName}</td>
                   <td>{course.price}</td>
                   <td>
-                    <button onClick={() => handleClick(course)}>remove</button>
+                    <button className="btn-dark btn" onClick={() => handleClick(course)}>remove</button>
                   </td>
                 </tr>
               </tbody>
             );
           })}
+
         </table>
+        {courses.length ? (
+          <button className="btn-dark btn" onClick={handlerCheckout}>Comprar</button>
+        ) : null}
       </div>
-      {courses.length ? (
-        <button onClick={handlerCheckout}>Comprar</button>
-      ) : null}
+
     </div>
   );
 };
