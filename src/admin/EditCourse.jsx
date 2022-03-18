@@ -52,7 +52,8 @@ const EditCourse = () => {
   return (
     <div>
       <div className="containerSingle">
-        <div><h1>{course.productName}</h1></div>
+        <div><h1></h1></div>
+      
 
         <div className="EditCourseCard">
           <div className="cardTitle">
@@ -69,14 +70,18 @@ const EditCourse = () => {
               />
               <label className="mb-2">Price</label>
               <input value={price.value} onChange={price.onChange} type="text" placeholder={course.price} className="form-control" required />
-              <label className="mb-2">Categoria</label>
-              <select id="category">
+              <label className="mb-2">Category</label>
+              <br></br>
+
+              <select id="category" className="btn-dark btn">
               {categories.map((category) => {
                 return (
                   <option value={category.id}>{category.name}</option>
                 );
               })}
             </select>
+
+            <br></br>
               <label className="mb-2">About</label>
               <input
                 {...overview}

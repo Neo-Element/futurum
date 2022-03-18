@@ -40,14 +40,14 @@ const CheckOut = () => {
   };
 
   return (
-    <div className="containerSingle">
-      <div className="singleCardLogin">
-        <div className="cardTitle">
-          <p className="text-black text-lg">{user.nameAndLastname}</p>
+    <div className="checkOut">
+      <div className="">
+        <div className="">
+          <h2 className="text-black text-lg">{user.nameAndLastname}</h2>
           <div className="colorBar"> </div>
         </div>
-        <div className="bodyCard">
-          <p className="date">{date.toLocaleDateString()}</p>
+        <div className="tables">
+          <h3 className="date">{date.toLocaleDateString()}</h3>
           <table className="table table-sm">
             <thead>
               <tr>
@@ -71,8 +71,8 @@ const CheckOut = () => {
             </tbody>
           </table>
           <div className="priceAndAdd">
-            <p className="price">{`Total:${total}`}</p>
-            <p className="price">{`Tipo de Pago:`}</p>
+            <h5 className="price">{`Total:${total}`}</h5>
+            <h5 className="price">{`Tipo de Pago:`}</h5>
             <select id="payment">
               {payments.map((payment) => {
                 return (
@@ -81,6 +81,7 @@ const CheckOut = () => {
               })}
             </select>
           </div>
+          <br></br>
           <button onClick={handleBuy} className="btn btn-dark btn-lg btnAdd">
             <i class="fa-solid fa-cart-arrow-down"></i> Buy
           </button>

@@ -12,9 +12,6 @@ const Category = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  console.log("CATEGORY->", category);
-  console.log("PRODUCTS->", products);
-
   useEffect(() => {
     dispatch(getCategory(id));
     dispatch(getCategoryProd(id));

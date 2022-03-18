@@ -12,6 +12,14 @@
     .cardTitle{
         padding: 1px 1px;
 
+        #category {
+          width: 300px;
+        }
+
+        select:hover{
+          background-color: black;
+        }
+
         h1{
             margin-bottom: 20px;
             color: #000;
