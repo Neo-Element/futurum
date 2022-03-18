@@ -1,5 +1,6 @@
 const { Products, Categories } = require("../models");
 
+
 class ProductServices{
   static async serviceGetAllProduct(req, next){
     try {
@@ -77,5 +78,5 @@ class ProductServices{
       }
     };
 }
-module.exports= ProductServices;
 
+module.exports= ProductServices;

@@ -72,16 +72,29 @@ class UsersService{
   
   static async servicePromoveAdmin(req, next){
     try {
-      const [affectedRows, updatedUser] = await Users.update(req.body, {
-        where: {
-          id: req.params.id,
-        },
-        returning: true,
-      });
-  
-      const user = updatedUser[0];
-      return user;
-    } catch (err) {
+      const adminRole = req.body.isAdmin;
+      if (adminRole) {
+       await Users.update(
+          {
+            isAdmin: false,
+          },
+          {
+            where: { id: req.params.id },
+          }
+        )
+        }
+       else {
+       await Users.update(
+          {
+            isAdmin: true,
+          },
+          {
+            where: { id: req.params.id },
+          }
+        )
+      }
+    }
+   catch (err) {
       next(err);
     }
   };

@@ -10,7 +10,7 @@ const {Payments}=require('../models')
 const {Products} = require('../models')
 const {Users}=require('../models')
 const {Reviews}=require('../models')
-const {Carts}=require('../models')
+const {Orders}=require('../models')
 
 const db= require('./index')
 
@@ -22,7 +22,7 @@ db.sync({force:true}).then(()=>{
     Products.bulkCreate(products)
     Users.bulkCreate(users)
     Reviews.bulkCreate(reviews)
-    Carts.bulkCreate(carts)
+    Orders.bulkCreate(carts)
 
 })
 .then(()=> console.log("seed finalizado"))

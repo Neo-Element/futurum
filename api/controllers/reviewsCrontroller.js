@@ -7,7 +7,6 @@ class ReviewController{
     const reviews= await ReviewService.servicGetAllReviews(next)
     return reviews ? res.json(reviews) : res.sendStatus(404)
     }
-    
   
     static async getOneReview(req,res,next){
         const review= await ReviewService.serviceGetOneReview(req,next)
