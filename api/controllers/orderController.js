@@ -1,11 +1,15 @@
 const { Carts } = require("../models");
 const OrderService = require("../services/orderServices");
-//ADD TO CART ESTA RUAT FALTA TERMINARLA
 
-exports.addOrder = async (req, res, next) => {
-  const order = await OrderService.serviceAddOrder(req, next);
-  return res.status(201).send(order);
+class OrderController{
+ static async addOrder (req, res, next){
+    const order = await OrderService.serviceAddOrder(req, next);
+    return res.status(201).send(order);
+
+}
 };
+
+module.exports= OrderController;
 /* // TRAER TODO LO DEL CARRITO DE UN USUARIO
   exports.getAllCart=(req, res) => {  /// checkear si esto es modificado
     Users.findOne({

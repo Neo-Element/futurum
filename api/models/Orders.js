@@ -1,9 +1,9 @@
 const S = require("sequelize");
 const db = require("../confDb");
 
-class Carts extends S.Model {}
+class Orders extends S.Model {}
 
-Carts.init({
+Orders.init({
     date:{
         type: S.DATE
         
@@ -11,4 +11,4 @@ Carts.init({
 },{
     sequelize:db, modelName: "shopcart",
 })
-module.exports= Carts
+module.exports= Orders

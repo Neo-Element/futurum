@@ -1,11 +1,7 @@
 const express = require("express");
 const paymentsRouter = express.Router();
-const { Payments } = require("../models");
+const PaymentsControllers= require("../controllers/paymentsController")
 
-paymentsRouter.get("/", (req, res, next) => {
-  Payments.findAll()
-    .then((payments) => (payments ? res.json(payments) : res.sendStatus(404)))
-    .catch((err) => console.log(err));
-});
+paymentsRouter.get("/", PaymentsControllers.getAllPayments);
 
 module.exports = paymentsRouter;

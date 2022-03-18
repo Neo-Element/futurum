@@ -1,36 +1,37 @@
 const CategoryService = require("../services/categoriesServices");
 
-//OBTENER TODAS LAS CATEGORIAS
-exports.getAll = async (req, res, next) => {
-  const categories = await CategoryService.serviceGetAll(req, next);
-  return categories ? res.json(categories) : res.sendStatus(404);
-};
+class CategoryController{
 
-//OBTENER UNA CATEGORIA
-exports.getOne = async (req, res, next) => {
-  const category = CategoryService.serviceGetOne(req, next);
-  return res.send(category);
-};
+  static async getAllCategory (req, res, next) {
+    const categories = await CategoryService.serviceGetAllCategories(req, next);
+    return categories ? res.json(categories) : res.sendStatus(404);
+  }
 
-/* exports.getByCategory = async (req, res, next) => {
-  const courses = await CategoryService.serviceGetByCategory(req, next);
-  return res.send(courses);
-}; */
+  
+ static async getOneCategory(req, res, next){
+    const category = CategoryService.serviceGetOne(req, next);
+    return res.send(category);
+  };
 
-//CREAR CATEGORIA
-exports.newCategory = async (req, res, next) => {
-  const category = await CategoryService.serviceNewCategory(req, next);
-  return res.status(201).json(category);
-};
+ 
+  static async newCategory (req, res, next)  {
+    const category = await CategoryService.serviceNewCategory(req, next);
+    return res.status(201).json(category);
+  };
+  
+  static async deleteCategory(req, res, next) {
+    await CategoryService.serviceDeleteCategory(req, next);
+    return res.sendStatus(202);
+  };
+  
+ 
+  static async updateCategory(req, res, next){
+    const category = await CategoryService.serviceEditCategory(req, next);
+    return res.status(201).json(category);
+  };
 
-//BORRAR CATEGORIA
-exports.deleteCategory = async (req, res, next) => {
-  await CategoryService.serviceDelete(req, next);
-  return res.sendStatus(202);
-};
+}
 
-// EDITAR CATEGORIA
-exports.updateCategory = async (req, res, next) => {
-  const category = await CategoryService.serviceEdit(req, next);
-  return res.status(201).json(category);
-};
+module.exports= CategoryController;
+
+
