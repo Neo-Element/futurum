@@ -38,6 +38,7 @@ const CheckOut = () => {
       };
       return order;
     });
+
     dispatch(cartRegister(orders)).then(() => {
       dispatch(sendMail(user));
     });
