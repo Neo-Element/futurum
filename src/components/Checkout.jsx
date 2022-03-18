@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { cartRegister } from "../store/cart";
 import { getPayments } from "../store/payments";
-import { sendMail} from "../store/mail"
+import { sendMail } from "../store/mail";
 
 const CheckOut = () => {
   //const user = useSelector((state) => state.user);
@@ -15,8 +15,8 @@ const CheckOut = () => {
     : [];
   const dispatch = useDispatch();
   const date = new Date();
-  const mail = useSelector((state) => state.mail)
-  console.log(mail)
+  const mail = useSelector((state) => state.mail);
+  console.log(mail);
 
   //REVISAR SI ESTO VA ACA
   let total = 0;
@@ -38,11 +38,9 @@ const CheckOut = () => {
       };
       return order;
     });
-    console.log("ARREGLO DE ORDENES->", orders);
-    dispatch(cartRegister(orders))
-    .then(() => {
-      dispatch(sendMail(user))
-    })
+    dispatch(cartRegister(orders)).then(() => {
+      dispatch(sendMail(user));
+    });
   };
 
   return (
