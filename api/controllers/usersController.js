@@ -3,7 +3,7 @@ const UserService = require("../services/usersService");
 class UserController{
 
   static async registerUsers(req, res){
-    const data = await UserService.serviceResgisterUser(req);
+    await UserService.serviceResgisterUser(req);
     return res.sendStatus(201);
   };
   
@@ -38,8 +38,8 @@ class UserController{
   
   
   static async promoveAdmin(req, res, next){
-    const updatedAdmin = await UserService.servicePromoveAdmin(req, next);
-    return res.status(200).send(updatedAdmin);
+     await UserService.servicePromoveAdmin(req, next);
+    return res.sendStatus(200)
   };
   
   

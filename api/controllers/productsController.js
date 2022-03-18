@@ -21,7 +21,7 @@ class ProductsController{
     return res.status(201).json(product);
   };
   
-  //ADD PRODUCT
+
   static async addProduct(req, res, next){
     const product = await ProductService.serviceAddProduct(req, next);
     return res.status(201).send(product);
