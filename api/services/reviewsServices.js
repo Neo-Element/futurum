@@ -1,35 +1,35 @@
 const { Reviews } = require("../models");
 
-// GET ALL
-exports.servicGetAllReviews = async (next) => {
-  try {
-    const reviews = await Reviews.findAll();
-    return reviews;
-  } catch (err) {
-    next(err);
-  }
-};
 
-//GET ONE
-exports.serviceGetOneReview = async (req, next) => {
-  try {
-    const review = await Reviews.findAll({
-      where: {
-        productId: req.params.productId,
-      },
-    });
-    return review;
-  } catch (err) {
-    next(err);
+class ReviewsServices{
+ static async servicGetAllReviews(next){
+      try{
+         const reviews= await Reviews.findAll()
+         return reviews 
+      }catch(err){
+        next(err)
+      }
   }
-};
-//CREATE A REVIEW
-exports.serviceNewReview = async (req, next) => {
-  try {
-    console.log("REQ BODY ====> ", req.body);
-    const review = await Reviews.create(req.body);
-    return review;
-  } catch (err) {
-    next(err);
+
+ static async serviceGetOneReview(req, next){
+      try{
+          const review= await   Reviews.findOne({
+              where: {
+                productId: req.params.productId,
+              },
+          })
+          return review
+      }catch(err){
+       next(err)
+      }
   }
-};
+  static async serviceNewReview(req,next){
+      try{
+          await  Reviews.create(req.body)
+      }catch(err){
+        next(err)
+      }
+  }
+}
+
+module.exports=ReviewsServices;

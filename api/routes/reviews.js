@@ -4,8 +4,8 @@ const reviewsRouter = express.Router();
 const ReviewController = require("../controllers/reviewsCrontroller");
 
 //================================================== DE ESTAS RUTAS PODEMOS SACAR LAS REVIEWS Y LOS VOTOS ======================================
-reviewsRouter.get("/all", ReviewController.getAll);
-reviewsRouter.get("/:productId", ReviewController.getOne);
+reviewsRouter.get("/all", ReviewController.getAllReviews);
+reviewsRouter.get("/:productId", ReviewController.getOneReview);
 reviewsRouter.post("/new", ReviewController.newReview);
 
 module.exports = reviewsRouter;

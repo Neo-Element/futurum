@@ -1,6 +1,6 @@
 const Users = require("./Users");
 const Products = require("./Products");
-const Carts = require("./Carts")
+const Orders = require("./Orders")
 const Reviews = require("./Reviews")
 const Payments = require("./Payments")
 const Categories = require("./Categories")
@@ -10,8 +10,8 @@ Products.hasMany(Reviews, {as: "reviews"})
 
 Reviews.belongsTo(Users,{as:"user"})
 
-Users.hasMany(Carts, {as: "orders_users"})
-Products.hasMany(Carts, {as: "orders_products"}) 
-Payments.hasMany(Carts, {as: "payment"})
+Users.hasMany(Orders, {as: "orders_users"})
+Products.hasMany(Orders, {as: "orders_products"}) 
+Payments.hasMany(Orders, {as: "payment"})
 
-module.exports = { Users, Products, Carts , Reviews, Payments, Categories};
+module.exports = { Users, Products, Orders , Reviews, Payments, Categories};

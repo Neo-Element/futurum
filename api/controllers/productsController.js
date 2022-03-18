@@ -1,39 +1,39 @@
 const ProductService = require("../services/productsService");
 
-//ALL PRODUCTS
-exports.getAll = async (req, res, next) => {
-  const products = await ProductService.serviceGetAll(req, next);
-  return products ? res.status(200).json(products) : res.sendStatus(404);
-};
 
-//GET PRODUCT
-exports.getProduct = async (req, res, next) => {
-  const product = await ProductService.serviceGetProduct(req, next);
-  return product ? res.status(200).json(product) : res.sendStatus(404);
-};
+class ProductsController{
+  static async getAllProducts(req, res, next){
+    const products = await ProductService.serviceGetAllProduct(req, next);
+    return products ? res.status(200).json(products) : res.sendStatus(404);
+  };
 
-//GET PRODUCT BY CATEGORY
-exports.productByCategory = async (req, res, next) => {
-  const courses = await ProductService.serviceProductByCategory(req, next);
-  return res.send(courses);
-};
+ static async getProduct(req, res, next){
+    const product = await ProductService.serviceGetProduct(req, next);
+    return product ? res.status(200).json(product) : res.sendStatus(404);
+  };
 
-//UPDATE PRODUCT
-exports.updateProduct = async (req, res, next) => {
-  const product = await ProductService.serviceUpdateProduct(req, next);
-  return res.status(201).json(product);
-};
+ static async productByCategory(req, res, next){
+    const courses = await ProductService.serviceProductByCategory(req, next);
+    return res.send(courses);
+  };
+  static async  updateProduct(req, res, next){
+    const product = await ProductService.serviceUpdateProduct(req, next);
+    return res.status(201).json(product);
+  };
+  
+  //ADD PRODUCT
+  static async addProduct(req, res, next){
+    const product = await ProductService.serviceAddProduct(req, next);
+    return res.status(201).send(product);
+  };
+  
+  static async deleteProduct(req, res, next){
+    const result = await ProductService.serviceDeleteProduct(req, next);
+    result
+      ? res.status(204).send([])
+      : res.status(404).send("The course you want to delete doesn't exist.");
+  };
+}
+module.exports= ProductsController;
 
-//ADD PRODUCT
-exports.addProduct = async (req, res, next) => {
-  const product = ProductService.serviceAddProduct(req, next);
-  return res.status(201).send(product);
-};
 
-//DELETE PRODUCT
-exports.delete = async (req, res, next) => {
-  const result = ProductService.serviceDeliteProduct(req, next);
-  result
-    ? res.status(204).send([])
-    : res.status(404).send("The course you want to delete doesn't exist.");
-};
