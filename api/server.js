@@ -11,8 +11,6 @@ app.use(express.json());
 app.use(morgan("tiny"));
 app.use(cookieParser());
 
-app.use("/api", routes);
-
 app.use(
   sessions({
     secret: "futurum",
@@ -23,6 +21,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use("/api", routes);
 
 db.sync({ force: false }).then(() => {
   console.log("La base se sincronizó correctamente");

@@ -15,7 +15,7 @@ const isAdmin = (req, res, next) => {
 //RUTA PARA REGISTRAR UN USUARIO
 router.post("/register", UserController.registerUsers);
 //RUTA PARA LOGIN
-router.post("/login", UserController.loginUsers);
+router.post("/login", passport.authenticate("local"), UserController.loginUsers);
 //RUTA PARA LOGOUT
 router.post("/logout", UserController.logOutUsers);
 //RUTA PARA DEVOLVER USUARIO LOGUEADO

@@ -2,6 +2,7 @@ const { Users } = require("../models");
 
 class UsersService{
 
+
   static async serviceResgisterUser(req){
     try {
       const res = await Users.create(req.body);
@@ -12,6 +13,7 @@ class UsersService{
       console.log("CATCH DE REGISTER SERVICE", err);
     }
   };
+
 
   static async serviceLogin(req){
     try {
@@ -29,17 +31,10 @@ class UsersService{
   
   static async serviceGetMe(req){
     try {
-      const user = await Users.findOne({
-        where: { id: req.user.id },
-        attributes: {
-          exclude: ["password", "salt"],
-        },
-      });
-      console.log("ME DESDE SERVICE,", user);
-      return user;
+      return req.user ? req.user : null;
     } catch (err) {
       console.log(err);
-    }
+    }      
   };
   
   //METODOS DE ADMIN --> GETUSERS

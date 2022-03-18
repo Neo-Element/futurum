@@ -4,7 +4,6 @@ const reviews = [
     productId: 1,
     comment:
       "review1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 1,
   },
   {
     userId: 2,
@@ -17,21 +16,18 @@ const reviews = [
     productId: 1,
     comment:
       "review3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 1,
   },
   {
     userId: 4,
     productId: 1,
     comment:
       "review4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 3,
   },
   {
     userId: 1,
     productId: 2,
     comment:
       "review1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 2,
   },
   {
     userId: 2,
@@ -44,14 +40,12 @@ const reviews = [
     productId: 2,
     comment:
       "review3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 5,
   },
   {
     userId: 4,
     productId: 2,
     comment:
       "review4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 4,
   },
   {
     userId: 1,
@@ -70,7 +64,6 @@ const reviews = [
     productId: 3,
     comment:
       "review3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 4,
   },
   {
     userId: 4,
@@ -83,7 +76,6 @@ const reviews = [
     productId: 4,
     comment:
       "review1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 2.5,
   },
   {
     userId: 2,
@@ -120,14 +112,12 @@ const reviews = [
     productId: 5,
     comment:
       "review3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 3,
   },
   {
     userId: 4,
     productId: 5,
     comment:
       "review4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 4,
   },
   {
     userId: 1,
@@ -152,14 +142,12 @@ const reviews = [
     productId: 6,
     comment:
       "review4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 5,
   },
   {
     userId: 1,
     productId: 7,
     comment:
       "review1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 3,
   },
   {
     userId: 2,
@@ -184,14 +172,12 @@ const reviews = [
     productId: 8,
     comment:
       "review1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 1,
   },
   {
     userId: 2,
     productId: 8,
     comment:
       "review2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    votes: 2,
   },
   {
     userId: 3,

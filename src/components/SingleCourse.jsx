@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CardRange from "../commons/CardRange";
 import { getOneProduct } from "../store/singleProduct";
-import Reviews from "../commons/Reviews"
+import Reviews from "../commons/Reviews";
 //RECIBE UN CURSO EN PARTICULAR
 const SingleCourse = () => {
   const { id } = useParams();
@@ -11,18 +11,19 @@ const SingleCourse = () => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
   /// agregar SIngle product REdux
-  const [cart, setCart] = useState(localStorage.getItem("Cart") ?  JSON.parse(localStorage.getItem("Cart")) : [] );
+  const [cart, setCart] = useState(
+    localStorage.getItem("Cart") ? JSON.parse(localStorage.getItem("Cart")) : []
+  );
 
   const handleClick = () => {
-    let noRepeat = cart.map(course => course.id === parseInt(id))
-    if(!noRepeat.includes(true)){
-      localStorage.setItem("Cart", JSON.stringify([...cart, product]))
+    let noRepeat = cart.map((course) => course.id === parseInt(id));
+    if (!noRepeat.includes(true)) {
+      localStorage.setItem("Cart", JSON.stringify([...cart, product]));
       setCart([...cart, product]);
     }
-    
   };
 
-
+  console.log(product);
   useEffect(() => {
     dispatch(getOneProduct(id));
   }, []);

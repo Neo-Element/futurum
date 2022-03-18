@@ -7,18 +7,18 @@ const StarsRating = ({ productId, userId }) => {
   const [rating, setRating] = useState(0);
   const dispatch = useDispatch();
 
+  const changeRating = (rating) => {
+    dispatch(
+      sendReview({ votes: rating, userId: userId, productId: productId })
+    );
+    setRating(rating);
+  };
+
   return (
-    <div
-      className="Wrapper"
-      onClick={() =>{
-        console.log("RATING =>", rating, "userid", userId, "productid", productId)
-        dispatch(sendReview({votes: rating, userId: userId, productId: productId}))  
-      }
-      }
-    >
+    <div className="Wrapper">
       <StarRating
         ratingValue={rating}
-        changeRating={setRating}
+        changeRating={changeRating}
         starEmptyColor="#999999"
         starSpacing={10}
         starDimension={30}
