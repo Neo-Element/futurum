@@ -1,4 +1,5 @@
-const ReviewService= require("../services/reviewsServices")
+const ReviewService = require("../services/reviewsServices");
+
 
 class ReviewController{
 
@@ -19,3 +20,4 @@ class ReviewController{
     }
 }
 module.exports= ReviewController;
+
