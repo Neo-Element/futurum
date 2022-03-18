@@ -14,8 +14,8 @@ class ReviewController{
     }
     
     static async newReview(req,res,next){
-        await ReviewService.serviceNewReview(req, next)
-        return res.sendStatus(201)
+        const review =  await ReviewService.serviceNewReview(req, next)
+        return res.status(201).send(review)
     }
 }
 module.exports= ReviewController;

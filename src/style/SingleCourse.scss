@@ -5,11 +5,12 @@
 .containerSingleProducts{
   margin-top: 100px;
   margin-left: 400px;
+}
 
 //card con la info precio,etc
  .singleCardProduct {
     box-shadow: 2px 6px 6px 6px rgba(#000, 0.3);
-    background: #40916C;
+    background: #017c76d3;
     height: 700px;
     width: 1250px;
     margin-top: 50px;
@@ -33,7 +34,7 @@
           }
 
         .colorBar{
-            background-color: #1B4332;
+            background-color: #0d0e0d;
             padding: 10px 10px;
             width: 1000px;
             height: 5px;
@@ -113,6 +114,9 @@
               color: rgb(255, 255, 255);
             }
           }
+          .nameCal{
+            text-align: left;
+          }
           
           span.stock{
             display: block;
@@ -164,12 +168,12 @@
 //testimonials
 .reviewsCardProduct{
     height: 400px;
-    width: 1000px;
+    width: 900px;
     text-align: center;
     align-items: center;
     margin-left: 11%;
-    margin-top: 10px;
-    background-color: rgba(187, 187, 187, 0.76);
+    margin-top: 50px;
+  
     .img-text{
         width: 100%;
         height: 300px;
@@ -179,6 +183,7 @@
         background: #B7E4C7;
         color: black;
         border-radius: 15px;
+        box-shadow: 2px 6px 6px 6px rgba(#000, 0.3);
    
     h2 {
         font-size: 25px;
@@ -187,7 +192,7 @@
         color: #40916C;
     }
      p {
-        font-size: 10px;
+        font-size: 20px;
         text-transform: uppercase;
         letter-spacing: 2px;
     }
@@ -203,17 +208,21 @@
         border:  5px solid #fff;
         overflow: hidden;
         top: 15px;
-        left: 110px;
+        left: 90px;
         border-radius: 50%;
 
         img {
             width: 100%;
         }
     }
-    .carousel-indicators{
-        left:0;
-        top: auto;
-        bottom: -70px;
+   
+    .controlColor{
+      border-radius: 50%;
+      margin-top: 120px;
+      height: 50px;
+      width: 50px;
+      color:  black;
+      background-color: black;
     }
     
 }
@@ -235,19 +244,21 @@
     text-align: center;
     align-items: center;
     margin-left: 110px;
-    background-color: #40916C;
-    border-radius: 50px;
+    background-color: #017c76d3;
+    border-radius: 20px;
     height: 300px;
     width:1100px ;
     display: block;
     align-items: center;
     text-align: center;
     justify-content: center;
+    color:rgb(0, 0, 0);
+    font-family: 'Courier New', Courier, monospace;
     p{
         color: #fff;
-        background-color: #40916C;
+      
     }
 }
 
-}
+
 

@@ -29,7 +29,11 @@ const Login = () => {
             return alert("Invalid Email or Password");
           }
           navigate("/users");
+<<<<<<< HEAD
         }) 
+=======
+        }) //revisar la ruta
+>>>>>>> origin/Styles
         .catch((err) => console.log(err));
     } else {
       if (!validEmail(email)) {

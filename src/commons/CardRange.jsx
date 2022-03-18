@@ -4,9 +4,7 @@ const CardRange = ({ range }) => {
   let rating = Math.round(range); // range va de 0 a 10
 
   const voidStar = <i className="fa-regular fa-star"></i>;
-  const halfStar = (
-    <i className="fa-solid fa-star-half-stroke rating-color"></i>
-  );
+  const halfStar = (<i className="fa-solid fa-star-half-stroke rating-color"></i>);
   const completeStar = <i className="fa-solid fa-star rating-color"></i>;
   let arr = [];
 

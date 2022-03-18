@@ -5,7 +5,10 @@ import { sendReview } from "../store/review";
 
 const ShoppingHistory = () => {
   const courses = useSelector((state) => state.products);
-  const user = useSelector((state) => state.user.id);
+  const user = localStorage.getItem("user")
+  ? JSON.parse(localStorage.getItem("user"))
+  : { none: "none" };
+  
   const dispatch = useDispatch();
   const [input, setInput] = useState({
     productId: null,
@@ -15,7 +18,8 @@ const ShoppingHistory = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setInput({ ...input, userId: user });
+    setInput({ ...input, userId: user.id });
+    console.log("INPUT", input)
     dispatch(sendReview(input));
     alert("Thanks for leaving a review!");
   };

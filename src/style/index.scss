@@ -19,7 +19,7 @@
 
 
 body {
- background-color: rgb(246, 240, 240);
+ background-color: rgb(243, 241, 237);
  margin: 0;
  padding: 0;
 }
@@ -30,4 +30,12 @@ body {
     padding: 0;
     background-color: rgb(255, 255, 255);
     padding-bottom: 10%;
+}
+
+.erro404{
+    width: auto;
+    margin:250px auto;
+    img{
+        border-radius: 50px;
+    }
 }

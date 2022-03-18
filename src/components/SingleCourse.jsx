@@ -26,7 +26,7 @@ const SingleCourse = () => {
   console.log(product);
   useEffect(() => {
     dispatch(getOneProduct(id));
-  }, []);
+  }, [id]);
 
   return (
     <div className="containerSingleProducts">
@@ -51,9 +51,11 @@ const SingleCourse = () => {
               <h3>Overview</h3>
               <p>{product.overview}</p>
             </div>
+            <div className="nameCal">
             <span className="stock">
               <i className="fa-solid fa-eye"></i>Calification
             </span>
+            </div>
             <div className="calification">
               <CardRange range={product.ranking} />
               <span>{` ${product.students} students`}</span>
@@ -72,8 +74,7 @@ const SingleCourse = () => {
       </div>
 
       <div className="reviewsCardProduct">
-        <h2>Testimonials</h2>
-        {/* <Reviews review={product.review} /> */}
+        <Reviews id={id}/>
       </div>
 
       <hr className="hrDown"></hr>

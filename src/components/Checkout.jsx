@@ -6,7 +6,7 @@ import { sendMail } from "../store/mail";
 
 const CheckOut = () => {
   const user = useSelector((state) => state.user);
-  
+
   const payments = useSelector((state) => state.payments);
   let courses = localStorage.getItem("Cart")
     ? JSON.parse(localStorage.getItem("Cart"))

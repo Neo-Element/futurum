@@ -78,12 +78,13 @@ function App() {
           <Route path="*" element={<Navigate to="404" />} />
           <Route path="/404" element={<NotFound />} />
 
-          {/* RUTA TEAM */}
-          <Route path="/team" element={<Team />} />
-        </Routes>
-        <Footer />
+
+        {/* RUTA TEAM */}
+        <Route path="/team" element={<Team />} />
+      </Routes>
       </div>
-    </>
+      <Footer/>
+      </>
   );
 }
 

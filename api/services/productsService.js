@@ -23,11 +23,11 @@ class ProductServices{
     
    static async serviceProductByCategory(req, next){
       try {
-        const categories = await Categories.findAll({
-          where: { name: req.params.id },
+        const products = await Products.findAll({
+          where: { categoriesId : req.params.id },
         });
     
-        return categories;
+        return products;
       } catch (err) {
         next(err);
       }
@@ -80,3 +80,4 @@ class ProductServices{
 }
 
 module.exports= ProductServices;
+
