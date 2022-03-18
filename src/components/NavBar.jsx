@@ -6,7 +6,7 @@ const NavBar = () => {
     <div className="navBarContainer">
       <nav class="navbar navbar-expand-lg navbar-dark ">
         <div class="container-fluid">
-          <Link to="/">
+          <Link to="/users">
             <img
               className="logo"
               src="https://see.fontimg.com/api/renderfont4/vmyL4/eyJyIjoiZnMiLCJoIjo0NiwidyI6MTAwMCwiZnMiOjQ2LCJmZ2MiOiIjMTQxNDE0IiwiYmdjIjoiIzQ2NDY0NiIsInQiOjF9/RnV0dXJ1bQ/axeon-regular.png"
@@ -29,7 +29,7 @@ const NavBar = () => {
               <Link to="/users/my_courses">
                 <li className="nav-item navItem">
                   <a className="nav-link textGeneralNav" href="#">
-                    Shopping History
+                    History
                   </a>
                 </li>
               </Link>
@@ -56,7 +56,6 @@ const NavBar = () => {
                     </a>
                   </li>
                   <li>
-                    <hr className="dropdown-divider" />
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">

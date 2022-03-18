@@ -1,9 +1,22 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getReviewsfromProduct } from "../store/review";
+
+
 //VA A RECIBIR DIRECTAMENTE REVIEW DESDE SINGLECARD
-const Reviews = ({ review }) => {
-  //lo use despues
-  const activesitems = review.slice(0, 2);
-  const items = review.slice(2, review.length);
-  return (
+const Reviews = ({id}) => {
+  const review = useSelector(state => state.reviews)
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(
+      getReviewsfromProduct(id)
+    )
+  },[id])
+
+  const activesitems = review.slice(0, 1);
+  const items = review.slice(1, review.length);
+  return review.length > 0 ? (
     <div className="row">
       <div
         id="carouselExampleIndicators"
@@ -24,8 +37,7 @@ const Reviews = ({ review }) => {
                     />
                   </div>
                   <div className="img-text">
-                    <h2>{activesitems[0].name}</h2>
-                    <p>{activesitems[0].review}</p>
+                    <p>{activesitems[0].comment}</p> 
                   </div>
                 </div>
               </div>
@@ -44,8 +56,7 @@ const Reviews = ({ review }) => {
                       />
                     </div>
                     <div className="img-text">
-                      <h2>{coment.name}</h2>
-                      <p>{coment.review}</p>
+                       <p>{coment.comment}</p> 
                     </div>
                   </div>
                 </div>
@@ -59,12 +70,12 @@ const Reviews = ({ review }) => {
             data-bs-slide="prev"
           >
             <span
-              className="carousel-control-prev-icon controlColor"
+              className="carousel-control-prev-icon"
               aria-hidden="true"
             ></span>
           </button>
           <button
-            className="carousel-control-next "
+            className="carousel-control-next controlColor"
             type="button"
             data-bs-target="#carouselExampleIndicators"
             data-bs-slide="next"
@@ -77,7 +88,7 @@ const Reviews = ({ review }) => {
         </div>
       </div>
     </div>
-  );
+  ) : (<></>);
 };
 
 export default Reviews;

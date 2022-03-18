@@ -8,6 +8,7 @@ const CheckOut = () => {
   const user = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
     : { none: "none" };
+    
   const payments = useSelector((state) => state.payments);
   let courses = localStorage.getItem("Cart")
     ? JSON.parse(localStorage.getItem("Cart"))

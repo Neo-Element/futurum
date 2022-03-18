@@ -10,10 +10,10 @@ exports.servicGetAllReviews= async (next)=>{
     }
 }
 
-//GET ONE
+//GET ALL BY PRODUCT
 exports.serviceGetOneReview= async(req, next)=>{
     try{
-        const review= await   Reviews.findOne({
+        const review = await   Reviews.findAll({
             where: {
               productId: req.params.productId,
             },
@@ -23,10 +23,12 @@ exports.serviceGetOneReview= async(req, next)=>{
      next(err)
     }
 }
+
 //CREATE A REVIEW
 exports.serviceNewReview= async(req,next)=>{
     try{
-        await  Reviews.create(req.body)
+      const review = await  Reviews.create(req.body)
+      return review
     }catch(err){
       next(err)
     }

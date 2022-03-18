@@ -15,12 +15,12 @@ const Grid = () => {
     <div className="grid">
       {products.map((course) => {
         return (
-          <div >
-            <div >
+          <div>
+            <div className="cardGrid">
               <h3>{course.productName}</h3>
               <p >{course.duration}</p>
               <Link to={`/users/products/${course.id}`}>
-                <button className="btn btn-lg btn-dark borderMark">
+                <button className="btn  btn-dark borderMark">
                   Ver detalles
                 </button>
               </Link>

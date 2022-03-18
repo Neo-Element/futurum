@@ -1,55 +1,101 @@
-//testimonials
-.reviewsCardUser{
-    height: 400px;
-    width: 1000px;
-    text-align: center;
-    align-items: center;
-    margin-left: 7%;
-    margin-top: 10px;
-    background-color: rgba(50, 54, 54, 0.739);
-    .img-text{
-        width: 100%;
-        height: 300px;
-        display: block;
-        text-align: center;
-        padding: 40% 5%;
-        background: #B7E4C7;
-        color: black;
-        border-radius: 15px;
-   
-    h2 {
-        font-size: 25px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-     p {
-        font-size: 10px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
+.rowHome{
+    margin-top: 100px;
+    width: 50%;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto ;
 }
-    .single-box{
-        position: relative;
-        margin-bottom: 30px;
-    }
-    .img-area{
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        border:  5px solid #fff;
-        overflow: hidden;
-        top: 15px;
-        left: 110px;
-        border-radius: 50%;
+.homeContainer{
+    
+    margin-top: 150px;
+    margin-left: 10%;
+    width: 87%;
+}
 
-        img {
-            width: 100%;
-        }
-    }
-    .carousel-indicators{
-        left:0;
-        top: auto;
-        bottom: -70px;
+.welcome{
+    display: flex;
+    justify-content: start;
+
+    .back{
+        position: relative; 
+        width: 600px; 
+        height: 400px;
+        font-size: 24px; 
+        text-align: center; 
+        background-color: black;
+        border: 2px solid #017c76d3;
     }
     
+    .homeWelcome{
+        position: absolute;
+        left: 195px;
+        bottom: 395px;
+        width: 600px;   
+        height: 400px;
+        font-size: 24px; 
+        text-align: center; 
+         background-image: url("https://i.pinimg.com/564x/94/24/f5/9424f50e6dcdd230d42aea1d2a1e5614.jpg") ;
+         border: 2px solid #017c76d3;
+         box-shadow: 2px 1px 1px 1px rgba(0, 0, 0, 0.671);
+        
+        h1{
+            color: black;
+        }
+        p{
+            color: beige;
+        }
+    }
+    
+    div#imagen {
+        position: absolute; 
+        left: 1200px;
+        bottom: 370px;
+        width: 400px;
+        height: 400px;
+        background-size: cover;/*sólo para ejemplo*/
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png");
+        margin: 30px auto;
+        box-shadow: 2px 2px 2px 2px #2f2f2fa6;
+      }
+      
+      div#info {
+        position:absolute;
+        overflow:hidden;
+        width: 400px;
+        height: 400px;
+        background-color: rgba(12, 12, 12, 0.644);
+        opacity:0;
+        transition: opacity 0.3s;
+      }
+      
+      div#imagen:hover div#info {
+        opacity:1;
+      }
+     
+      
+      p#descripcion {
+        font-size: 1rem;
+        text-align: center;
+        align-items: center;
+        margin-top: 400px;
+        color: white;
+
+        transition: margin-top 0.8s;
+      }
+      
+      div#imagen:hover p#descripcion {
+        margin-top: 150px;
+      }
+      
+     
+}
+
+
+.controlColorHome{
+    border-radius: 50%;
+    margin-top: 120px;
+    height: 50px;
+    width: 50px;
+    color:  black;
+    background-color: black;
 }

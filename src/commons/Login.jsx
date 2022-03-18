@@ -31,7 +31,7 @@ const Login = () => {
             alert("Invalid Email or Password");
             return;
           }
-          navigate("/");
+          navigate("/users");
         }) //revisar la ruta
         .catch((err) => console.log(err));
     } else {

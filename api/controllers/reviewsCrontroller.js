@@ -11,8 +11,9 @@ exports.getOne= async(req,res,next)=>{
     const review= await ReviewService.serviceGetOneReview(req,next)
     return review ? res.json(review) : res.sendStatus(404)
 }
+
 //CREATE A REVIEW
 exports.newReview= async (req,res,next)=>{
-    await ReviewService.serviceNewReview(req, next)
-    return res.sendStatus(201)
+   const review =  await ReviewService.serviceNewReview(req, next)
+    return res.status(201).send(review)
 }

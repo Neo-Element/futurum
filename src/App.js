@@ -81,8 +81,8 @@ const dispatch = useDispatch();
         {/* RUTA TEAM */}
         <Route path="/team" element={<Team />} />
       </Routes>
-      <Footer />
       </div>
+      <Footer/>
       </>
   );
 }
